@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 3 – Asciano → Montalcino</name></metadata>
+<metadata><name>Gravel Toscane – Asciano → Montalcino</name></metadata>
 <wpt lat="43.234" lon="11.561"><name>Asciano</name></wpt>
 <wpt lat="43.176" lon="11.5582"><name>Chiusure</name></wpt>
 <wpt lat="43.175" lon="11.544"><name>Monte Oliveto Maggiore</name></wpt>
 <wpt lat="43.134" lon="11.483"><name>Buonconvento</name></wpt>
 <wpt lat="43.059" lon="11.489"><name>Montalcino</name></wpt>
-<trk><name>Jour 3 – Asciano → Montalcino</name><trkseg>
+<trk><name>Gravel Toscane – Asciano → Montalcino</name><trkseg>
 <trkpt lat="43.233995" lon="11.561006"><ele>200.25</ele></trkpt>
 <trkpt lat="43.234023" lon="11.561061"><ele>200.25</ele></trkpt>
 <trkpt lat="43.234056" lon="11.561137"><ele>200.5</ele></trkpt>

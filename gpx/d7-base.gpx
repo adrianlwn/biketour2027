@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 7 – Montepulciano → Chiusi</name></metadata>
+<metadata><name>Gravel Toscane – Montepulciano → Chiusi</name></metadata>
 <wpt lat="43.0925" lon="11.782"><name>Montepulciano</name></wpt>
 <wpt lat="43.0156" lon="11.9459"><name>Chiusi</name></wpt>
-<trk><name>Jour 7 – Montepulciano → Chiusi</name><trkseg>
+<trk><name>Gravel Toscane – Montepulciano → Chiusi</name><trkseg>
 <trkpt lat="43.092489" lon="11.781997"><ele>578.25</ele></trkpt>
 <trkpt lat="43.092521" lon="11.781769"><ele>582.5</ele></trkpt>
 <trkpt lat="43.092411" lon="11.78172"><ele>583.75</ele></trkpt>

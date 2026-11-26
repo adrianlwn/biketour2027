@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 4 – Repos à Montalcino</name></metadata>
+<metadata><name>Gravel Toscane – Repos à Montalcino</name></metadata>
 <wpt lat="43.059" lon="11.489"><name>Montalcino</name></wpt>
 <wpt lat="43.002" lon="11.477"><name>Sant’Angelo in Colle</name></wpt>
-<trk><name>Jour 4 – Repos à Montalcino</name><trkseg>
+<trk><name>Gravel Toscane – Repos à Montalcino</name><trkseg>
 <trkpt lat="43.058944" lon="11.489"><ele>549.25</ele></trkpt>
 <trkpt lat="43.058942" lon="11.488792"><ele>553.0</ele></trkpt>
 <trkpt lat="43.058921" lon="11.488599"><ele>555.75</ele></trkpt>

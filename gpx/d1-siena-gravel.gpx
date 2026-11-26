@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 1 – Siena → Gaiole in Chianti</name></metadata>
+<metadata><name>Gravel Toscane – Siena → Gaiole in Chianti</name></metadata>
 <wpt lat="43.3188" lon="11.3308"><name>Siena</name></wpt>
 <wpt lat="43.471" lon="11.286"><name>Castellina in Chianti</name></wpt>
 <wpt lat="43.487" lon="11.374"><name>Radda in Chianti</name></wpt>
 <wpt lat="43.467" lon="11.434"><name>Gaiole in Chianti</name></wpt>
-<trk><name>Jour 1 – Siena → Gaiole in Chianti</name><trkseg>
+<trk><name>Gravel Toscane – Siena → Gaiole in Chianti</name><trkseg>
 <trkpt lat="43.318811" lon="11.330784"><ele>319.5</ele></trkpt>
 <trkpt lat="43.3188" lon="11.330767"><ele>319.5</ele></trkpt>
 <trkpt lat="43.318856" lon="11.330678"><ele>319.75</ele></trkpt>

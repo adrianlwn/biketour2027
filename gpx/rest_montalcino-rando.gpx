@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 4 – Montalcino → Sant’Antimo à pied</name></metadata>
+<metadata><name>Gravel Toscane – Montalcino → Sant’Antimo à pied</name></metadata>
 <wpt lat="43.059" lon="11.489"><name>Montalcino</name></wpt>
 <wpt lat="43.0005" lon="11.5155"><name>Sant’Antimo</name></wpt>
-<trk><name>Jour 4 – Montalcino → Sant’Antimo à pied</name><trkseg>
+<trk><name>Gravel Toscane – Montalcino → Sant’Antimo à pied</name><trkseg>
 <trkpt lat="43.058944" lon="11.489"><ele>549.25</ele></trkpt>
 <trkpt lat="43.058942" lon="11.488792"><ele>553.0</ele></trkpt>
 <trkpt lat="43.05874" lon="11.48881"><ele>554.0</ele></trkpt>

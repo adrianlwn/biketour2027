@@ -1,4 +1,4 @@
-import { TRIP, PLACES, NIGHTS, DAYS, PRACTICAL, ACTIVITIES, PACES } from "./data.js";
+import { TRIP, PLACES, DATES, DAYLIB, SCENARIOS, PRACTICAL, ACTIVITIES, PACES } from "./data.js";
 import { PHOTOS } from "./photos.js";
 import { ROUTES } from "./routes.js";
 import { OVERLAYS } from "./overlays.js";
@@ -14,17 +14,18 @@ const store = { get(k) { try { return JSON.parse(localStorage.getItem(k)); } cat
 
 // Distance cumulée (km) le long de chaque tracé, calculée une fois au chargement
 const hav = ([a, b], [c, d]) => { const R = 6371, r = Math.PI / 180, x = Math.sin((c - a) * r / 2) ** 2 + Math.cos(a * r) * Math.cos(c * r) * Math.sin((d - b) * r / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); };
-ROUTES.flat().forEach(r => { let c = 0; r.cum = r.geom.map((p, k) => (k && (c += hav(r.geom[k - 1], p)), c)); });
+Object.values(ROUTES).flat().forEach(r => { let c = 0; r.cum = r.geom.map((p, k) => (k && (c += hav(r.geom[k - 1], p)), c)); });
 
-/* ---------- Scénarios ---------- */
-// choice[i] = index du scénario retenu pour le jour i (0 = conseillé)
-const choice = DAYS.map((d, i) => {
-  const saved = store.get("choice")?.[i] ?? 0;
-  return d.variants && saved < d.variants.length ? saved : 0;
-});
+/* ---------- Scénario de voyage (lieux des nuits) et variantes d'étape ---------- */
+const SCEN = SCENARIOS.find(s => s.id === store.get("scenario")) || SCENARIOS[0];
+const DAYS = SCEN.days.map((id, pos) => ({ ...DAYLIB[id], lib: id, date: DATES[pos] }));
+// choix de variante, mémorisé par étape de la bibliothèque (0 = conseillée)
+const savedChoice = store.get("variants") || {};
+const choice = DAYS.map(d => Math.min(savedChoice[d.lib] ?? 0, d.variants.length - 1));
 const day = i => DAYS[i].variants ? { ...DAYS[i], ...DAYS[i].variants[choice[i]] } : DAYS[i];
-const route = i => ROUTES[i][choice[i]];
-const gpxOf = i => `gpx/jour-${i + 1}${DAYS[i].variants ? "-" + day(i).id : ""}.gpx`;
+const route = i => ROUTES[DAYS[i].lib][choice[i]];
+const gpxOf = i => `gpx/${DAYS[i].lib}-${day(i).id}.gpx`;
+const NIGHTS = new Set(DAYS.slice(0, -1).map((_, i) => day(i)).filter(d => !d.rest).map(d => d.path.at(-1)));  // le dernier jour se termine au train
 const allStops = () => DAYS.flatMap((d, i) => [...day(i).stops, ...(d.variants || []).flatMap(v => v.stops)]);
 const descOf = k => allStops().find(s => s[0] === k)?.[1] || "";
 
@@ -88,9 +89,9 @@ function timing(i) {
   return { ride, pauses: pauses / 60, total: ride + pauses / 60, arrive: clock(starts[i], ride + pauses / 60), stops };
 }
 const WALK = { paved: 4.5, gravel: 4.5, climb: 400 };
-const rideOf = (i, r) => { const P = (DAYS[i].variants?.find(v => v.id === r.id)?.walk) ? WALK : PACES[pace], g = r.gravel / 100; return r.km / (1 / (g / P.gravel + (1 - g) / P.paved)) + r.up / P.climb; };
+const rideOf = (i, r, lib = DAYS[i].lib) => { const P = (DAYLIB[lib].variants.find(v => v.id === r.id)?.walk) ? WALK : PACES[pace], g = r.gravel / 100; return r.km / (1 / (g / P.gravel + (1 - g) / P.paved)) + r.up / P.climb; };
 
-const COVERS = ["castellina", "brolio", "oliveto", "montalcino", "antimo", "vitaleta", "montepulciano"];
+const COVERS = DAYS.map(d => d.cover);
 const label = i => DAYS[i].rest ? "R" : String(DAYS.slice(0, i + 1).filter(d => !d.rest).length);
 const stageName = i => DAYS[i].rest ? "Jour de repos" : "Étape " + label(i);
 
@@ -113,6 +114,41 @@ if (coverP) {
 const surfaceBar = r => `
   <div class="sbar" role="img" aria-label="${r.gravel} % gravier, ${r.paved} % asphalte"><i class="g" style="width:${r.gravel}%"></i><i class="p" style="width:${r.paved}%"></i></div>
   <div class="slegend"><span style="--c:var(--gravel)">Gravier et terre ${r.gravel} %</span><span style="--c:var(--paved)">Asphalte ${r.paved} %</span>${r.unknown ? `<span style="--c:var(--unknown)">Non renseigné ${r.unknown} %</span>` : ""}</div>`;
+// Totaux d'un scénario (variantes retenues ou conseillées)
+function scenStats(sc) {
+  let km = 0, up = 0, ride = 0;
+  sc.days.forEach(id => {
+    const d = DAYLIB[id]; if (d.rest) return;
+    const j = Math.min(savedChoice[id] ?? 0, d.variants.length - 1), r = ROUTES[id][j];
+    km += r.km; up += r.up; ride += rideOf(0, r, id);
+  });
+  const nights = [];
+  sc.days.forEach(id => {
+    const d = DAYLIB[id], k = d.rest ? d.variants[0].path[0] : d.variants[0].path.at(-1);
+    if (k === "chiusi") return;
+    const last = nights.at(-1);
+    if (last && last.k === k) last.n++; else nights.push({ k, n: 1 });
+  });
+  return { km, up, ride, nights, rest: sc.days.some(id => DAYLIB[id].rest) };
+}
+function renderScenarios() {
+  $("#trip").innerHTML = SCENARIOS.map(sc => {
+    const st = scenStats(sc), on = sc.id === SCEN.id;
+    return `<label class="trip-opt${on ? " on" : ""}">
+      <input type="radio" name="trip" value="${sc.id}" ${on ? "checked" : ""}>
+      <span class="trip-name">${esc(sc.name)}</span>
+      <span class="trip-pitch">${esc(sc.pitch)}</span>
+      <span class="trip-nights">${st.nights.map(n => `<span>${esc(PLACES[n.k].n.replace(" in Chianti", "").replace(" Berardenga", ""))}${n.n > 1 ? ` <b>×${n.n}</b>` : ""}</span>`).join("")}</span>
+      <span class="trip-num"><b>${fr(st.km)}</b> km · <b>${fr(Math.round(st.up / 10) * 10)}</b> m D+ · ≈ <b>${fr(st.ride)}</b> h en selle${st.rest ? "" : " · sans jour off"}</span>
+    </label>`;
+  }).join("");
+}
+document.addEventListener("change", e => {
+  if (e.target.name !== "trip" || e.target.value === SCEN.id) return;
+  store.set("scenario", e.target.value);
+  location.hash = "apercu"; location.reload();
+});
+
 function renderTotals() {
   const riding = DAYS.map((_, i) => i).filter(i => !DAYS[i].rest).map(route);
   const km = riding.reduce((s, r) => s + r.km, 0), up = riding.reduce((s, r) => s + r.up, 0);
@@ -145,11 +181,11 @@ const thumbs = k => {
   const ph = photos(k); if (!ph.length) return "";
   return `<div class="thumbs">${ph.slice(0, 3).map((p, j) => `<button type="button" data-photos="${k}" data-i="${j}" aria-label="Photo ${j + 1} : ${esc(placeName(k))}"><img src="${p.src}" alt="" loading="lazy">${j === 2 && ph.length > 3 ? `<span class="more">+${ph.length - 3}</span>` : ""}</button>`).join("")}</div>`;
 };
-const scenarioPicker = i => !DAYS[i].variants ? "" : `
+const scenarioPicker = i => DAYS[i].variants.length < 2 ? "" : `
   <fieldset class="scen">
-    <legend>Scénarios pour ce jour</legend>
+    <legend>Variantes pour cette étape</legend>
     <div class="scen-opts">${DAYS[i].variants.map((v, j) => {
-      const r = ROUTES[i][j];
+      const r = ROUTES[DAYS[i].lib][j];
       return `<label class="scen-opt">
         <input type="radio" name="scen-${i}" value="${j}" ${j === choice[i] ? "checked" : ""} data-scen="${i}">
         <span class="scen-tag">${j === 0 ? "Conseillé · " : ""}${esc(v.short)}</span>
@@ -219,7 +255,7 @@ function stageHTML(i) {
     }).join("")}</ol>
     <div class="tips">${d.tips.map(t => `<div class="tip"><span>${esc(t)}</span></div>`).join("")}</div>
     <div class="actions">
-      <a class="btn primary" href="${gpxOf(i)}" download="gravel-toscane-jour-${i + 1}${DAYS[i].variants ? "-" + d.id : ""}.gpx">↓ GPX</a>
+      <a class="btn primary" href="${gpxOf(i)}" download="gravel-toscane-${i + 1}-${DAYS[i].lib}-${d.id}.gpx">↓ GPX</a>
       <button class="btn" type="button" data-zoom="${i}">Voir sur la carte</button>
     </div>`;
 }
@@ -298,14 +334,14 @@ $("#theme").addEventListener("click", () => {
 
 // Un tracé par scénario ; les scénarios non retenus apparaissent en pointillés sur l'étape active
 const css = v => getComputedStyle(root).getPropertyValue(v).trim();
-const lines = ROUTES.map((variants, i) => variants.map((r, j) => {
+const lines = DAYS.map((d, i) => ROUTES[d.lib].map((r, j) => {
   const halo = L.polyline(r.geom, { weight: 9, interactive: false, lineCap: "round", lineJoin: "round" }).addTo(map);
   const line = L.polyline(r.geom, { weight: 4, interactive: false, lineCap: "round", lineJoin: "round" }).addTo(map);
   const hit = L.polyline(r.geom, { color: "#000", opacity: 0, weight: 22 }).addTo(map);
-  const name = DAYS[i].variants ? ` · ${DAYS[i].variants[j].label}` : "";
+  const name = DAYS[i].variants.length > 1 ? ` · ${DAYS[i].variants[j].label}` : "";
   hit.bindTooltip(`${stageName(i)}${name}`, { sticky: true, className: "mk-lbl" });
   hit.on("click", () => {
-    if (DAYS[i].variants && j !== choice[i]) setChoice(i, j);
+    if (j !== choice[i]) setChoice(i, j);
     document.getElementById("jour-" + (i + 1)).scrollIntoView({ behavior: "smooth" });
   });
   return { halo, line, hit };
@@ -405,7 +441,7 @@ function refreshMarkers() {
   const nn = nightNumbers();
   const inStage = active >= 0 ? new Set(day(active).path) : null;
   const used = new Set(DAYS.flatMap((_, i) => day(i).path));
-  const alt = active >= 0 && DAYS[active].variants ? new Set(DAYS[active].variants.flatMap(v => v.path)) : new Set();
+  const alt = active >= 0 ? new Set(DAYS[active].variants.flatMap(v => v.path)) : new Set();
   for (const [k, m] of Object.entries(markers)) {
     // Siena reste sur la carte (à visiter) ; les gares des autres scénarios n'apparaissent que sur leur étape
     const visible = used.has(k) || alt.has(k) || k === "siena";
@@ -435,11 +471,11 @@ function refreshStage(i) {
   return sec;
 }
 function setChoice(i, j) {
-  choice[i] = j; store.set("choice", choice);
+  choice[i] = j; savedChoice[DAYS[i].lib] = j; store.set("variants", savedChoice);
   const sec = refreshStage(i);
   sec.querySelector(`[data-scen][value="${j}"]`)?.focus({ preventScroll: true });
   $(`[data-nav="${i}"]`).title = `${DAYS[i].date} · ${day(i).t}`;
-  renderTotals();
+  renderTotals(); renderScenarios();
   setActive(i, true);
 }
 
@@ -464,7 +500,7 @@ document.addEventListener("change", e => {
   if (r) setChoice(+r.dataset.scen, +r.value);
   if (e.target.name === "pace") {
     pace = +e.target.value; store.set("pace", pace);
-    DAYS.forEach((_, i) => refreshStage(i)); renderTotals();
+    DAYS.forEach((_, i) => refreshStage(i)); renderTotals(); renderScenarios();
     $(`#pace input[value="${pace}"]`)?.focus({ preventScroll: true });
   }
   const st = e.target.closest("[data-start]");
@@ -520,11 +556,13 @@ function bindProfile(box) {
 $$("[data-profile]").forEach(bindProfile);
 
 renderTotals();
+renderScenarios();
 styleLines();
 refreshMarkers();
 applyLayers();
 
 // Lien direct vers une étape
+if (location.hash === "#apercu") setTimeout(() => document.getElementById("apercu")?.scrollIntoView(), 200);
 const h = location.hash.match(/^#jour-(\d)$/);
 if (h) setTimeout(() => document.getElementById("jour-" + h[1])?.scrollIntoView(), 200);
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 1 – Castellina Scalo → Gaiole in Chianti</name></metadata>
+<metadata><name>Gravel Toscane – Castellina Scalo → Gaiole in Chianti</name></metadata>
 <wpt lat="43.4087" lon="11.2122"><name>Gare de Castellina-Monteriggioni</name></wpt>
 <wpt lat="43.471" lon="11.286"><name>Castellina in Chianti</name></wpt>
 <wpt lat="43.487" lon="11.374"><name>Radda in Chianti</name></wpt>
 <wpt lat="43.467" lon="11.434"><name>Gaiole in Chianti</name></wpt>
-<trk><name>Jour 1 – Castellina Scalo → Gaiole in Chianti</name><trkseg>
+<trk><name>Gravel Toscane – Castellina Scalo → Gaiole in Chianti</name><trkseg>
 <trkpt lat="43.408658" lon="11.211971"><ele>188.0</ele></trkpt>
 <trkpt lat="43.408605" lon="11.211673"><ele>188.0</ele></trkpt>
 <trkpt lat="43.408597" lon="11.211626"><ele>188.0</ele></trkpt>

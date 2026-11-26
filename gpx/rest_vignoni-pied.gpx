@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 5 – Repos à Bagno Vignoni</name></metadata>
+<metadata><name>Gravel Toscane – Repos à Bagno Vignoni</name></metadata>
 <wpt lat="43.0285" lon="11.6185"><name>Bagno Vignoni</name></wpt>
 <wpt lat="43.0114" lon="11.6141"><name>Rocca d’Orcia</name></wpt>
-<trk><name>Jour 5 – Repos à Bagno Vignoni</name><trkseg>
+<trk><name>Gravel Toscane – Repos à Bagno Vignoni</name><trkseg>
 <trkpt lat="43.028353" lon="11.618623"><ele>308.75</ele></trkpt>
 <trkpt lat="43.028315" lon="11.618538"><ele>309.0</ele></trkpt>
 <trkpt lat="43.028165" lon="11.618236"><ele>310.0</ele></trkpt>

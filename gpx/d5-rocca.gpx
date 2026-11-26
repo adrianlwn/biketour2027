@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 5 – Montalcino → Bagno Vignoni</name></metadata>
+<metadata><name>Gravel Toscane – Montalcino → Bagno Vignoni</name></metadata>
 <wpt lat="43.059" lon="11.489"><name>Montalcino</name></wpt>
 <wpt lat="43.0005" lon="11.5155"><name>Sant’Antimo</name></wpt>
 <wpt lat="43.0114" lon="11.6141"><name>Rocca d’Orcia</name></wpt>
 <wpt lat="43.0285" lon="11.6185"><name>Bagno Vignoni</name></wpt>
-<trk><name>Jour 5 – Montalcino → Bagno Vignoni</name><trkseg>
+<trk><name>Gravel Toscane – Montalcino → Bagno Vignoni</name><trkseg>
 <trkpt lat="43.058944" lon="11.489"><ele>549.25</ele></trkpt>
 <trkpt lat="43.058942" lon="11.488792"><ele>553.0</ele></trkpt>
 <trkpt lat="43.058921" lon="11.488599"><ele>555.75</ele></trkpt>

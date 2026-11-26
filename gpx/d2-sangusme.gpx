@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Gravel Toscane 2027 (BRouter)" xmlns="http://www.topografix.com/GPX/1/1">
-<metadata><name>Jour 2 – Gaiole → Asciano</name></metadata>
+<metadata><name>Gravel Toscane – Gaiole → Asciano</name></metadata>
 <wpt lat="43.467" lon="11.434"><name>Gaiole in Chianti</name></wpt>
 <wpt lat="43.418" lon="11.456"><name>Castello di Brolio</name></wpt>
 <wpt lat="43.3879" lon="11.4983"><name>San Gusmè</name></wpt>
 <wpt lat="43.346" lon="11.504"><name>Castelnuovo Berardenga</name></wpt>
 <wpt lat="43.234" lon="11.561"><name>Asciano</name></wpt>
-<trk><name>Jour 2 – Gaiole → Asciano</name><trkseg>
+<trk><name>Gravel Toscane – Gaiole → Asciano</name><trkseg>
 <trkpt lat="43.467056" lon="11.43423"><ele>348.75</ele></trkpt>
 <trkpt lat="43.467064" lon="11.434291"><ele>348.5</ele></trkpt>
 <trkpt lat="43.466772" lon="11.434357"><ele>347.5</ele></trkpt>

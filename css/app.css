@@ -131,6 +131,23 @@ button{font:inherit;color:inherit}
 .profile .read{position:absolute;top:-.2rem;left:0;font-size:.75rem;font-weight:600;background:var(--ink);color:var(--bg);padding:.1rem .45rem;border-radius:6px;opacity:0;pointer-events:none;transform:translateX(-50%);white-space:nowrap;font-variant-numeric:tabular-nums}
 .profile.hover .read,.profile.hover .hair{opacity:1}
 
+/* Scénarios de voyage */
+.trip-h{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1rem}
+.trip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:0 0 2rem}
+.trip-opt{position:relative;display:flex;flex-direction:column;gap:.3rem;padding:.9rem 1rem;border:1px solid var(--rule);border-radius:14px;background:var(--surface);cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.trip-opt:hover{border-color:var(--faint)}
+.trip-opt input{position:absolute;opacity:0;pointer-events:none}
+.trip-opt.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.trip-opt:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.trip-name{font-family:var(--serif);font-weight:600;font-size:1.2rem;line-height:1.2}
+.trip-pitch{font-size:.85rem;color:var(--muted);line-height:1.4}
+.trip-nights{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.2rem}
+.trip-nights span{font-size:.74rem;background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:.05rem .5rem}
+.trip-nights b{color:var(--accent)}
+.trip-num{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:.1rem}
+.trip-num b{color:var(--ink)}
+@media (max-width:560px){.trip{grid-template-columns:1fr}}
+
 /* Durées */
 .pace{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:1.4rem 0 0}
 .pace-l{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:.3rem}
