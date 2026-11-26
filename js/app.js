@@ -1,6 +1,7 @@
 import { TRIP, PLACES, NIGHTS, DAYS, PRACTICAL, ACTIVITIES, PACES } from "./data.js";
 import { PHOTOS } from "./photos.js";
 import { ROUTES } from "./routes.js";
+import { OVERLAYS } from "./overlays.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -47,13 +48,25 @@ const groupBusy = list => {
 const bar = (vals, cols, label) => `<div class="sbar" role="img" aria-label="${esc(label)}">${vals.map((v, j) => v ? `<i style="width:${v}%;background:${cols[j]}"></i>` : "").join("")}</div>`;
 const legend = (vals, pal) => `<div class="slegend">${vals.map((v, j) => v ? `<span style="--c:${pal[j][1]}">${pal[j][0]} ${v} %</span>` : "").join("")}</div>`;
 
+// Points d'eau à moins de 300 m du tracé, avec leur kilomètre
+function waterOn(r) {
+  const out = [];
+  for (const p of OVERLAYS.pois) {
+    if (p.k !== "water") continue;
+    let best = Infinity, km = 0;
+    r.geom.forEach((g, n) => { const d = hav(g, [p.lat, p.lon]); if (d < best) { best = d; km = r.cum[n]; } });
+    if (best < .3) out.push(km);
+  }
+  return out.sort((a, b) => a - b).filter((km, j, a) => !j || km - a[j - 1] > .5);
+}
+
 // Durées : rythme choisi, heure de départ par jour
 let pace = Math.min(PACES.length - 1, Math.max(0, store.get("pace") ?? 1));
 const starts = DAYS.map((d, i) => store.get("starts")?.[i] || (i === 0 ? "10:30" : d.rest ? "09:30" : "09:00"));
 const hm = h => { const m = Math.round(h * 60 / 5) * 5; return m >= 60 ? `${Math.floor(m / 60)} h${m % 60 ? " " + String(m % 60).padStart(2, "0") : ""}` : `${m} min`; };
 const clock = (start, h) => { const [H, M] = start.split(":").map(Number); const t = Math.round((H * 60 + M + h * 60) / 5) * 5; return `${Math.floor(t / 60) % 24}h${String(t % 60).padStart(2, "0")}`; };
 function timing(i) {
-  const r = route(i), d = day(i), P = PACES[pace];
+  const r = route(i), d = day(i), P = d.walk ? WALK : PACES[pace];
   const g = r.gravel / 100, vflat = 1 / (g / P.gravel + (1 - g) / P.paved);
   // montée cumulée le long du profil, recalée sur le D+ total
   const pr = r.profile, asc = [0];
@@ -74,7 +87,8 @@ function timing(i) {
   const ride = moving(r.km);
   return { ride, pauses: pauses / 60, total: ride + pauses / 60, arrive: clock(starts[i], ride + pauses / 60), stops };
 }
-const rideOf = (i, r) => { const P = PACES[pace], g = r.gravel / 100; return r.km / (1 / (g / P.gravel + (1 - g) / P.paved)) + r.up / P.climb; };
+const WALK = { paved: 4.5, gravel: 4.5, climb: 400 };
+const rideOf = (i, r) => { const P = (DAYS[i].variants?.find(v => v.id === r.id)?.walk) ? WALK : PACES[pace], g = r.gravel / 100; return r.km / (1 / (g / P.gravel + (1 - g) / P.paved)) + r.up / P.climb; };
 
 const COVERS = ["castellina", "brolio", "oliveto", "montalcino", "antimo", "vitaleta", "montepulciano"];
 const label = i => DAYS[i].rest ? "R" : String(DAYS.slice(0, i + 1).filter(d => !d.rest).length);
@@ -83,15 +97,15 @@ const stageName = i => DAYS[i].rest ? "Jour de repos" : "Étape " + label(i);
 /* ---------- Thème ---------- */
 const root = document.documentElement;
 try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch {}
-const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+const isDark = () => root.dataset.theme === "dark";  // clair par défaut, sombre seulement via le bouton
 
 /* ---------- Couverture ---------- */
 $("#dates").textContent = TRIP.dates;
 $("#title").innerHTML = TRIP.title.split(", ").map(esc).join(",<br>");
 $("#lede").textContent = TRIP.lede;
-const coverP = photos("orcia")[2] || photos("vitaleta")[0];
+const coverP = photos("orcia")[0] || photos("vitaleta")[0];
 if (coverP) {
-  $("#coverImg").src = coverP.src;
+  $("#coverImg").src = coverP.big || coverP.src;
   const c = $("#coverCredit"); c.href = coverP.page; c.textContent = `Photo : ${coverP.artist} · ${coverP.license}`;
 }
 
@@ -141,12 +155,12 @@ const scenarioPicker = i => !DAYS[i].variants ? "" : `
         <span class="scen-tag">${j === 0 ? "Conseillé · " : ""}${esc(v.short)}</span>
         <span class="scen-name">${esc(v.label)}</span>
         <span class="scen-num"><b>${fr(r.km)}</b> km · <b>${fr(r.up)}</b> m D+ · ${r.gravel} % gravier</span>
-        <span class="scen-num">≈ <b>${hm(rideOf(i, r))}</b> en selle · pente max <b>${fr(r.slope.max, 0)} %</b> · trafic <b>${r.score}/100</b></span>
+        <span class="scen-num">≈ <b>${hm(rideOf(i, r))}</b> ${v.walk ? "à pied" : "en selle"} · pente max <b>${fr(r.slope.max, 0)} %</b> · trafic <b>${r.score}/100</b></span>
       </label>`;
     }).join("")}</div>
   </fieldset>`;
 function stageHTML(i) {
-  const d = day(i), r = route(i), cov = photos(COVERS[i])[0], T = timing(i);
+  const d = day(i), r = route(i), cov = photos(COVERS[i])[0], T = timing(i), W = waterOn(r);
   const stops = T.stops;
   return `
     ${cov ? `<button class="stage-cover" type="button" data-photos="${COVERS[i]}" aria-label="Photos : ${esc(placeName(COVERS[i]))}"><img src="${cov.src}" alt="" loading="lazy"><span>${esc(placeName(COVERS[i]))}</span></button>` : ""}
@@ -157,7 +171,7 @@ function stageHTML(i) {
       <div><dt>distance</dt><dd>${fr(r.km, 1)}<small>km</small></dd></div>
       <div><dt>dénivelé +</dt><dd>${fr(r.up)}<small>m</small></dd></div>
       <div><dt>gravier</dt><dd>${r.gravel}<small>%</small></dd></div>
-      <div><dt>en selle ≈</dt><dd>${hm(T.ride)}</dd></div>
+      <div><dt>${d.walk ? "à pied ≈" : "en selle ≈"}</dt><dd>${hm(T.ride)}</dd></div>
     </dl>
     <div class="timing">
       <label>Départ <input type="time" value="${starts[i]}" data-start="${i}"></label>
@@ -184,6 +198,12 @@ function stageHTML(i) {
         ${r.busy.length ? `<ul class="busy">${groupBusy(r.busy).slice(0, 5).map(b => `<li><span class="dot" style="--c:${TRAF[b.cls][1]}"></span><span><b>${esc(b.name.split(" · ")[0])}</b>${b.name.includes(" · ") ? " " + esc(b.name.split(" · ").slice(1).join(" · ")) : ""}${roadKind(b.name) ? ` <em>${roadKind(b.name)}</em>` : ""}</span><span class="bkm">${fr(b.km, 1)} km${b.maxspeed && /^\d+$/.test(b.maxspeed) ? ` · ${b.maxspeed} km/h` : ""}</span></li>`).join("")}</ul>` : `<p class="muted">Aucun tronçon notable sur une grande route.</p>`}
         ${r.bike ? `<p class="muted">${r.bike} % sur un itinéraire vélo balisé.</p>` : ""}
       </section>
+      <section class="facet water">
+        <h3>Eau potable <span class="pill">${W.length} point${W.length > 1 ? "s" : ""}</span></h3>
+        ${W.length ? `<p class="kms">${W.map(km => `<span>km ${fr(km)}</span>`).join("")}</p>` : `<p class="muted">Aucune fontaine recensée près du tracé : partez avec les gourdes pleines.</p>`}
+        ${W.length && (W[0] > 15 || W.some((km, j) => j && km - W[j - 1] > 15) || r.km - W.at(-1) > 15) ? `<p class="muted">Attention : plus de 15 km sans point d’eau recensé sur une partie de l’étape.</p>` : ""}
+        <p class="muted">Fontaines recensées dans OpenStreetMap, à moins de 300 m du tracé. Les cafés des villages complètent.</p>
+      </section>
     </div>
     ${d.rest ? `<p class="est">Boucle facultative. Montalcino est perchée : toute sortie finit par une montée.</p>` : ""}
     <ol class="stops">${stops.map(({ key: k, txt: s, km, eta, pause }, j) => {
@@ -193,6 +213,7 @@ function stageHTML(i) {
       return `<li class="${night ? "night" : ""}">
         <div class="when"><b>${eta}</b><span>km ${fr(km)}</span></div>
         <div><b>${esc(PLACES[k].n)}${night ? `<span class="tag">nuit</span>` : ""}${gare ? `<span class="tag">gare</span>` : ""}${pause ? `<span class="tag soft">pause ${hm(pause / 60)}</span>` : ""}</b><em>${esc(s)}</em>
+          ${ACTIVITIES[k]?.hist ? `<p class="hist">${esc(ACTIVITIES[k].hist)}</p>` : ""}
           ${ideas.length ? `<details class="ideas"${night || pause >= 45 ? " open" : ""}><summary>${night ? "Le soir" : "À faire"} · ${ideas.length} idée${ideas.length > 1 ? "s" : ""}</summary><ul>${ideas.map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
         </div>${thumbs(k)}</li>`;
     }).join("")}</ol>
@@ -230,7 +251,7 @@ function openLB(k, i = 0) {
 }
 function showLB() {
   const p = lbSet[lbI];
-  lbImg.src = p.src; lbImg.alt = p.title;
+  lbImg.src = p.big || p.src; lbImg.alt = p.title;
   $("#lbTitle").textContent = p.title;
   $("#lbCount").textContent = lbSet.length > 1 ? `${lbI + 1} / ${lbSet.length}` : "";
   const c = $("#lbCredit"); c.href = p.page; c.textContent = `© ${p.artist} · ${p.license} · Wikimedia Commons`;
@@ -289,6 +310,30 @@ const lines = ROUTES.map((variants, i) => variants.map((r, j) => {
   });
   return { halo, line, hit };
 }));
+// Couches : Eroica, Tuscany Trail 2026, eau potable, vélo
+const LAYERS_DEF = [
+  { id: "eroica", label: `L’Eroica, parcours permanent (${OVERLAYS.eroica.km} km)`, color: "#8A5A2B" },
+  { id: "tt", label: `Tuscany Trail 2026, trace d’étude (${OVERLAYS.tt2026.km} km)`, color: "#6B4FA0" },
+  { id: "water", label: "Eau potable", color: "#2F7DD1" },
+  { id: "bike", label: "Magasins et réparation vélo", color: "#1E2420" },
+];
+const shown = Object.assign({ eroica: false, tt: false, water: true, bike: false }, store.get("layers") || {});
+const groups = {
+  eroica: L.layerGroup(OVERLAYS.eroica.lines.map(l => L.polyline(l, { color: "#8A5A2B", weight: 3, opacity: .85, dashArray: "1 6", lineCap: "round" }).bindTooltip("L’Eroica, parcours permanent balisé (panneaux marron)", { sticky: true, className: "mk-lbl" }))),
+  tt: L.layerGroup([L.polyline(OVERLAYS.tt2026.line, { color: "#6B4FA0", weight: 3, opacity: .8, dashArray: "8 6" }).bindTooltip("Tuscany Trail 2026 (trace d’étude publiée sur Gulliver.it)", { sticky: true, className: "mk-lbl" })]),
+  water: L.layerGroup(OVERLAYS.pois.filter(p => p.k === "water").map(p => L.circleMarker([p.lat, p.lon], { radius: 4, color: "#fff", weight: 1.5, fillColor: "#2F7DD1", fillOpacity: 1 }).bindTooltip(esc(p.n), { className: "mk-lbl" }))),
+  bike: L.layerGroup(OVERLAYS.pois.filter(p => p.k === "bike").map(p => L.marker([p.lat, p.lon], { icon: L.divIcon({ className: "", html: '<div class="mk-bike">🔧</div>', iconSize: [20, 20], iconAnchor: [10, 10] }) }).bindPopup(`<div class="pop"><div><b>${esc(p.n)}</b><span>${p.h ? "Horaires : " + esc(p.h) : "Horaires non renseignés"}</span></div></div>`))),
+};
+function applyLayers() {
+  for (const [k, g] of Object.entries(groups)) { if (shown[k]) g.addTo(map); else g.remove(); }
+  if (shown.eroica || shown.tt) lines.forEach((vs, i) => { const { halo, line } = vs[choice[i]]; halo.bringToFront(); line.bringToFront(); });
+  store.set("layers", shown);
+}
+$("#layersPanel").innerHTML = `<p>Couches</p>` + LAYERS_DEF.map(l => `<label><input type="checkbox" data-layer="${l.id}" ${shown[l.id] ? "checked" : ""}><i style="--c:${l.color}"></i>${esc(l.label)}</label>`).join("")
+  + `<a href="gpx/tuscany-trail-2026-etude.gpx" download>↓ GPX Tuscany Trail 2026 (étude)</a>`;
+$("#layersBtn").addEventListener("click", () => { const p = $("#layersPanel"); p.hidden = !p.hidden; $("#layersBtn").setAttribute("aria-expanded", String(!p.hidden)); });
+$("#layersPanel").addEventListener("change", e => { const k = e.target.dataset.layer; if (k) { shown[k] = e.target.checked; applyLayers(); } });
+
 // Couleur du tracé : étapes, pentes ou trafic
 const MODES = ["Étapes", "Pentes", "Trafic"];
 let mode = 0, overlay = L.layerGroup().addTo(map);
@@ -349,7 +394,7 @@ for (const [k, p] of Object.entries(PLACES)) {
   const m = L.marker([p.lat, p.lon], { icon: markerIcon(k, nightNumbers()), riseOnHover: true, keyboard: false });
   m.bindTooltip(tipText(k), { direction: "top", offset: [0, -8], className: "mk-lbl" });
   const ph = photos(k)[0];
-  m.bindPopup(() => `<div class="pop">${ph ? `<img src="${ph.src}" alt="" data-photos="${k}">` : ""}<div><b>${esc(placeName(k))}</b><span>${esc(descOf(k))}</span></div></div>`, { minWidth: 230, maxWidth: 230 });
+  m.bindPopup(() => `<div class="pop">${ph ? `<img src="${ph.src}" alt="" data-photos="${k}">` : ""}<div><b>${esc(placeName(k))}</b><span>${esc(descOf(k))}</span>${ACTIVITIES[k]?.hist ? `<small>${esc(ACTIVITIES[k].hist)}</small>` : ""}</div></div>`, { minWidth: 230, maxWidth: 230 });
   markers[k] = m;
 }
 const allBounds = () => L.latLngBounds(DAYS.flatMap((_, i) => route(i).geom));
@@ -477,6 +522,7 @@ $$("[data-profile]").forEach(bindProfile);
 renderTotals();
 styleLines();
 refreshMarkers();
+applyLayers();
 
 // Lien direct vers une étape
 const h = location.hash.match(/^#jour-(\d)$/);

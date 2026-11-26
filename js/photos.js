@@ -1,637 +1,1417 @@
-// Généré automatiquement depuis Wikimedia Commons (voir crédits)
+// Wikimedia Commons (1920 px) et Flickr via Openverse (1024 px), triées à la main ; la 1re photo sert de couverture
 export const PHOTOS = {
  "siena": [
   {
-   "src": "photos/siena-1.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Il_campo_view_from_torre.jpg",
-   "artist": "Mark Sehnert",
+   "src": "photos/siena-1-s.jpg",
+   "big": "photos/siena-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Piazza_del_Campo_2014_01.jpg",
+   "artist": "Perituss",
+   "license": "CC0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/siena-2-s.jpg",
+   "big": "photos/siena-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:PiazzadelCampoSiena.jpg",
+   "artist": "Massimo Catarinella",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/siena-3-s.jpg",
+   "big": "photos/siena-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:02_Sienne_vue_de_San_Clemente.jpg",
+   "artist": "Myrabella",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/siena-4-s.jpg",
+   "big": "photos/siena-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Torre_del_Mangia,_Basilica_Cateriniana_San_Domenico_,_Duomo_di_Siena._View_from_Fortezza_Medicea._Siena.jpg",
+   "artist": "Ввласенко",
+   "license": "CC BY 4.0",
+   "ratio": 1.66
+  },
+  {
+   "src": "photos/siena-7-s.jpg",
+   "big": "photos/siena-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cappella_Piccolomini_partenza_Basilea_Pinturicchio_Siena.jpg",
+   "artist": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but ple",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.189
+  },
+  {
+   "src": "photos/siena-5-s.jpg",
+   "big": "photos/siena-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Duomo_Siena,_window_over_main_portal.jpg",
+   "artist": "H005",
    "license": "Public domain",
-   "desc": "A picture taken from the top of the Torre del Magnia of the Campo in Siena"
+   "ratio": 1.0
   },
   {
-   "src": "photos/siena-2.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Piazza_del_Campo.JPG",
-   "artist": "Sailko",
-   "license": "CC BY 2.5",
-   "desc": "Piazza del Campo, in Siena, Italy"
-  },
-  {
-   "src": "photos/siena-3.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Piazza_del_Campo_.jpg",
-   "artist": "AlexLore29",
+   "src": "photos/siena-6-s.jpg",
+   "big": "photos/siena-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:M%C3%BCnster,_St.-Paulus-Dom,_Paradies_--_2019_--_3890.jpg",
+   "artist": "Dietmar Rabich",
    "license": "CC BY-SA 4.0",
-   "desc": "Piazza del Campo vista dal palazzo pubblico."
+   "ratio": 1.333
+  }
+ ],
+ "monteriggioni": [
+  {
+   "src": "photos/monteriggioni-4-s.jpg",
+   "big": "photos/monteriggioni-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Foto_aerea_del_castello_di_Monteriggioni.jpg",
+   "artist": "Simone Tinella",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
   },
   {
-   "src": "photos/siena-4.jpg",
-   "ratio": 1.354,
-   "page": "https://commons.wikimedia.org/wiki/File:Piazza_del_campo,_siena.JPG",
-   "artist": "Auteur inconnu",
-   "license": "Public domain",
-   "desc": ""
+   "src": "photos/monteriggioni-ov4-s.jpg",
+   "big": "photos/monteriggioni-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/78425154@N00/17506057661",
+   "artist": "Franco Folini",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.51
+  },
+  {
+   "src": "photos/monteriggioni-ov1-s.jpg",
+   "big": "photos/monteriggioni-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/21186555@N07/27053980373",
+   "artist": "Ray in Manila",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/monteriggioni-ov2-s.jpg",
+   "big": "photos/monteriggioni-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/21186555@N07/26439940337",
+   "artist": "Ray in Manila",
+   "license": "CC BY 2.0",
+   "ratio": 1.45
+  },
+  {
+   "src": "photos/monteriggioni-ov6-s.jpg",
+   "big": "photos/monteriggioni-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/13020283@N03/16387021883",
+   "artist": "Olga Sytykh",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/monteriggioni-5-s.jpg",
+   "big": "photos/monteriggioni-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Eremo_San_Leonardo_al_Lago_esterno.jpg",
+   "artist": "This Photo was taken by Wolfgang Moroder.  \n\nFeel free to use my photos, but ple",
+   "license": "CC BY-SA 3.0",
+   "ratio": 2.164
   }
  ],
  "castellina": [
   {
-   "src": "photos/castellina-1.jpg",
-   "ratio": 0.654,
-   "page": "https://commons.wikimedia.org/wiki/File:Viadellevolte12008.jpg",
-   "artist": "Vignaccia76",
-   "license": "CC BY-SA 3.0",
-   "desc": "Via delle Volte a Castellina in Chianti"
-  },
-  {
-   "src": "photos/castellina-2.jpg",
-   "ratio": 1.335,
-   "page": "https://commons.wikimedia.org/wiki/File:2010-09-25_Castellina_in_Chianti_-_la_Rocca.jpg",
-   "artist": "Blackcat",
-   "license": "CC BY-SA 3.0",
-   "desc": "la Rocca di Castellina in Chianti (provincia di Siena)"
-  },
-  {
-   "src": "photos/castellina-3.jpg",
-   "ratio": 1.333,
+   "src": "photos/castellina-2-s.jpg",
+   "big": "photos/castellina-2-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Castellina_in_Chianti.jpg",
    "artist": "No machine-readable author provided. BetacommandBot assumed (based on copyright ",
    "license": "CC BY-SA 3.0",
-   "desc": "CASTELLINA IN CHIANTI Panorama.Foto Personale."
+   "ratio": 1.333
   },
   {
-   "src": "photos/castellina-4.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Castellina_in_Chianti_-_Via_delle_Volte_3.jpg",
+   "src": "photos/castellina-3-s.jpg",
+   "big": "photos/castellina-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castellina_in_Chianti,_rocca,_veduta_03.jpg",
+   "artist": "Sailko",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/castellina-4-s.jpg",
+   "big": "photos/castellina-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castellina_in_Chianti_piazza.jpg",
+   "artist": "Lorenzo Gaudenzi",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.778
+  },
+  {
+   "src": "photos/castellina-6-s.jpg",
+   "big": "photos/castellina-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castellina_in_chianti,_via_ferruccio_26,_palazzo_squarcialupi,_cantine_su_via_dele_volte.jpg",
+   "artist": "Francesco Bini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  }
+ ],
+ "volpaia": [
+  {
+   "src": "photos/volpaia-1-s.jpg",
+   "big": "photos/volpaia-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Pano_volpaia.jpg",
    "artist": "Vignaccia76",
-   "license": "Public domain",
-   "desc": "it:Castellina in Chianti Via delle Volte"
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.677
+  },
+  {
+   "src": "photos/volpaia-2-s.jpg",
+   "big": "photos/volpaia-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:VolpaiaRaddaInChiantiPanorama1.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.505
+  },
+  {
+   "src": "photos/volpaia-4-s.jpg",
+   "big": "photos/volpaia-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_Volpaia_12.jpg",
+   "artist": "Mongolo1984",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/volpaia-3-s.jpg",
+   "big": "photos/volpaia-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_Volpaia_03.jpg",
+   "artist": "Mongolo1984",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/volpaia-6-s.jpg",
+   "big": "photos/volpaia-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_Volpaia_02.jpg",
+   "artist": "Mongolo1984",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/volpaia-7-s.jpg",
+   "big": "photos/volpaia-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:VolpaiaRaddaInChiantiPanorama3.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.503
+  },
+  {
+   "src": "photos/volpaia-5-s.jpg",
+   "big": "photos/volpaia-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_Volpaia_09.jpg",
+   "artist": "Mongolo1984",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/volpaia-8-s.jpg",
+   "big": "photos/volpaia-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Volpaia_vue_village.JPG",
+   "artist": "Velvet",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.333
   }
  ],
  "radda": [
   {
-   "src": "photos/radda-1.jpg",
-   "ratio": 1.503,
+   "src": "photos/radda-2-s.jpg",
+   "big": "photos/radda-2-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:RaddaInChiantiPanorama1.jpg",
    "artist": "LigaDue",
    "license": "CC BY-SA 4.0",
-   "desc": "Panorama of Radda in Chianti, Province of Siena, Tuscany, Italy"
+   "ratio": 1.503
   },
   {
-   "src": "photos/radda-2.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Radda,_Tuscany_views_(2008).jpg",
+   "src": "photos/radda-ov4-s.jpg",
+   "big": "photos/radda-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/34192854@N00/2660929642",
    "artist": "charley1965",
    "license": "CC BY-SA 2.0",
-   "desc": "A majestic view of the countryside of Radda in Tuscany, Italy."
+   "ratio": 1.333
   },
   {
-   "src": "photos/radda-3.jpg",
-   "ratio": 1.501,
-   "page": "https://commons.wikimedia.org/wiki/File:Radda_Chianti_Sept_2021_2.jpg",
-   "artist": "Kasa Fue",
-   "license": "CC BY-SA 4.0",
-   "desc": "Blick über die Altstadt Radda in Chianti, Sept. 2021"
+   "src": "photos/radda-ov1-s.jpg",
+   "big": "photos/radda-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/34192854@N00/2660102179",
+   "artist": "charley1965",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.333
   },
   {
-   "src": "photos/radda-4.jpg",
-   "ratio": 1.498,
-   "page": "https://commons.wikimedia.org/wiki/File:Radda_in_Chianti,_church_Propositura_di_San_Niccola.jpg",
-   "artist": "Peter K Burian",
+   "src": "photos/radda-6-s.jpg",
+   "big": "photos/radda-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Vista_aerea_Castelvecchi.jpg",
+   "artist": "Massimo Pupita",
    "license": "CC BY-SA 4.0",
-   "desc": "Propositura di San Niccola in Radda"
+   "ratio": 1.494
+  },
+  {
+   "src": "photos/radda-ov3-s.jpg",
+   "big": "photos/radda-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/34192854@N00/2660103415",
+   "artist": "charley1965",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/radda-ov6-s.jpg",
+   "big": "photos/radda-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/83468718@N06/50150671731",
+   "artist": "Rutger van der Maar",
+   "license": "CC BY 2.0",
+   "ratio": 1.41
+  },
+  {
+   "src": "photos/radda-1-s.jpg",
+   "big": "photos/radda-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Radda_in_Chianti_-_Fontana_datata_1926.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY 4.0",
+   "ratio": 1.464
   }
  ],
  "gaiole": [
   {
-   "src": "photos/gaiole-1.jpg",
-   "ratio": 1.503,
+   "src": "photos/gaiole-3-s.jpg",
+   "big": "photos/gaiole-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Wine-growing_holding_in_the_Chianti_region.jpg",
+   "artist": "Adbar",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.351
+  },
+  {
+   "src": "photos/gaiole-4-s.jpg",
+   "big": "photos/gaiole-4-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:GaioleInChiantiPanorama3.jpg",
    "artist": "LigaDue",
    "license": "CC BY-SA 4.0",
-   "desc": "Panorama of Gaiole in Chianti, Province of Siena, Tuscany, Italy"
+   "ratio": 1.503
   },
   {
-   "src": "photos/gaiole-2.jpg",
-   "ratio": 0.78,
-   "page": "https://commons.wikimedia.org/wiki/File:Gaiole_in_Chianti_-_Abbazia_di_San_Lorenzo_a_Coltibuono_-_2024-09-01_18-33-30_002.jpeg",
-   "artist": "Anna.Massini",
+   "src": "photos/gaiole-5-s.jpg",
+   "big": "photos/gaiole-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:MontiGaioleInChiantiCimitero1.jpg",
+   "artist": "LigaDue",
    "license": "CC BY-SA 4.0",
-   "desc": "abbazia di San Lorenzo a Coltibuono"
+   "ratio": 1.5
   },
   {
-   "src": "photos/gaiole-3.jpg",
-   "ratio": 1.494,
-   "page": "https://commons.wikimedia.org/wiki/File:Pieve_di_Spaltenna.jpg",
-   "artist": "Vignaccia76",
-   "license": "CC BY-SA 3.0",
-   "desc": "Pieve di Spaltenna"
+   "src": "photos/gaiole-8-s.jpg",
+   "big": "photos/gaiole-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:MontiGaioleInChiantiSantaLucia2.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/gaiole-6-s.jpg",
+   "big": "photos/gaiole-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:MontiGaioleInChiantiCimitero3.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.502
   }
  ],
  "brolio": [
   {
-   "src": "photos/brolio-1.jpg",
-   "ratio": 1.5,
-   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_brolio,_edificio_padronale_07.JPG",
-   "artist": "Sailko",
-   "license": "CC BY 3.0",
-   "desc": "Castello di Brolio"
+   "src": "photos/brolio-1-s.jpg",
+   "big": "photos/brolio-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Gaiole_in_Chianti_-_Castello_di_Brolio_-_2025-09-15_09-25-00_001.jpg",
+   "artist": "Argentieri.Andrea",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.327
   },
   {
-   "src": "photos/brolio-2.jpg",
-   "ratio": 1.5,
-   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_brolio,_mastio_13.JPG",
-   "artist": "Sailko",
-   "license": "CC BY 3.0",
-   "desc": "Castello di Brolio"
+   "src": "photos/brolio-4-s.jpg",
+   "big": "photos/brolio-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Gaiole_in_Chianti_-_Castello_di_Brolio_-_2025-09-01_13-05-48_001.jpg",
+   "artist": "Argentieri.Andrea",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.776
   },
   {
-   "src": "photos/brolio-3.jpg",
-   "ratio": 0.667,
-   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_brolio,_mura,_camminamento.JPG",
-   "artist": "Sailko",
-   "license": "CC BY 3.0",
-   "desc": "Castello di Brolio"
+   "src": "photos/brolio-6-s.jpg",
+   "big": "photos/brolio-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Gaiole_in_Chianti_-_Castello_di_Brolio_-_2025-09-15_13-41-10_002.jpg",
+   "artist": "Argentieri.Andrea",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
   },
   {
-   "src": "photos/brolio-4.jpg",
-   "ratio": 0.667,
-   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_brolio,_mura,_camminamento_06.JPG",
-   "artist": "Sailko",
+   "src": "photos/brolio-2-s.jpg",
+   "big": "photos/brolio-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Gaiole_in_Chianti_-_Fortezza_di_Brolio_-_2025-09-15_10-13-59_001.jpg",
+   "artist": "Argentieri.Andrea",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/brolio-3-s.jpg",
+   "big": "photos/brolio-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_brolio0001.JPG",
+   "artist": "Robyfra1 at Italian Wikipedia",
+   "license": "Public domain",
+   "ratio": 1.492
+  }
+ ],
+ "sangusme": [
+  {
+   "src": "photos/sangusme-1-s.jpg",
+   "big": "photos/sangusme-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:SanGusmeCastelnuovoBerardengaPanorama1.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/sangusme-3-s.jpg",
+   "big": "photos/sangusme-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:San_Gusm%C3%A8_piazza_castello.jpg",
+   "artist": "Vignaccia76",
    "license": "CC BY 3.0",
-   "desc": "Castello di Brolio"
+   "ratio": 1.503
+  },
+  {
+   "src": "photos/sangusme-2-s.jpg",
+   "big": "photos/sangusme-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:SanGusmeCastelnuovoBerardengaPanorama2.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/sangusme-ov1-s.jpg",
+   "big": "photos/sangusme-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/74760667@N02/28868125062",
+   "artist": "Greg_Men",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/sangusme-ov2-s.jpg",
+   "big": "photos/sangusme-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/33481854@N00/5195251640",
+   "artist": "acquimat4",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.855
+  },
+  {
+   "src": "photos/sangusme-7-s.jpg",
+   "big": "photos/sangusme-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castelnuovo_Berardenga_-_Chiesa_della_Compagnia_della_Santissima_Trinit%C3%A0_-_2025-09-02_13-49-29_001.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.813
   }
  ],
  "castel": [
   {
-   "src": "photos/castel-1.jpg",
-   "ratio": 0.665,
-   "page": "https://commons.wikimedia.org/wiki/File:Campanile_pievasciata.jpg",
-   "artist": "Vignaccia76",
-   "license": "CC BY 3.0",
-   "desc": "Campanile della pieve di San Giovanni Battista a Pievasciata"
+   "src": "photos/castel-2-s.jpg",
+   "big": "photos/castel-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:CastelnuovoBerardengaPanorama4.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.503
   },
   {
-   "src": "photos/castel-2.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Castello_di_montalto,_01.JPG",
-   "artist": "sailko",
-   "license": "CC BY-SA 3.0",
-   "desc": "Castello di montalto,"
+   "src": "photos/castel-8-s.jpg",
+   "big": "photos/castel-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Campagna_nei_pressi_di_Castelnuovo_Berardenga.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY 4.0",
+   "ratio": 1.986
   },
   {
-   "src": "photos/castel-3.jpg",
-   "ratio": 1.506,
-   "page": "https://commons.wikimedia.org/wiki/File:Castelnuovo_Berardenga_(5771488175).jpg",
-   "artist": "Michal Osmenda from Brussels, Belgium",
-   "license": "CC BY-SA 2.0",
-   "desc": "View from a road to Fattoria di Felsina"
-  },
-  {
-   "src": "photos/castel-4.jpg",
-   "ratio": 0.719,
-   "page": "https://commons.wikimedia.org/wiki/File:Certosa_di_pontignano0001.JPG",
-   "artist": "Robyfra1 at Italian Wikipedia",
-   "license": "Public domain",
-   "desc": "Castelnuovo Berardenga (Siena-Italia): La Certosa di Pontignano"
+   "src": "photos/castel-7-s.jpg",
+   "big": "photos/castel-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Castelnuovo_Berardenga_-_Piazza_Citernesi.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY 4.0",
+   "ratio": 1.333
   }
  ],
  "asciano": [
   {
-   "src": "photos/asciano-1.jpg",
-   "ratio": 1.5,
+   "src": "photos/asciano-6-s.jpg",
+   "big": "photos/asciano-6-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:AscianoPanorama4.jpg",
    "artist": "LigaDue",
    "license": "CC BY-SA 4.0",
-   "desc": "Panorama of Asciano, Crete Senesi, Province of Siena, Tuscany, Italy"
+   "ratio": 1.5
   },
   {
-   "src": "photos/asciano-2.jpg",
-   "ratio": 1.494,
-   "page": "https://commons.wikimedia.org/wiki/File:Collegiata_di_Sant%27Agata_Asciano.jpg",
-   "artist": "Vignaccia76",
+   "src": "photos/asciano-2-s.jpg",
+   "big": "photos/asciano-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete_senesi_-_Asciano_(Siena).jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/asciano-5-s.jpg",
+   "big": "photos/asciano-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:In_terra_senese.jpg",
+   "artist": "Maddy16869",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/asciano-7-s.jpg",
+   "big": "photos/asciano-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:AscianoPanorama8.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.503
+  },
+  {
+   "src": "photos/asciano-4-s.jpg",
+   "big": "photos/asciano-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Wle_2023_-_Panorama_dal_Monte_Oliveto_e_Crete_di_Asciano_-_Siena.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/asciano-8-s.jpg",
+   "big": "photos/asciano-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:AscianoPanorama6.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  }
+ ],
+ "chiusure": [
+  {
+   "src": "photos/chiusure-2-s.jpg",
+   "big": "photos/chiusure-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:ChiusureAscianoPanorama2.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/chiusure-4-s.jpg",
+   "big": "photos/chiusure-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiusure_-_steep_street_(2679038278).jpg",
+   "artist": "Marco Varisco",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/chiusure-5-s.jpg",
+   "big": "photos/chiusure-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:ChiusureAscianoPanorama1.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/chiusure-3-s.jpg",
+   "big": "photos/chiusure-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiusure._Frazione_di_Asciano_7.jpg",
+   "artist": "Manuelarosi",
    "license": "CC BY-SA 3.0",
-   "desc": "Collegiata di Sant'Agata (Asciano)"
+   "ratio": 1.333
   },
   {
-   "src": "photos/asciano-3.jpg",
-   "ratio": 1.5,
-   "page": "https://commons.wikimedia.org/wiki/File:Mura_di_asciano,_1342-1352,_09.JPG",
-   "artist": "Sailko",
-   "license": "CC BY 3.0",
-   "desc": "Asciano (SI)"
+   "src": "photos/chiusure-6-s.jpg",
+   "big": "photos/chiusure-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiusure._Frazione_di_Asciano_13.jpg",
+   "artist": "Manuelarosi",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/chiusure-8-s.jpg",
+   "big": "photos/chiusure-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:ChiusureAscianoBorgo4.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
   }
  ],
  "oliveto": [
   {
-   "src": "photos/oliveto-1.jpg",
-   "ratio": 1.8,
-   "page": "https://commons.wikimedia.org/wiki/File:MonteOliveto371.jpg",
-   "artist": "Acer11",
-   "license": "CC BY-SA 3.0",
-   "desc": "Vue générale sur l'abbaye de Monte Oliveto Maggiore"
-  },
-  {
-   "src": "photos/oliveto-2.jpg",
-   "ratio": 0.666,
-   "page": "https://commons.wikimedia.org/wiki/File:AbbaziadiMonteOlivetoMaggioreRoad.jpg",
-   "artist": "Niels Elgaard Larsen",
-   "license": "CC BY-SA 3.0",
-   "desc": "road leading to Abbazia di Monte Oliveto Maggiore"
-  },
-  {
-   "src": "photos/oliveto-3.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:OlivietoKreuzgang.jpg",
+   "src": "photos/oliveto-3-s.jpg",
+   "big": "photos/oliveto-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:MonteOlivieto.jpg",
    "artist": "Adrian Michael",
    "license": "CC BY-SA 3.0",
-   "desc": "de:Monte Oliveto Maggiore Kreuzgang"
+   "ratio": 1.333
   },
   {
-   "src": "photos/oliveto-4.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:3087MonteOlivetoMaggiore.JPG",
-   "artist": "Geobia",
-   "license": "CC BY-SA 3.0",
-   "desc": "Monte Oliveto Maggiore - Chiesa abbaziale"
+   "src": "photos/oliveto-8-s.jpg",
+   "big": "photos/oliveto-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:1765_wurde_das_Kloster_Monte_Oliveto_zur_Territorialabtei_erhoben._05.jpg",
+   "artist": "Holger Uwe Schmitt",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/oliveto-6-s.jpg",
+   "big": "photos/oliveto-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:36_Fresken_schm%C3%BCcken_den_Kreuzgang_des_Klosters._27.jpg",
+   "artist": "Holger Uwe Schmitt",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.304
+  },
+  {
+   "src": "photos/oliveto-7-s.jpg",
+   "big": "photos/oliveto-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:36_Fresken_schm%C3%BCcken_den_Kreuzgang_des_Klosters._04.jpg",
+   "artist": "Holger Uwe Schmitt",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/oliveto-5-s.jpg",
+   "big": "photos/oliveto-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:1765_wurde_das_Kloster_Monte_Oliveto_zur_Territorialabtei_erhoben._06.jpg",
+   "artist": "Holger Uwe Schmitt",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/oliveto-2-s.jpg",
+   "big": "photos/oliveto-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Wle_2023_-_Panorama_dal_Monte_Oliveto_e_Crete_di_Asciano_-_Siena.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
   }
  ],
  "buon": [
   {
-   "src": "photos/buon-1.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:BuonconventoPanorama2.JPG",
-   "artist": "LigaDue",
+   "src": "photos/buon-1-s.jpg",
+   "big": "photos/buon-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Buonconvento,_mura_lato_est_03.jpg",
+   "artist": "Sailko",
    "license": "CC BY 3.0",
-   "desc": "Panorama of Buonconvento, Province of Siena, Tuscany, Italy"
+   "ratio": 1.5
   },
   {
-   "src": "photos/buon-2.jpg",
-   "ratio": 0.75,
-   "page": "https://commons.wikimedia.org/wiki/File:Buonconvento_1.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Buonconvento"
+   "src": "photos/buon-4-s.jpg",
+   "big": "photos/buon-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Visione_di_Buonconvento_da_fuori_le_mura.jpg",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.434
   },
   {
-   "src": "photos/buon-3.jpg",
-   "ratio": 0.75,
-   "page": "https://commons.wikimedia.org/wiki/File:Buonconvento_2.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Buonconvento"
+   "src": "photos/buon-2-s.jpg",
+   "big": "photos/buon-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ombre_di_paesaggio_toscano_su_un_paesaggio_toscano.jpg",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.592
   },
   {
-   "src": "photos/buon-4.jpg",
-   "ratio": 1.505,
-   "page": "https://commons.wikimedia.org/wiki/File:Buonconvento_LaTorre.jpg",
-   "artist": "Alfredo Danielli",
-   "license": "CC BY-SA 3.0",
-   "desc": "Buonconvento, La Torre"
+   "src": "photos/buon-8-s.jpg",
+   "big": "photos/buon-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Buonconvento_-_Comune_di_Buonconvento_-_2023-09-21_10-59-04_001.JPG",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.358
   }
  ],
  "montalcino": [
   {
-   "src": "photos/montalcino-1.jpg",
-   "ratio": 2.852,
+   "src": "photos/montalcino-7-s.jpg",
+   "big": "photos/montalcino-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Montalcino,_veduta_dal_prato_dell%27ospedale_05.jpg",
+   "artist": "Francesco Bini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/montalcino-2-s.jpg",
+   "big": "photos/montalcino-2-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Montalcino-Skyline-2012.JPG",
    "artist": "Bjørn Christian Tørrissen",
    "license": "CC BY-SA 3.0",
-   "desc": "The hill town Montalcino in Tuscany, Italy, a bit south of Siena as seen from the Via Francigena."
+   "ratio": 2.852
   },
   {
-   "src": "photos/montalcino-2.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Montalcino_-_Fortezza_di_Montalcino_-_2025-09-02_12-46-38_008.jpg",
-   "artist": "Anna.Massini",
+   "src": "photos/montalcino-3-s.jpg",
+   "big": "photos/montalcino-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Montalcino,_comune,_panorama_02.jpg",
+   "artist": "Sailko",
    "license": "CC BY-SA 4.0",
-   "desc": "fortezza di Montalcino"
+   "ratio": 1.5
   },
   {
-   "src": "photos/montalcino-3.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Montalcino_town_view.jpg",
-   "artist": "Auteur inconnu",
-   "license": "CC BY-SA 3.0",
-   "desc": ""
+   "src": "photos/montalcino-6-s.jpg",
+   "big": "photos/montalcino-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Montalcino,_porta_cerbaia_01.jpg",
+   "artist": "Francesco Bini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.292
   },
   {
-   "src": "photos/montalcino-4.jpg",
-   "ratio": 1.5,
-   "page": "https://commons.wikimedia.org/wiki/File:View_from_Montalcino,_Tuscany.jpg",
-   "artist": "Thomas Fabian",
-   "license": "CC BY-SA 2.0",
-   "desc": "View from Montalcino, Siena, Tuscany, Italy"
+   "src": "photos/montalcino-4-s.jpg",
+   "big": "photos/montalcino-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Montalcino,_via_landi_angolo_via_gattoli,_casa_01.jpg",
+   "artist": "Francesco Bini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/montalcino-5-s.jpg",
+   "big": "photos/montalcino-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Montalcino,_palazzo_pieri,_cortile_00.jpg",
+   "artist": "Francesco Bini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
   }
  ],
  "angelo": [
   {
-   "src": "photos/angelo-1.jpg",
-   "ratio": 1.5,
+   "src": "photos/angelo-1-s.jpg",
+   "big": "photos/angelo-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:SantAngeloInColleMontalcinoPanorama5.jpg",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/angelo-3-s.jpg",
+   "big": "photos/angelo-3-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:SantAngeloInColleMontalcinoPanorama1.JPG",
    "artist": "LigaDue",
    "license": "CC BY-SA 4.0",
-   "desc": "Panorama of Sant’Angelo in Colle, hamlet of Montalcino, Val d’Orcia, Province of Siena, Tuscany"
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/angelo-6-s.jpg",
+   "big": "photos/angelo-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sant%27Angelo_in_Colle.jpg",
+   "artist": "Luca Falabretti at Italian Wikipedia",
+   "license": "Public domain",
+   "ratio": 1.704
+  },
+  {
+   "src": "photos/angelo-7-s.jpg",
+   "big": "photos/angelo-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Tenuta_Il_Poggione_Sant%27Angelo_in_Colle_-_panoramio_(2).jpg",
+   "artist": "lombiedezombie@hotma…",
+   "license": "CC BY 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/angelo-2-s.jpg",
+   "big": "photos/angelo-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sant%27angelo_in_colle_Tempesta_Rossa.jpg",
+   "artist": "Denistognazzi",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.778
+  },
+  {
+   "src": "photos/angelo-4-s.jpg",
+   "big": "photos/angelo-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:SantAngeloInColleMontalcinoPanorama2.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/angelo-5-s.jpg",
+   "big": "photos/angelo-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sant%27Angelo_in_Colle_-_panoramio_(2).jpg",
+   "artist": "lombiedezombie@hotma…",
+   "license": "CC BY 3.0",
+   "ratio": 1.333
   }
  ],
  "antimo": [
   {
-   "src": "photos/antimo-1.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Abbazia_Sant%27Antimo_1.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Abbazia Sant'Antimo"
-  },
-  {
-   "src": "photos/antimo-2.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Abbazia_Sant%27Antimo_2.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Abbazia Sant'Antimo"
-  },
-  {
-   "src": "photos/antimo-3.jpg",
-   "ratio": 0.75,
-   "page": "https://commons.wikimedia.org/wiki/File:Abbazia_di_Sant%27Antimo_-_13_-_L%27abside_della_chiesa_originaria.jpg",
+   "src": "photos/antimo-1-s.jpg",
+   "big": "photos/antimo-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Abbazia_di_Sant%27Antimo_-_01.jpg",
    "artist": "Dongio",
    "license": "Public domain",
-   "desc": "L'Abbazia di Sant'Antimo (Montalcino, Toscana, Italy) - L'abside della chiesa originaria"
+   "ratio": 1.333
   },
   {
-   "src": "photos/antimo-4.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Abbazia_di_Sant%27Antimo_-_21_-_Bassirilievo_sulla_parete_esterna_del_campanile.jpg",
+   "src": "photos/antimo-2-s.jpg",
+   "big": "photos/antimo-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Montalcino_-_Sant%27Antimo2.jpg",
+   "artist": "dalem",
+   "license": "CC BY 2.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/antimo-7-s.jpg",
+   "big": "photos/antimo-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:AbbaziaSAntimoPanorama.jpg",
+   "artist": "MM",
+   "license": "CC BY-SA 2.5",
+   "ratio": 1.443
+  },
+  {
+   "src": "photos/antimo-8-s.jpg",
+   "big": "photos/antimo-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Abbazia_di_Sant%27Antimo_-_11.jpg",
    "artist": "Dongio",
    "license": "Public domain",
-   "desc": "L'Abbazia di Sant'Antimo (Montalcino, Toscana, Italy) - Bassorilievo sulla parete esterna del campanile"
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/antimo-4-s.jpg",
+   "big": "photos/antimo-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Abbazia_di_Sant%27Antimo_-_02.jpg",
+   "artist": "Dongio",
+   "license": "Public domain",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/antimo-6-s.jpg",
+   "big": "photos/antimo-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Abbazia_di_Sant%27Antimo_-_06.jpg",
+   "artist": "Dongio",
+   "license": "Public domain",
+   "ratio": 1.333
+  }
+ ],
+ "castiglione": [
+  {
+   "src": "photos/castiglione-1-s.jpg",
+   "big": "photos/castiglione-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:RoccaDOrciaPanorama.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/castiglione-6-s.jpg",
+   "big": "photos/castiglione-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Vista_sulla_campagna_toscana_da_Bagno_Vignoni.jpg",
+   "artist": "Federica Cidale",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.774
+  },
+  {
+   "src": "photos/castiglione-3-s.jpg",
+   "big": "photos/castiglione-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:53023_Castiglione_d%27Orcia,_Province_of_Siena,_Italy_-_panoramio_(4).jpg",
+   "artist": "Eugen Kalloch",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.778
+  },
+  {
+   "src": "photos/castiglione-4-s.jpg",
+   "big": "photos/castiglione-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:RoccaDOrciaExChiesaPalazzo.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/castiglione-7-s.jpg",
+   "big": "photos/castiglione-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:RoccaDOrciaPiazzaCisterna.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/castiglione-5-s.jpg",
+   "big": "photos/castiglione-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Rocca_d%27Orcia_-_Italy.jpg",
+   "artist": "Marco Usan",
+   "license": "CC BY 3.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/castiglione-2-s.jpg",
+   "big": "photos/castiglione-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Panorama_con_la_Rocca_di_Tentennano.jpg",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.458
   }
  ],
  "vignoni": [
   {
-   "src": "photos/vignoni-1.jpg",
-   "ratio": 2.086,
-   "page": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_2020.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Bagno Vignoni"
-  },
-  {
-   "src": "photos/vignoni-2.jpg",
-   "ratio": 2.979,
+   "src": "photos/vignoni-1-s.jpg",
+   "big": "photos/vignoni-1-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_Piazza_delle_Sorgenti_01.jpg",
    "artist": "Spike",
    "license": "CC BY-SA 4.0",
-   "desc": "Piazza delle Sorgenti in Bagno Vignoni, Italy."
+   "ratio": 2.979
   },
   {
-   "src": "photos/vignoni-3.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_SI_Toscana.jpg",
-   "artist": "Lepo55",
-   "license": "CC BY-SA 3.0",
-   "desc": "Acque termali"
+   "src": "photos/vignoni-4-s.jpg",
+   "big": "photos/vignoni-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni.jpg",
+   "artist": "Original uploader was Petitverdot at it.wikipedia",
+   "license": "Public domain",
+   "ratio": 1.334
   },
   {
-   "src": "photos/vignoni-4.jpg",
-   "ratio": 1.276,
-   "page": "https://commons.wikimedia.org/wiki/File:Chiesa_bagno_vignoni.jpg",
-   "artist": "sconosciuto",
-   "license": "Copyrighted free use",
-   "desc": "Chiesa_di_san giovanni battista, Bagno Vignoni, San Quirico d'Orcia"
+   "src": "photos/vignoni-2-s.jpg",
+   "big": "photos/vignoni-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_(5).jpg",
+   "artist": "This Photo was taken by Andrea Bertozzi.  \n\nFeel free to use my photos, but plea",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/vignoni-5-s.jpg",
+   "big": "photos/vignoni-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Parco_dei_Mulini,_Bagno_Vignoni.jpg",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/vignoni-6-s.jpg",
+   "big": "photos/vignoni-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_005.jpg",
+   "artist": "Costaetrusca",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.503
   }
  ],
  "quirico": [
   {
-   "src": "photos/quirico-1.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:SanQuiricodOrciaPanorama.JPG",
-   "artist": "LigaDue",
-   "license": "CC BY 3.0",
-   "desc": "Panorama of San Quirico d’Orcia, Val d’Orcia, Province of Siena, Tuscany, Italy"
+   "src": "photos/quirico-1-s.jpg",
+   "big": "photos/quirico-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cipressi_di_S.Quirico_d%27Orcia_al_tramonto.jpg",
+   "artist": "Gianluca Pirro",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.499
   },
   {
-   "src": "photos/quirico-2.jpg",
-   "ratio": 0.75,
-   "page": "https://commons.wikimedia.org/wiki/File:Cipressi_San_Quirico.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Cipressi San Quirico"
+   "src": "photos/quirico-2-s.jpg",
+   "big": "photos/quirico-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:A_spasso_sulle_%22Mura%22_San_Quirico_d%27Orcia.jpg",
+   "artist": "PROPOLI87",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
   },
   {
-   "src": "photos/quirico-3.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Horti_leonini_-_San_Quirico_d%27Orcia_02.jpg",
-   "artist": "Ruthven",
-   "license": "CC0",
-   "desc": "Horti leonini"
+   "src": "photos/quirico-7-s.jpg",
+   "big": "photos/quirico-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ponte_delle_Mille_Miglia.jpg",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.48
   },
   {
-   "src": "photos/quirico-4.jpg",
-   "ratio": 4.743,
+   "src": "photos/quirico-8-s.jpg",
+   "big": "photos/quirico-8-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:San_Quirico_D%27Orcia_panorama_01.jpg",
    "artist": "Spike",
    "license": "CC BY-SA 4.0",
-   "desc": "A panorama of San Quirico d'Orcia, Tuscany, Italy, as seen from a field near Vignoni Alto."
+   "ratio": 4.743
+  },
+  {
+   "src": "photos/quirico-6-s.jpg",
+   "big": "photos/quirico-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:SanQuiricodOrciaPanorama.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/quirico-5-s.jpg",
+   "big": "photos/quirico-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:San_Quirico_d%27Orcia_A_spasso_sulle_mura.jpg",
+   "artist": "PROPOLI87",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  }
+ ],
+ "belvedere": [
+  {
+   "src": "photos/belvedere-1-s.jpg",
+   "big": "photos/belvedere-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:San_Quirico_d%27Orcia_-_typical_farmhouse_on_hill_in_autumn.jpg",
+   "artist": "Enrico Pighetti",
+   "license": "CC BY 2.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/belvedere-2-s.jpg",
+   "big": "photos/belvedere-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Tuscany_tunliweb-17.jpg",
+   "artist": "Svein-Magne Tunli - tunliweb.no",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
   }
  ],
  "vitaleta": [
   {
-   "src": "photos/vitaleta-1.jpg",
-   "ratio": 1.695,
+   "src": "photos/vitaleta-1-s.jpg",
+   "big": "photos/vitaleta-1-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Cap_vitaleta.jpg",
    "artist": "Vignaccia76",
    "license": "CC BY-SA 3.0",
-   "desc": "Cappella della Madonna di Vitaleta (San Quirico d'Orcia) - Siena"
+   "ratio": 1.695
   },
   {
-   "src": "photos/vitaleta-2.jpg",
-   "ratio": 0.803,
-   "page": "https://commons.wikimedia.org/wiki/File:San_Quirico_d%27Orcia,_cappella_della_Madonna_di_Vitaleta_-_Interno.jpg",
-   "artist": "Pufui PcPifpef",
+   "src": "photos/vitaleta-6-s.jpg",
+   "big": "photos/vitaleta-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:San_Quirico_d%27Orcia_-_Cappella_della_Madonna_di_Vitaleta_-_2025-09-07_23-47-16_001.jpg",
+   "artist": "Pardi Marco",
    "license": "CC BY-SA 4.0",
-   "desc": "Interno."
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/vitaleta-5-s.jpg",
+   "big": "photos/vitaleta-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:San_Quirico_d%27Orcia_-_Cappella_della_Madonna_di_Vitaleta_-_2026-09-02_11-38-28_005.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.772
+  },
+  {
+   "src": "photos/vitaleta-7-s.jpg",
+   "big": "photos/vitaleta-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:La_chiesetta_coi_cipressi_(30014017281).jpg",
+   "artist": "Enrico Pighetti from Civitanova Marche, Italia",
+   "license": "CC BY 2.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/vitaleta-3-s.jpg",
+   "big": "photos/vitaleta-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cappella_della_Madonna_di_Vitaleta_Panorama.jpg",
+   "artist": "Costaetrusca",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.717
+  },
+  {
+   "src": "photos/vitaleta-4-s.jpg",
+   "big": "photos/vitaleta-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:San_Quirico_d%27Orcia_-_Cappella_della_Madonna_di_Vitaleta_-_Incontro_al_tramonto.JPG",
+   "artist": "Monica_Rondoni",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/vitaleta-ov6-s.jpg",
+   "big": "photos/vitaleta-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/31176607@N05/52653951417",
+   "artist": "kuhnmi",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/vitaleta-ov5-s.jpg",
+   "big": "photos/vitaleta-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/141042277@N04/51362215560",
+   "artist": "Italienliebhaber",
+   "license": "CC BY 2.0",
+   "ratio": 1.778
   }
  ],
  "pienza": [
   {
-   "src": "photos/pienza-1.jpg",
-   "ratio": 0.75,
-   "page": "https://commons.wikimedia.org/wiki/File:Centro_Pienza.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Centro Pienza"
+   "src": "photos/pienza-ov4-s.jpg",
+   "big": "photos/pienza-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/18472724@N00/52375676368",
+   "artist": "MollySVH",
+   "license": "CC BY 2.0",
+   "ratio": 1.264
   },
   {
-   "src": "photos/pienza-2.jpg",
-   "ratio": 0.75,
-   "page": "https://commons.wikimedia.org/wiki/File:Centro_Pienza_2.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Centro Pienza"
+   "src": "photos/pienza-ov1-s.jpg",
+   "big": "photos/pienza-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/25887136@N00/3627698523",
+   "artist": "jaybergesen",
+   "license": "CC BY 2.0",
+   "ratio": 1.504
   },
   {
-   "src": "photos/pienza-3.jpg",
-   "ratio": 0.75,
-   "page": "https://commons.wikimedia.org/wiki/File:Centro_Pienza_3.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Centro Pienza"
+   "src": "photos/pienza-ov5-s.jpg",
+   "big": "photos/pienza-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/18472724@N00/52375655591",
+   "artist": "MollySVH",
+   "license": "CC BY 2.0",
+   "ratio": 1.269
   },
   {
-   "src": "photos/pienza-4.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Cipressi_Pienza.jpg",
+   "src": "photos/pienza-6-s.jpg",
+   "big": "photos/pienza-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Duomo_di_Pienza_(1).jpg",
+   "artist": "This Photo was taken by Andrea Bertozzi.  \n\nFeel free to use my photos, but plea",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/pienza-ov6-s.jpg",
+   "big": "photos/pienza-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/18472724@N00/52374875306",
+   "artist": "MollySVH",
+   "license": "CC BY 2.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/pienza-4-s.jpg",
+   "big": "photos/pienza-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Duomo_di_Pienza_(2).jpg",
+   "artist": "This Photo was taken by Andrea Bertozzi.  \n\nFeel free to use my photos, but plea",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/pienza-8-s.jpg",
+   "big": "photos/pienza-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:29._August_1462,_an_diesem_Tag_wurde_der_Dom_von_Pienza_geweiht._05.jpg",
+   "artist": "Holger Uwe Schmitt",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.362
+  },
+  {
+   "src": "photos/pienza-ov3-s.jpg",
+   "big": "photos/pienza-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/120767859@N03/48125821648",
+   "artist": "Jacek Z. Borkowski Photography",
+   "license": "CC BY 2.0",
+   "ratio": 1.501
+  },
+  {
+   "src": "photos/pienza-ov11-s.jpg",
+   "big": "photos/pienza-ov11-s.jpg",
+   "page": "https://www.flickr.com/photos/8749778@N06/52296929230",
+   "artist": "Eric Kilby",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/pienza-3-s.jpg",
+   "big": "photos/pienza-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Pienza_(Siena)_Le_vie_romantiche_-_Via_dell%27Amore.jpg",
+   "artist": "PROPOLI87",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.293
+  }
+ ],
+ "monticchiello": [
+  {
+   "src": "photos/monticchiello-1-s.jpg",
+   "big": "photos/monticchiello-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:MonticchielloPanoramaSW2.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/monticchiello-8-s.jpg",
+   "big": "photos/monticchiello-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:MonticchielloPanoramaSO.JPG",
+   "artist": "LigaDue",
+   "license": "CC BY 3.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/monticchiello-ov4-s.jpg",
+   "big": "photos/monticchiello-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/13595478@N02/3426840612",
+   "artist": "lo.tangelini",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/monticchiello-7-s.jpg",
+   "big": "photos/monticchiello-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Mura_Monticchiello.jpg",
    "artist": "Photo2023",
    "license": "CC BY 4.0",
-   "desc": "Cipressi Pienza"
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/monticchiello-2-s.jpg",
+   "big": "photos/monticchiello-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sunset_in_Monticchiello_(Pienza).jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY 4.0",
+   "ratio": 1.039
+  },
+  {
+   "src": "photos/monticchiello-ov1-s.jpg",
+   "big": "photos/monticchiello-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/30004392@N04/11683256025",
+   "artist": "Pug Girl",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/monticchiello-ov3-s.jpg",
+   "big": "photos/monticchiello-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/25328962@N05/7815642864",
+   "artist": "valeria preci",
+   "license": "CC BY 2.0",
+   "ratio": 1.333
   }
  ],
  "montepulciano": [
   {
-   "src": "photos/montepulciano-1.jpg",
-   "ratio": 1.333,
+   "src": "photos/montepulciano-6-s.jpg",
+   "big": "photos/montepulciano-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Montepulciano_panoramica.jpg",
+   "artist": "TeKappa",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.503
+  },
+  {
+   "src": "photos/montepulciano-8-s.jpg",
+   "big": "photos/montepulciano-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Montepulciano_panorama_al_tramonto.jpg",
+   "artist": "PROPOLI87",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.535
+  },
+  {
+   "src": "photos/montepulciano-2-s.jpg",
+   "big": "photos/montepulciano-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Vue_de_la_ville_(Montepulciano).jpg",
+   "artist": "Gzen92",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/montepulciano-5-s.jpg",
+   "big": "photos/montepulciano-5-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Montepulciano02.jpg",
    "artist": "Auteur inconnu",
    "license": "CC BY-SA 2.0",
-   "desc": ""
+   "ratio": 1.333
   },
   {
-   "src": "photos/montepulciano-2.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:FontanaNewMoonMontepulciano.jpg",
-   "artist": "The original uploader was Valentini17 at Italian Wikipedia.",
-   "license": "CC BY-SA 3.0",
-   "desc": "Montepulciano, la fontana di Piazza Grande vista nel film The Twilight Saga: New Moon."
-  },
-  {
-   "src": "photos/montepulciano-3.jpg",
-   "ratio": 1.9,
-   "page": "https://commons.wikimedia.org/wiki/File:1_montepulciano_aerial_2024.jpg",
-   "artist": "Chensiyuan",
+   "src": "photos/montepulciano-4-s.jpg",
+   "big": "photos/montepulciano-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Vue_de_la_piazza_grande_(Montepulciano).jpg",
+   "artist": "Gzen92",
    "license": "CC BY-SA 4.0",
-   "desc": "Montepulciano aerial"
+   "ratio": 1.406
   },
   {
-   "src": "photos/montepulciano-4.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Duomo_di_Montepulciano_2020.jpg",
-   "artist": "Photo2023",
-   "license": "CC BY 4.0",
-   "desc": "Duomo di Montepulciano"
+   "src": "photos/montepulciano-7-s.jpg",
+   "big": "photos/montepulciano-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Parco_di_villa_trecci,_roseto_04_veduta_con_montepulciano_sotto_l%27arco_1.jpg",
+   "artist": "Sailko",
+   "license": "CC BY-SA 4.0",
+   "ratio": 0.948
+  },
+  {
+   "src": "photos/montepulciano-3-s.jpg",
+   "big": "photos/montepulciano-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Paysage_(Montepulciano).jpg",
+   "artist": "Gzen92",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/montepulciano-1-s.jpg",
+   "big": "photos/montepulciano-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Vista_da_Montepulciano.jpg",
+   "artist": "This Photo was taken by Andrea Bertozzi.  \n\nFeel free to use my photos, but plea",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
   }
  ],
  "chiusi": [
   {
-   "src": "photos/chiusi-1.jpg",
-   "ratio": 1.5,
+   "src": "photos/chiusi-7-s.jpg",
+   "big": "photos/chiusi-7-l.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:ChiusiPanorama5.jpg",
    "artist": "LigaDue",
    "license": "CC BY-SA 4.0",
-   "desc": "Panorama of Chiusi, Province of Siena, Tuscany, Italy"
+   "ratio": 1.5
   },
   {
-   "src": "photos/chiusi-2.jpg",
-   "ratio": 0.667,
-   "page": "https://commons.wikimedia.org/wiki/File:Campanile_duomo_chiusi.jpg",
-   "artist": "Prof.Quatermass",
-   "license": "CC BY-SA 3.0",
-   "desc": "Campanile duomo chiusi"
+   "src": "photos/chiusi-6-s.jpg",
+   "big": "photos/chiusi-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiusi_della_Verna_-_Santuario_della_Verna_-_2023-09-10_22-09-04_001.jpg",
+   "artist": "Terragio67",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.363
   },
   {
-   "src": "photos/chiusi-3.jpg",
-   "ratio": 0.667,
-   "page": "https://commons.wikimedia.org/wiki/File:Chiesa_di_san_francesco_chiusi.jpg",
-   "artist": "Prof.Quatermass",
-   "license": "CC BY-SA 3.0",
-   "desc": "Chiesa di san francesco chiusi"
-  },
-  {
-   "src": "photos/chiusi-4.jpg",
-   "ratio": 0.667,
-   "page": "https://commons.wikimedia.org/wiki/File:Duomo_di_chiusi.jpg",
-   "artist": "Prof.Quatermass",
-   "license": "CC BY-SA 3.0",
-   "desc": "Duomo di chiusi"
-  }
- ],
- "crete": [
-  {
-   "src": "photos/crete-1.jpg",
-   "ratio": 1.392,
-   "page": "https://commons.wikimedia.org/wiki/File:Crete_Senesi_Sunset_-_Saltafabbro_(SI)_Italy_-_July_4,_2009.jpg",
-   "artist": "Giorgio Galeotti",
+   "src": "photos/chiusi-2-s.jpg",
+   "big": "photos/chiusi-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Santuario_della_Verna_%CC%88_Incarnazione_di_Andrea_della_Robbia.jpg",
+   "artist": "Anna.Massini",
    "license": "CC BY 4.0",
-   "desc": "Crete Senesi Sunset - Saltafabbro, Siena, Italy"
+   "ratio": 0.981
   },
   {
-   "src": "photos/crete-2.jpg",
-   "ratio": 1.5,
-   "page": "https://commons.wikimedia.org/wiki/File:Crete_senesi_presso_asciano,_09.JPG",
-   "artist": "Sailko",
-   "license": "CC BY 3.0",
-   "desc": "Asciano (SI)"
+   "src": "photos/chiusi-5-s.jpg",
+   "big": "photos/chiusi-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiusi_della_Verna_-_Santuario_della_Verna_-_2023-09-10_22-06-45_001.jpg",
+   "artist": "Terragio67",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.352
   },
   {
-   "src": "photos/crete-3.jpg",
-   "ratio": 0.664,
-   "page": "https://commons.wikimedia.org/wiki/File:Cretesenesi_albero.jpg",
-   "artist": "louis-garden",
-   "license": "CC BY-SA 2.5",
-   "desc": "Crete Senesi - Arbre"
+   "src": "photos/chiusi-3-s.jpg",
+   "big": "photos/chiusi-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiusi_della_Verna_-_Santuario_della_Verna_-_Campanile_-_2023-09-11_07-18-18_001.jpg",
+   "artist": "Terragio67",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.5
   },
   {
-   "src": "photos/crete-4.jpg",
-   "ratio": 1.498,
-   "page": "https://commons.wikimedia.org/wiki/File:Cretesenesi_fieno.jpg",
-   "artist": "louis-garden",
-   "license": "CC BY-SA 2.5",
-   "desc": "Crete senesi - Foin"
+   "src": "photos/chiusi-1-s.jpg",
+   "big": "photos/chiusi-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Lago_di_Chiusi_o_%22Chiaro_di_Luna%22.jpg",
+   "artist": "PROPOLI87",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
   }
  ],
  "orcia": [
   {
-   "src": "photos/orcia-1.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Bosco_cipressi_Val_d%27Orcia_Cassia.jpg",
-   "artist": "Auteur inconnu",
-   "license": "CC BY-SA 2.5",
-   "desc": ""
+   "src": "photos/orcia-8-s.jpg",
+   "big": "photos/orcia-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cipressi_pellegrini.jpg",
+   "artist": "JP Vets",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.503
   },
   {
-   "src": "photos/orcia-2.jpg",
-   "ratio": 5.243,
-   "page": "https://commons.wikimedia.org/wiki/File:Val_D%27Orcia1.jpg",
-   "artist": "Auteur inconnu",
-   "license": "CC BY 2.5",
-   "desc": ""
-  },
-  {
-   "src": "photos/orcia-3.jpg",
-   "ratio": 1.498,
-   "page": "https://commons.wikimedia.org/wiki/File:Val_D_Orcia_Sunrise_(151505625).jpeg",
-   "artist": "Giuseppe Paris",
-   "license": "CC BY 3.0",
-   "desc": "500px provided description: Val D Orcia Sunrise [#morning ,#travel ,#italy ,#hills ,#toscana ,#tuscany ,#siena ,#val d'orcia ,#san quirico d"
-  },
-  {
-   "src": "photos/orcia-4.jpg",
-   "ratio": 0.666,
-   "page": "https://commons.wikimedia.org/wiki/File:Val_d%27orcia.JPG",
+   "src": "photos/orcia-3-s.jpg",
+   "big": "photos/orcia-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Val_d%27orcia_-pienza.JPG",
    "artist": "Stefanoacetelli",
    "license": "CC BY-SA 3.0",
-   "desc": "Scorcio di campagna nei pressi di Pienza."
+   "ratio": 1.501
+  },
+  {
+   "src": "photos/orcia-1-s.jpg",
+   "big": "photos/orcia-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Wle_2023_-_val_d%27orcia_3_-_Rotoballe.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.827
+  },
+  {
+   "src": "photos/orcia-7-s.jpg",
+   "big": "photos/orcia-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Tramonto_sulla_Val_d%27Orcia_da_Pienza_-_Patrimonio_Unesco.jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.751
+  },
+  {
+   "src": "photos/orcia-6-s.jpg",
+   "big": "photos/orcia-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Orcia_astratta.jpg",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.375
+  },
+  {
+   "src": "photos/orcia-2-s.jpg",
+   "big": "photos/orcia-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:In_Val_d%27Orcia.jpg",
+   "artist": "JP Vets",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.503
+  },
+  {
+   "src": "photos/orcia-4-s.jpg",
+   "big": "photos/orcia-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cono_vulcanico_del_Monte_Amiata_dalla_Val_d%27Orcia.jpg",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.397
+  },
+  {
+   "src": "photos/orcia-ov3-s.jpg",
+   "big": "photos/orcia-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/51812388@N02/5698663059",
+   "artist": "Roman Harak",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/orcia-ov5-s.jpg",
+   "big": "photos/orcia-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/8438877@N05/41563231144",
+   "artist": "Jacopo Marcovaldi",
+   "license": "CC BY 2.0",
+   "ratio": 1.781
+  },
+  {
+   "src": "photos/orcia-ov4-s.jpg",
+   "big": "photos/orcia-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/8438877@N05/27414380737",
+   "artist": "Jacopo Marcovaldi",
+   "license": "CC BY 2.0",
+   "ratio": 1.781
+  },
+  {
+   "src": "photos/orcia-ov2-s.jpg",
+   "big": "photos/orcia-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/22961685@N02/14393224234",
+   "artist": "ebiggs vancouver",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
   }
  ],
- "chianti": [
+ "crete": [
   {
-   "src": "photos/chianti-1.jpg",
-   "ratio": 1.333,
-   "page": "https://commons.wikimedia.org/wiki/File:Chianti_0002.JPG",
-   "artist": "Arnaud 25",
+   "src": "photos/crete-2-s.jpg",
+   "big": "photos/crete-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sunrise_in_Crete_dell%27Orcia.jpg",
+   "artist": "Ciorophotoproject",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.498
+  },
+  {
+   "src": "photos/crete-6-s.jpg",
+   "big": "photos/crete-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete_Senesi_Calanchi.jpg",
+   "artist": "Gunther Tschuch",
    "license": "CC BY-SA 3.0",
-   "desc": "Chianti (wine)"
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/crete-1-s.jpg",
+   "big": "photos/crete-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete_senesi_-_Asciano_(Siena).jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/crete-3-s.jpg",
+   "big": "photos/crete-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete_senesi_presso_asciano,_09.JPG",
+   "artist": "Sailko",
+   "license": "CC BY 3.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/crete-4-s.jpg",
+   "big": "photos/crete-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Leonina_in_love.jpg",
+   "artist": "Martina Maccari",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/crete-7-s.jpg",
+   "big": "photos/crete-7-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete_Senesi_Monte_Oliveto.jpg",
+   "artist": "Gunther Tschuch",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/crete-5-s.jpg",
+   "big": "photos/crete-5-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Borgo_Antico_a_Lucignano_d%27Arbia.jpg",
+   "artist": "Albarubescens",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.371
+  },
+  {
+   "src": "photos/crete-8-s.jpg",
+   "big": "photos/crete-8-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete-senesi.jpg",
+   "artist": "Travel dreamer",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
   }
  ]
 };

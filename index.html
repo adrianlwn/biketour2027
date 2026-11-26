@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gravel Toscane 2027</title>
 <meta name="description" content="De Siena à Chiusi par les routes blanches : 6 jours de gravel en Toscane, 30 mai – 5 juin 2027.">
-<meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#141713" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F4EE">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="css/app.css">
 </head>
@@ -35,9 +34,11 @@
     <div class="mapwrap">
       <div id="map"></div>
       <div class="maplegend" id="maplegend" hidden></div>
+      <div class="layers" id="layersPanel" hidden></div>
       <div class="mapctl">
-        <button type="button" id="colorBtn" class="chip" aria-label="Changer la couleur du tracé">Tracé : <span id="colorName">Étapes</span></button>
-        <button type="button" id="layerBtn" class="chip" aria-label="Changer de fond de carte">Fond : <span id="layerName">Plan</span></button>
+        <button type="button" id="layersBtn" class="chip" aria-expanded="false" aria-controls="layersPanel">Couches</button>
+        <button type="button" id="colorBtn" class="chip" aria-label="Changer la couleur du tracé"><span class="pre">Tracé : </span><span id="colorName">Étapes</span></button>
+        <button type="button" id="layerBtn" class="chip" aria-label="Changer de fond de carte"><span class="pre">Fond : </span><span id="layerName">Plan</span></button>
         <button type="button" id="locate" class="chip" aria-label="Afficher ma position">◎</button>
         <button type="button" id="theme" class="chip" aria-label="Changer de thème">◐</button>
       </div>
