@@ -1250,6 +1250,232 @@ export const DAYLIB = {
     ]
    }
   ]
+ },
+ "d2gusme": {
+  "region": "Chianti",
+  "cover": "sangusme",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Itinéraire de base",
+    "short": "Villages perchés",
+    "t": "Radda → San Gusmè",
+    "path": [
+     "radda",
+     "gaiole",
+     "brolio",
+     "sangusme"
+    ],
+    "stops": [
+     [
+      "gaiole",
+      "berceau de l’Eroica, café"
+     ],
+     [
+      "brolio",
+      "château et jardins des Ricasoli"
+     ],
+     [
+      "sangusme",
+      "minuscule bourg médiéval, nuit"
+     ]
+    ],
+    "tips": [
+     "Dormez dans un des rares B&B ou agriturismi du village : réservez tôt.",
+     "Gardez la dégustation de Brolio pour une pause, jamais juste avant une descente sur gravier."
+    ]
+   }
+  ]
+ },
+ "d3chiusure": {
+  "region": "Crete Senesi",
+  "cover": "chiusure",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Itinéraire de base",
+    "short": "Villages perchés",
+    "t": "San Gusmè → Chiusure",
+    "path": [
+     "sangusme",
+     "castel",
+     "asciano",
+     "chiusure"
+    ],
+    "stops": [
+     [
+      "castel",
+      "pause café au bourg"
+     ],
+     [
+      "asciano",
+      "entrée dans les Crete Senesi, déjeuner"
+     ],
+     [
+      "chiusure",
+      "belvédère sur les Crete, nuit"
+     ]
+    ],
+    "tips": [
+     "Le coucher du soleil sur les collines d’argile depuis Chiusure est l’un des moments du voyage.",
+     "Hébergements rares à Chiusure même : regardez aussi les agriturismi alentour."
+    ]
+   }
+  ]
+ },
+ "d4oliveto": {
+  "region": "Crete Senesi → Montalcino",
+  "cover": "oliveto",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Itinéraire de base",
+    "short": "Villages perchés",
+    "t": "Chiusure → Montalcino",
+    "path": [
+     "chiusure",
+     "oliveto",
+     "buon",
+     "montalcino"
+    ],
+    "stops": [
+     [
+      "oliveto",
+      "fresques du cloître, à visiter dès l’ouverture"
+     ],
+     [
+      "buon",
+      "déjeuner dans le bourg fortifié"
+     ],
+     [
+      "montalcino",
+      "forteresse et Brunello, nuit"
+     ]
+    ],
+    "tips": [
+     "Monte Oliveto est juste en dessous de Chiusure : visite le matin, avant la fermeture de midi.",
+     "Montée finale d’environ 10 km vers Montalcino : prenez-la à votre rythme."
+    ]
+   }
+  ]
+ },
+ "d5rocca": {
+  "region": "Val d’Orcia",
+  "cover": "castiglione",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Itinéraire de base",
+    "short": "Villages perchés",
+    "t": "Montalcino → Rocca d’Orcia",
+    "path": [
+     "montalcino",
+     "antimo",
+     "castiglione"
+    ],
+    "stops": [
+     [
+      "antimo",
+      "abbaye romane au milieu des oliviers"
+     ],
+     [
+      "castiglione",
+      "village perché au pied de la forteresse, nuit"
+     ]
+    ],
+    "tips": [
+     "La dernière montée vers la Rocca est raide : poussez sans honte dans les derniers lacets.",
+     "Bagno Vignoni est juste en dessous : descente aux thermes possible le soir ou le lendemain matin."
+    ]
+   }
+  ]
+ },
+ "d6monti": {
+  "region": "Val d’Orcia",
+  "cover": "belvedere",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Itinéraire de base",
+    "short": "Villages perchés",
+    "t": "Rocca d’Orcia → Monticchiello",
+    "path": [
+     "castiglione",
+     "vignoni",
+     "quirico",
+     "belvedere",
+     "vitaleta",
+     "pienza",
+     "monticchiello"
+    ],
+    "stops": [
+     [
+      "vignoni",
+      "bassin thermal, café"
+     ],
+     [
+      "quirico",
+      "jardins Horti Leonini"
+     ],
+     [
+      "belvedere",
+      "la vue iconique du Val d’Orcia"
+     ],
+     [
+      "vitaleta",
+      "chapelle et cyprès"
+     ],
+     [
+      "pienza",
+      "déjeuner, pecorino"
+     ],
+     [
+      "monticchiello",
+      "village fortifié au-dessus des cyprès en lacets, nuit"
+     ]
+    ],
+    "tips": [
+     "La plus belle journée du voyage : partez tôt pour la lumière, prenez votre temps.",
+     "Propriétés privées à Belvedere et Vitaleta : photos depuis la route ou le chemin."
+    ]
+   }
+  ]
+ },
+ "d7monti": {
+  "region": "Valdichiana",
+  "cover": "montepulciano",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Itinéraire de base",
+    "short": "Villages perchés",
+    "t": "Monticchiello → Chiusi",
+    "path": [
+     "monticchiello",
+     "montepulciano",
+     "chiusi"
+    ],
+    "stops": [
+     [
+      "montepulciano",
+      "Piazza Grande, caves, déjeuner"
+     ],
+     [
+      "chiusi",
+      "gare, train retour vers Florence ou Siena"
+     ]
+    ],
+    "tips": [
+     "Vérifiez l’horaire du train de retour la veille."
+    ]
+   }
+  ]
  }
 };
 
@@ -1309,6 +1535,20 @@ export const SCENARIOS = [
    "d5",
    "d6",
    "d7"
+  ]
+ },
+ {
+  "id": "villages",
+  "name": "Villages perchés",
+  "pitch": "Chaque nuit dans un lieu remarquable : Radda, San Gusmè, Chiusure, Montalcino, la Rocca d’Orcia et Monticchiello. Sept jours de vélo, sans jour off.",
+  "days": [
+   "d1radda",
+   "d2gusme",
+   "d3chiusure",
+   "d4oliveto",
+   "d5rocca",
+   "d6monti",
+   "d7monti"
   ]
  }
 ];
