@@ -2245,6 +2245,89 @@ export const DAYLIB = {
     ]
    }
   ]
+ },
+ "c5": {
+  "region": "Crete Senesi",
+  "cover": "chiusure",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Monte Oliveto et Chiusure",
+    "short": "Abbaye et villages secrets",
+    "t": "Montalcino → Montisi",
+    "path": [
+     "montalcino",
+     "buon",
+     "oliveto",
+     "chiusure",
+     "sangiovanni",
+     "montisi"
+    ],
+    "stops": [
+     [
+      "buon",
+      "café dans le bourg fortifié"
+     ],
+     [
+      "oliveto",
+      "fresques du cloître"
+     ],
+     [
+      "chiusure",
+      "belvédère sur les Crete"
+     ],
+     [
+      "sangiovanni",
+      "château et truffe blanche"
+     ],
+     [
+      "montisi",
+      "village perché hors des circuits, nuit"
+     ]
+    ],
+    "tips": [
+     "L’abbaye ferme souvent à l’heure du déjeuner : partez tôt de Montalcino.",
+     "La partie la plus calme du voyage, entre Chiusure et Montisi."
+    ]
+   }
+  ]
+ },
+ "c6": {
+  "region": "Val d’Orcia",
+  "cover": "monticchiello",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Castelmuzio et Pienza",
+    "short": "Crêtes et cyprès",
+    "t": "Montisi → Monticchiello",
+    "path": [
+     "montisi",
+     "castelmuzio",
+     "pienza",
+     "monticchiello"
+    ],
+    "stops": [
+     [
+      "castelmuzio",
+      "bourg fortifié sur une crête"
+     ],
+     [
+      "pienza",
+      "déjeuner, pecorino"
+     ],
+     [
+      "monticchiello",
+      "village fortifié au-dessus des cyprès en lacets, nuit"
+     ]
+    ],
+    "tips": [
+     "Étape courte : après-midi tranquille à Monticchiello, coucher de soleil sur le Val d’Orcia."
+    ]
+   }
+  ]
  }
 };
 
@@ -2396,13 +2479,96 @@ export const SCENARIOS = [
    "r2",
    "r1"
   ]
+ },
+ {
+  "id": "bouclechiusi",
+  "cat": "Autre itinéraire",
+  "name": "Boucle depuis Chiusi",
+  "pitch": "Train aller et retour à Chiusi, idéal avec un vol via Rome : le Val d’Orcia, Montalcino, les villages secrets des Crete et Monticchiello.",
+  "days": [
+   "r7",
+   "r6",
+   "r5",
+   "rest_montalcino",
+   "c5",
+   "c6",
+   "d7monti"
+  ]
  }
 ];
 
+// Venir et repartir : durées approximatives depuis les aéroports et les grandes gares (à vérifier sur Trenitalia)
+export const ACCESS = {
+ "hubs": [
+  "Aéroport de Florence",
+  "Aéroport de Pise",
+  "Rome Fiumicino",
+  "Bologne"
+ ],
+ "stations": {
+  "scalo": {
+   "n": "Castellina in Chianti-Monteriggioni",
+   "line": "ligne Florence – Empoli – Siena",
+   "t": [
+    "≈ 1 h 45",
+    "≈ 2 h",
+    "≈ 3 h 30",
+    "≈ 2 h 45"
+   ]
+  },
+  "badesse": {
+   "n": "Badesse",
+   "line": "ligne Florence – Empoli – Siena, peu d’arrêts",
+   "t": [
+    "≈ 1 h 50",
+    "≈ 2 h 05",
+    "≈ 3 h 30",
+    "≈ 2 h 50"
+   ]
+  },
+  "siena": {
+   "n": "Siena",
+   "line": "ligne Florence – Empoli – Siena",
+   "t": [
+    "≈ 2 h",
+    "≈ 2 h 15",
+    "≈ 3 h 30 (train via Chiusi) ou ≈ 3 h en bus, vélo en housse",
+    "≈ 3 h"
+   ]
+  },
+  "chiusi": {
+   "n": "Chiusi-Chianciano Terme",
+   "line": "ligne régionale Florence – Rome",
+   "t": [
+    "≈ 2 h 15",
+    "≈ 3 h",
+    "≈ 2 h 45",
+    "≈ 3 h"
+   ]
+  },
+  "buon": {
+   "n": "Buonconvento",
+   "line": "ligne Siena – Grosseto, ≈ 30 min jusqu’à Siena",
+   "t": [
+    "≈ 2 h 30",
+    "≈ 2 h 45",
+    "≈ 4 h",
+    "≈ 3 h 30"
+   ]
+  }
+ },
+ "tips": [
+  "Siena n’a pas de vols réguliers : on arrive par Florence, Pise, Rome ou Bologne, puis en train.",
+  "Trains régionaux : vélos montés acceptés avec un supplément vélo (valable la journée). Trains rapides (Frecce) : vélos en housse uniquement. Bus : en général pas de vélos.",
+  "Avec vos vélos en avion : préférez une boucle (Siena ou Chiusi) pour laisser housses et cartons à l’hôtel du départ, ou louez des vélos gravel sur place (Siena, Florence, Gaiole).",
+  "Arrivez la veille si possible : une nuit à Siena ou à Florence évite de commencer à rouler l’après-midi, et le dimanche il y a moins de trains."
+ ]
+};
+
 export const PRACTICAL = [
-  { h: "Aller, dimanche 30 mai", p: "Train régional de Florence vers Siena (environ 1h30 jusqu’à Siena). Selon le scénario du jour 1, descendez à Castellina in Chianti-Monteriggioni, à Badesse ou à Siena. Le dimanche, il y a moins de trains : vérifiez les arrêts et les places vélo sur Trenitalia." },
+  { h: "Aller, dimanche 30 mai", p: "Selon le scénario, train jusqu’à Castellina in Chianti-Monteriggioni, Siena ou Chiusi : voir « Venir et repartir » en haut de page. Le dimanche, il y a moins de trains : vérifiez les horaires et les places vélo sur Trenitalia." },
   { h: "Visiter Siena", p: "Si vous partez de Castellina Scalo, gardez Siena pour la fin : trains directs depuis Chiusi, environ 1h30. Une nuit à Siena le 5 juin permet de voir le Campo et la cathédrale sans se presser." },
-  { h: "Retour, samedi 5 juin", p: "De Chiusi-Chianciano Terme, trains directs vers Florence (environ 1h30 à 2h) ou vers Siena (environ 1h30)." },
+  { h: "Retour, samedi 5 juin", p: "Depuis Chiusi ou Siena, trains directs vers Florence ; depuis Chiusi, aussi vers Rome. Vérifiez l’horaire la veille." },
   { h: "2 juin, jour férié", p: "Festa della Repubblica. Restaurants et caves restent en général ouverts à Montalcino, mais il y a plus de monde : réservez tôt." },
   { h: "Météo début juin", p: "Journées longues, souvent 25 à 28 °C l’après-midi. Partez tôt pour rouler à la fraîche." },
   { h: "Plan B", p: "Asciano et Buonconvento ont une gare, pour écourter une étape fatigante ou pluvieuse." },

@@ -1,4 +1,4 @@
-import { TRIP, PLACES, DATES, DAYLIB, SCENARIOS, SCENARIO_CATS, PRACTICAL, ACTIVITIES, PACES } from "./data.js";
+import { TRIP, PLACES, DATES, DAYLIB, SCENARIOS, SCENARIO_CATS, ACCESS, PRACTICAL, ACTIVITIES, PACES } from "./data.js";
 import { PHOTOS } from "./photos.js";
 import { ROUTES } from "./routes.js";
 import { OVERLAYS } from "./overlays.js";
@@ -154,6 +154,23 @@ document.addEventListener("change", e => {
   store.set("scenario", e.target.value);
   location.hash = "apercu"; location.reload();
 });
+
+// Venir et repartir : gares de départ et d'arrivée du scénario (selon les variantes choisies)
+function renderAccess() {
+  const a = day(0).path[0], b = day(DAYS.length - 1).path.at(-1);
+  const A = ACCESS.stations[a], B = ACCESS.stations[b];
+  const row = (h, j) => `<tr><th>${esc(h)}</th><td>${A ? esc(A.t[j]) : "—"}</td><td>${B ? esc(B.t[j]) : "—"}</td></tr>`;
+  $("#access").innerHTML = `
+    <h3>Venir et repartir</h3>
+    <div class="acc-ends">
+      <div><span>Aller · ${esc(DAYS[0].date)}</span><b>Gare de ${esc(A?.n || PLACES[a].n)}</b><em>${esc(A?.line || "")}</em></div>
+      <div><span>Retour · ${esc(DAYS.at(-1).date)}</span><b>Gare de ${esc(B?.n || PLACES[b].n)}</b><em>${esc(B?.line || "")}</em></div>
+    </div>
+    <table class="acc-t"><thead><tr><th>Temps de trajet depuis / vers</th><td>Aller</td><td>Retour</td></tr></thead>
+      <tbody>${ACCESS.hubs.map(row).join("")}</tbody></table>
+    <p class="muted">Durées approximatives, correspondances comprises : vérifiez les horaires et les places vélo sur Trenitalia.</p>
+    <ul class="acc-tips">${ACCESS.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul>`;
+}
 
 function renderTotals() {
   const riding = DAYS.map((_, i) => i).filter(i => !DAYS[i].rest).map(route);
@@ -481,7 +498,7 @@ function setChoice(i, j) {
   const sec = refreshStage(i);
   sec.querySelector(`[data-scen][value="${j}"]`)?.focus({ preventScroll: true });
   $(`[data-nav="${i}"]`).title = `${DAYS[i].date} · ${day(i).t}`;
-  renderTotals(); renderScenarios();
+  renderTotals(); renderScenarios(); renderAccess();
   setActive(i, true);
 }
 
@@ -563,6 +580,7 @@ $$("[data-profile]").forEach(bindProfile);
 
 renderTotals();
 renderScenarios();
+renderAccess();
 styleLines();
 refreshMarkers();
 applyLayers();
