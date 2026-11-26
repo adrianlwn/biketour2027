@@ -7,3 +7,4 @@ Application statique : ouvrir `index.html` via un serveur (`python3 -m http.serv
 - Tracés : [BRouter](https://brouter.de) (profils gravel, safety, trekking), données © contributeurs OpenStreetMap
 - Photos : Wikimedia Commons, auteurs et licences indiqués dans l'application
 - Fonds de carte : Esri, CyclOSM, OpenTopoMap
+# biketour2027
