@@ -1,4 +1,4 @@
-import { TRIP, PLACES, NIGHTS, DAYS, PRACTICAL } from "./data.js";
+import { TRIP, PLACES, NIGHTS, DAYS, PRACTICAL, ACTIVITIES, PACES } from "./data.js";
 import { PHOTOS } from "./photos.js";
 import { ROUTES } from "./routes.js";
 
@@ -10,6 +10,10 @@ const photos = k => PHOTOS[k] || [];
 const placeName = k => PLACES[k].full || PLACES[k].n;
 const isDesktop = () => matchMedia("(min-width: 1000px)").matches;
 const store = { get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
+
+// Distance cumulée (km) le long de chaque tracé, calculée une fois au chargement
+const hav = ([a, b], [c, d]) => { const R = 6371, r = Math.PI / 180, x = Math.sin((c - a) * r / 2) ** 2 + Math.cos(a * r) * Math.cos(c * r) * Math.sin((d - b) * r / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); };
+ROUTES.flat().forEach(r => { let c = 0; r.cum = r.geom.map((p, k) => (k && (c += hav(r.geom[k - 1], p)), c)); });
 
 /* ---------- Scénarios ---------- */
 // choice[i] = index du scénario retenu pour le jour i (0 = conseillé)
@@ -43,6 +47,35 @@ const groupBusy = list => {
 const bar = (vals, cols, label) => `<div class="sbar" role="img" aria-label="${esc(label)}">${vals.map((v, j) => v ? `<i style="width:${v}%;background:${cols[j]}"></i>` : "").join("")}</div>`;
 const legend = (vals, pal) => `<div class="slegend">${vals.map((v, j) => v ? `<span style="--c:${pal[j][1]}">${pal[j][0]} ${v} %</span>` : "").join("")}</div>`;
 
+// Durées : rythme choisi, heure de départ par jour
+let pace = Math.min(PACES.length - 1, Math.max(0, store.get("pace") ?? 1));
+const starts = DAYS.map((d, i) => store.get("starts")?.[i] || (i === 0 ? "10:30" : d.rest ? "09:30" : "09:00"));
+const hm = h => { const m = Math.round(h * 60 / 5) * 5; return m >= 60 ? `${Math.floor(m / 60)} h${m % 60 ? " " + String(m % 60).padStart(2, "0") : ""}` : `${m} min`; };
+const clock = (start, h) => { const [H, M] = start.split(":").map(Number); const t = Math.round((H * 60 + M + h * 60) / 5) * 5; return `${Math.floor(t / 60) % 24}h${String(t % 60).padStart(2, "0")}`; };
+function timing(i) {
+  const r = route(i), d = day(i), P = PACES[pace];
+  const g = r.gravel / 100, vflat = 1 / (g / P.gravel + (1 - g) / P.paved);
+  // montée cumulée le long du profil, recalée sur le D+ total
+  const pr = r.profile, asc = [0];
+  for (let j = 1; j < pr.length; j++) asc.push(asc[j - 1] + Math.max(0, pr[j][1] - pr[j - 1][1]));
+  const k = r.up / (asc.at(-1) || 1);
+  const ascAt = km => { let j = 0; while (j < pr.length - 1 && pr[j + 1][0] < km) j++; return asc[j] * k; };
+  const moving = km => km / vflat + ascAt(km) / P.climb;
+  // position de chaque arrêt le long du tracé
+  const kmOf = key => { const p = PLACES[key]; let best = 0, bd = Infinity; r.geom.forEach(([la, lo], n) => { const dd = (la - p.lat) ** 2 + (lo - p.lon) ** 2; if (dd < bd) { bd = dd; best = n; } }); return r.cum?.[best] ?? 0; };
+  const startKey = d.path[0], endKey = d.path.at(-1);
+  const stops = (d.rest || d.stops[0][0] === startKey ? d.stops : [[startKey, "départ"], ...d.stops]).map(([key, txt], j, arr) => {
+    const isStart = key === startKey && j === 0, isEnd = j === arr.length - 1 && !d.rest;
+    const km = isStart ? 0 : isEnd ? r.km : kmOf(key);
+    return { key, txt, km, pause: isStart || isEnd ? 0 : (ACTIVITIES[key]?.pause ?? 15) };
+  }).sort((a, b) => a.km - b.km);
+  let pauses = 0;
+  for (const st of stops) { st.eta = clock(starts[i], moving(st.km) + pauses / 60); pauses += st.pause; }
+  const ride = moving(r.km);
+  return { ride, pauses: pauses / 60, total: ride + pauses / 60, arrive: clock(starts[i], ride + pauses / 60), stops };
+}
+const rideOf = (i, r) => { const P = PACES[pace], g = r.gravel / 100; return r.km / (1 / (g / P.gravel + (1 - g) / P.paved)) + r.up / P.climb; };
+
 const COVERS = ["castellina", "brolio", "oliveto", "montalcino", "antimo", "vitaleta", "montepulciano"];
 const label = i => DAYS[i].rest ? "R" : String(DAYS.slice(0, i + 1).filter(d => !d.rest).length);
 const stageName = i => DAYS[i].rest ? "Jour de repos" : "Étape " + label(i);
@@ -71,10 +104,12 @@ function renderTotals() {
   const km = riding.reduce((s, r) => s + r.km, 0), up = riding.reduce((s, r) => s + r.up, 0);
   const pct = key => Math.round(riding.reduce((s, r) => s + r[key] * r.km, 0) / km);
   $("#totals").innerHTML = `
-    <div><dt>jours de vélo + repos</dt><dd>6 + 1</dd></div>
+    <div><dt>en selle, hors repos</dt><dd>${fr(DAYS.map((_, i) => i).filter(i => !DAYS[i].rest).reduce((s, i) => s + timing(i).ride, 0))}<small>h</small></dd></div>
     <div><dt>distance, hors repos</dt><dd>${fr(km)}<small>km</small></dd></div>
     <div><dt>dénivelé positif</dt><dd>${fr(Math.round(up / 10) * 10)}<small>m</small></dd></div>
     <div><dt>sur chemins blancs</dt><dd>${pct("gravel")}<small>%</small></dd></div>`;
+  $("#pace").innerHTML = `<span class="pace-l">Rythme</span>` + PACES.map((p, j) => `<label><input type="radio" name="pace" value="${j}" ${j === pace ? "checked" : ""}><span>${p.label}</span></label>`).join("")
+    + `<span class="pace-h">${PACES[pace].gravel}–${PACES[pace].paved} km/h sur le plat, ${PACES[pace].climb} m/h en montée</span>`;
   $("#totalSurface").innerHTML = surfaceBar({ gravel: pct("gravel"), paved: pct("paved"), unknown: Math.max(0, 100 - pct("gravel") - pct("paved")) })
     + `<p class="note">Agrément vélo moyen <b>${pct("score")}/100</b> (${scoreLabel(pct("score")).toLowerCase()}) · pente max du voyage <b>${fr(Math.max(...riding.map(r => r.slope.max)), 1)} %</b></p>`;
 }
@@ -106,13 +141,13 @@ const scenarioPicker = i => !DAYS[i].variants ? "" : `
         <span class="scen-tag">${j === 0 ? "Conseillé · " : ""}${esc(v.short)}</span>
         <span class="scen-name">${esc(v.label)}</span>
         <span class="scen-num"><b>${fr(r.km)}</b> km · <b>${fr(r.up)}</b> m D+ · ${r.gravel} % gravier</span>
-        <span class="scen-num">Pente max <b>${fr(r.slope.max, 0)} %</b> · trafic <b>${r.score}/100</b></span>
+        <span class="scen-num">≈ <b>${hm(rideOf(i, r))}</b> en selle · pente max <b>${fr(r.slope.max, 0)} %</b> · trafic <b>${r.score}/100</b></span>
       </label>`;
     }).join("")}</div>
   </fieldset>`;
 function stageHTML(i) {
-  const d = day(i), r = route(i), cov = photos(COVERS[i])[0];
-  const stops = [...(d.rest || i === 0 ? [] : [[d.path[0], "départ"]]), ...d.stops];
+  const d = day(i), r = route(i), cov = photos(COVERS[i])[0], T = timing(i);
+  const stops = T.stops;
   return `
     ${cov ? `<button class="stage-cover" type="button" data-photos="${COVERS[i]}" aria-label="Photos : ${esc(placeName(COVERS[i]))}"><img src="${cov.src}" alt="" loading="lazy"><span>${esc(placeName(COVERS[i]))}</span></button>` : ""}
     <p class="eyebrow">${stageName(i)} · ${esc(d.date)} · ${esc(d.region)}</p>
@@ -122,8 +157,13 @@ function stageHTML(i) {
       <div><dt>distance</dt><dd>${fr(r.km, 1)}<small>km</small></dd></div>
       <div><dt>dénivelé +</dt><dd>${fr(r.up)}<small>m</small></dd></div>
       <div><dt>gravier</dt><dd>${r.gravel}<small>%</small></dd></div>
-      <div><dt>altitude max</dt><dd>${fr(r.max)}<small>m</small></dd></div>
+      <div><dt>en selle ≈</dt><dd>${hm(T.ride)}</dd></div>
     </dl>
+    <div class="timing">
+      <label>Départ <input type="time" value="${starts[i]}" data-start="${i}"></label>
+      <span>→ arrivée vers <b>${T.arrive}</b></span>
+      <span class="muted">journée ≈ ${hm(T.total)}, dont ${hm(T.pauses)} de pauses et visites</span>
+    </div>
     <div class="surface">${surfaceBar(r)}</div>
     <div class="profile" data-profile="${i}">
       <span class="read"></span>
@@ -146,10 +186,15 @@ function stageHTML(i) {
       </section>
     </div>
     ${d.rest ? `<p class="est">Boucle facultative. Montalcino est perchée : toute sortie finit par une montée.</p>` : ""}
-    <ol class="stops">${stops.map(([k, s], j) => {
+    <ol class="stops">${stops.map(({ key: k, txt: s, km, eta, pause }, j) => {
       const night = !d.rest && j === stops.length - 1 && NIGHTS.has(k);
       const gare = PLACES[k].st && !PLACES[k].n.startsWith("Gare");
-      return `<li class="${night ? "night" : ""}"><div><b>${esc(PLACES[k].n)}${night ? `<span class="tag">nuit</span>` : ""}${gare ? `<span class="tag">gare</span>` : ""}</b><em>${esc(s)}</em></div>${thumbs(k)}</li>`;
+      const ideas = ACTIVITIES[k]?.ideas || [];
+      return `<li class="${night ? "night" : ""}">
+        <div class="when"><b>${eta}</b><span>km ${fr(km)}</span></div>
+        <div><b>${esc(PLACES[k].n)}${night ? `<span class="tag">nuit</span>` : ""}${gare ? `<span class="tag">gare</span>` : ""}${pause ? `<span class="tag soft">pause ${hm(pause / 60)}</span>` : ""}</b><em>${esc(s)}</em>
+          ${ideas.length ? `<details class="ideas"${night || pause >= 45 ? " open" : ""}><summary>${night ? "Le soir" : "À faire"} · ${ideas.length} idée${ideas.length > 1 ? "s" : ""}</summary><ul>${ideas.map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
+        </div>${thumbs(k)}</li>`;
     }).join("")}</ol>
     <div class="tips">${d.tips.map(t => `<div class="tip"><span>${esc(t)}</span></div>`).join("")}</div>
     <div class="actions">
@@ -242,7 +287,6 @@ const lines = ROUTES.map((variants, i) => variants.map((r, j) => {
     if (DAYS[i].variants && j !== choice[i]) setChoice(i, j);
     document.getElementById("jour-" + (i + 1)).scrollIntoView({ behavior: "smooth" });
   });
-  let c = 0; r.cum = r.geom.map((p, k) => (k && (c += map.distance(r.geom[k - 1], p)), c / 1000));
   return { halo, line, hit };
 }));
 // Couleur du tracé : étapes, pentes ou trafic
@@ -339,11 +383,15 @@ function setActive(i, force) {
   markNav(String(i));
 }
 
-function setChoice(i, j) {
-  choice[i] = j; store.set("choice", choice);
+function refreshStage(i) {
   const sec = document.getElementById("jour-" + (i + 1));
   sec.innerHTML = stageHTML(i);
   bindProfile(sec.querySelector("[data-profile]"));
+  return sec;
+}
+function setChoice(i, j) {
+  choice[i] = j; store.set("choice", choice);
+  const sec = refreshStage(i);
   sec.querySelector(`[data-scen][value="${j}"]`)?.focus({ preventScroll: true });
   $(`[data-nav="${i}"]`).title = `${DAYS[i].date} · ${day(i).t}`;
   renderTotals();
@@ -369,6 +417,16 @@ document.addEventListener("click", e => {
 document.addEventListener("change", e => {
   const r = e.target.closest("[data-scen]");
   if (r) setChoice(+r.dataset.scen, +r.value);
+  if (e.target.name === "pace") {
+    pace = +e.target.value; store.set("pace", pace);
+    DAYS.forEach((_, i) => refreshStage(i)); renderTotals();
+    $(`#pace input[value="${pace}"]`)?.focus({ preventScroll: true });
+  }
+  const st = e.target.closest("[data-start]");
+  if (st && st.value) {
+    const i = +st.dataset.start; starts[i] = st.value; store.set("starts", starts);
+    refreshStage(i).querySelector("[data-start]")?.focus({ preventScroll: true });
+  }
 });
 
 // Ma position

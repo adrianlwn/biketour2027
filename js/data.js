@@ -106,3 +106,34 @@ export const PRACTICAL = [
   { h: "Météo début juin", p: "Journées longues, souvent 25 à 28 °C l’après-midi. Partez tôt pour rouler à la fraîche." },
   { h: "Plan B", p: "Asciano et Buonconvento ont une gare, pour écourter une étape fatigante ou pluvieuse." },
 ];
+
+// Pause conseillée (minutes) quand le lieu est traversé, et idées d'activités
+export const ACTIVITIES = {
+  siena:        { pause: 0, ideas: ["Piazza del Campo et la Torre del Mangia (environ 400 marches) pour la vue", "Le Duomo et son pavement de marbre", "Si vous partez d’une autre gare, gardez Siena pour la fin du voyage"] },
+  scalo:        { pause: 0, ideas: ["Café avant d’attaquer la montée vers le Chianti", "Monteriggioni, village fortifié à environ 4 km, si vous avez le temps d’un détour"] },
+  badesse:      { pause: 0, ideas: ["Petite gare sans services : prévoyez eau et ravitaillement avant"] },
+  castellina:   { pause: 75, ideas: ["La Via delle Volte, passage médiéval couvert sous les remparts", "La Rocca et le musée archéologique du Chianti siennois", "Le tumulus étrusque de Montecalvario, juste au nord du bourg"] },
+  radda:        { pause: 30, ideas: ["Tour des remparts et Palazzo del Podestà", "Dégustation de Chianti Classico dans une enoteca du bourg"] },
+  gaiole:       { pause: 0, ideas: ["Berceau de l’Eroica : boutiques et souvenirs vélo vintage", "Dîner toscan : pici, ribollita, Chianti Classico", "Badia a Coltibuono, abbaye et domaine viticole à environ 5 km au nord, pour une sortie du soir"] },
+  brolio:       { pause: 60, ideas: ["Le château des Ricasoli, berceau de la recette du Chianti", "Les jardins et la vue sur les vignes", "Dégustation à la cave du domaine (réservation conseillée)"] },
+  castel:       { pause: 60, ideas: ["Pause déjeuner au bourg", "Le parc de la Villa Chigi Saracini", "Premiers panneaux marron de l’Eroica"] },
+  asciano:      { pause: 0, ideas: ["La collégiale Sant’Agata et le musée du Palazzo Corboli", "Le coucher du soleil sur les collines d’argile des Crete Senesi", "Le Site Transitoire, œuvre de land art au milieu des Crete (vers Leonina)"] },
+  oliveto:      { pause: 60, ideas: ["Le grand cloître et ses fresques de la vie de saint Benoît, par Signorelli et Sodoma", "L’allée de cyprès à l’entrée de l’abbaye", "Liqueurs et produits des moines à la boutique"] },
+  buon:         { pause: 60, ideas: ["Bourg fortifié parmi les plus beaux villages d’Italie", "Le musée de la Mezzadria, sur la vie paysanne toscane", "Café ou gelato sur la rue principale"] },
+  montalcino:   { pause: 0, ideas: ["Les remparts de la Forteresse et l’enoteca à l’intérieur", "Dégustation de Brunello : réservez une cave", "Le Tempio del Brunello, musée du vin dans l’ancien couvent Sant’Agostino"] },
+  angelo:       { pause: 45, ideas: ["Village perché, vue sur le Val d’Orcia et le Monte Amiata", "Déjeuner en terrasse ou dégustation dans un domaine voisin"] },
+  antimo:       { pause: 45, ideas: ["L’abbatiale romane en pierre claire, au milieu des oliviers", "Café à Castelnuovo dell’Abate, juste au-dessus de l’abbaye"] },
+  vignoni:      { pause: 0, ideas: ["La Piazza delle Sorgenti, bassin thermal au cœur du village (baignade interdite)", "Le Parco dei Mulini : bassins d’eau chaude gratuits en contrebas, pour tremper les jambes", "Piscines thermales payantes ouvertes au public pour récupérer"] },
+  quirico:      { pause: 45, ideas: ["Les Horti Leonini, jardin Renaissance", "Les portails sculptés de la collégiale"] },
+  vitaleta:     { pause: 20, ideas: ["La chapelle et ses cyprès : restez sur le chemin, c’est une propriété privée", "Lumière plus belle tôt le matin"] },
+  pienza:       { pause: 75, ideas: ["Piazza Pio II et le Duomo, cité idéale de la Renaissance", "Les remparts côté sud, panorama sur le Val d’Orcia", "Pecorino di Pienza à goûter et à emporter", "Détour possible par Monticchiello et sa route en lacets bordée de cyprès"] },
+  montepulciano:{ pause: 0, ideas: ["La Piazza Grande et la vue depuis la tour du Palazzo Comunale", "Caves souterraines et dégustation de Vino Nobile", "Le temple de San Biagio, en contrebas du bourg"] },
+  chiusi:       { pause: 0, ideas: ["Le musée archéologique national étrusque", "Le labyrinthe de Porsenna, galeries souterraines sous la cathédrale", "Un gelato avant le train"] },
+};
+
+// Rythmes : vitesse sur asphalte et sur gravier (km/h), vitesse verticale en montée (m/h)
+export const PACES = [
+  { id: "calme", label: "Tranquille", paved: 18, gravel: 13, climb: 450 },
+  { id: "moyen", label: "Moyen", paved: 21, gravel: 15, climb: 600 },
+  { id: "sport", label: "Sportif", paved: 25, gravel: 18, climb: 800 },
+];
