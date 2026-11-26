@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gravel Toscane 2027</title>
+<meta name="description" content="De Siena à Chiusi par les routes blanches : 6 jours de gravel en Toscane, 30 mai – 5 juin 2027.">
+<meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141713" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<header class="cover" id="top">
+  <img class="cover-img" id="coverImg" alt="">
+  <div class="cover-shade"></div>
+  <div class="cover-txt">
+    <p class="eyebrow" id="dates"></p>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+  </div>
+  <a class="credit" id="coverCredit" target="_blank" rel="noopener"></a>
+</header>
+
+<div class="layout">
+  <aside class="mappane" aria-label="Carte du parcours">
+    <nav class="daynav" id="daynav" aria-label="Étapes"></nav>
+    <div class="mapwrap">
+      <div id="map"></div>
+      <div class="maplegend" id="maplegend" hidden></div>
+      <div class="mapctl">
+        <button type="button" id="colorBtn" class="chip" aria-label="Changer la couleur du tracé">Tracé : <span id="colorName">Étapes</span></button>
+        <button type="button" id="layerBtn" class="chip" aria-label="Changer de fond de carte">Fond : <span id="layerName">Plan</span></button>
+        <button type="button" id="locate" class="chip" aria-label="Afficher ma position">◎</button>
+        <button type="button" id="theme" class="chip" aria-label="Changer de thème">◐</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <section class="summary" id="apercu" data-stage="-1">
+      <dl class="stats big" id="totals"></dl>
+      <div class="surface" id="totalSurface"></div>
+      <p class="note">Tracés calculés avec <a href="https://brouter.de" target="_blank" rel="noopener">BRouter</a> en profil gravel. La surface vient des données OpenStreetMap : « asphalte » compte aussi les routes sans indication de revêtement. Vérifiez sur place, les routes blanches changent vite après la pluie.</p>
+    </section>
+
+    <div id="stages"></div>
+
+    <section class="block" id="lieux" data-stage="-1">
+      <p class="eyebrow">Galerie</p>
+      <h2>Lieux d’intérêt</h2>
+      <div class="pgrid" id="pgrid"></div>
+    </section>
+
+    <section class="block" id="infos" data-stage="-1">
+      <p class="eyebrow">Avant de partir</p>
+      <h2>Infos pratiques</h2>
+      <div class="prac" id="prac"></div>
+    </section>
+
+    <footer>
+      Photos : Wikimedia Commons, auteur et licence indiqués sur chaque image. Fond de carte © contributeurs OpenStreetMap, © CARTO. Itinéraires : BRouter.
+    </footer>
+  </main>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo">
+  <button class="lb-x" id="lbX" type="button" aria-label="Fermer">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Photo précédente">‹</button>
+  <figure>
+    <img id="lbImg" alt="">
+    <figcaption><b id="lbTitle"></b><span id="lbCount"></span><a id="lbCredit" target="_blank" rel="noopener"></a></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Photo suivante">›</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

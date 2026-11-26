@@ -1,0 +1,10 @@
+{
+  "name": "Gravel Toscane 2027 – Siena → Chiusi",
+  "short_name": "Gravel Toscane",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F2F3EE",
+  "theme_color": "#1F3124",
+  "lang": "fr",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
