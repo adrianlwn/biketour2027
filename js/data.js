@@ -32,6 +32,12 @@ export const PLACES = {
   pienza:       { n: "Pienza", lat: 43.077, lon: 11.679 },
   montepulciano:{ n: "Montepulciano", lat: 43.0925, lon: 11.782 },
   chiusi:       { n: "Chiusi", lat: 43.0156, lon: 11.9459, st: 1 },
+  // lieux des scénarios « boucle depuis Siena » et « sens inverse »
+  leonina:      { n: "Site Transitoire", full: "Site Transitoire, sur la Via Lauretana", lat: 43.2934, lon: 11.4654 },
+  sangiovanni:  { n: "San Giovanni d’Asso", lat: 43.1526, lon: 11.59 },
+  montisi:      { n: "Montisi", lat: 43.157, lon: 11.6521 },
+  castelmuzio:  { n: "Castelmuzio", lat: 43.1409, lon: 11.6643 },
+  monteroni:    { n: "Monteroni d’Arbia", lat: 43.2301, lon: 11.4199, st: 1 },
   // lieux des détours
   monteriggioni:{ n: "Monteriggioni", lat: 43.3897, lon: 11.2234 },
   volpaia:      { n: "Volpaia", lat: 43.5166, lon: 11.381 },
@@ -1476,10 +1482,775 @@ export const DAYLIB = {
     ]
    }
   ]
+ },
+ "s1": {
+  "region": "Crete Senesi",
+  "cover": "leonina",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par la Via Lauretana",
+    "short": "Les crêtes d’argile",
+    "t": "Siena → Asciano",
+    "path": [
+     "siena",
+     "leonina",
+     "asciano"
+    ],
+    "stops": [
+     [
+      "siena",
+      "arrivée en train depuis Florence, café sur le Campo"
+     ],
+     [
+      "leonina",
+      "le Site Transitoire et les crêtes de la Lauretana"
+     ],
+     [
+      "asciano",
+      "bourg siennois, nuit"
+     ]
+    ],
+    "tips": [
+     "La Lauretana est une route goudronnée mais peu fréquentée, avec les plus beaux paysages des Crete.",
+     "Train direct Florence → Siena, environ 1h30."
+    ]
+   }
+  ]
+ },
+ "s2": {
+  "region": "Crete Senesi",
+  "cover": "chiusure",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Chiusure et San Giovanni d’Asso",
+    "short": "Villages secrets",
+    "t": "Asciano → Montisi",
+    "path": [
+     "asciano",
+     "chiusure",
+     "sangiovanni",
+     "montisi"
+    ],
+    "stops": [
+     [
+      "chiusure",
+      "belvédère sur les Crete"
+     ],
+     [
+      "sangiovanni",
+      "château et truffe blanche, déjeuner"
+     ],
+     [
+      "montisi",
+      "village perché hors des circuits, nuit"
+     ]
+    ],
+    "tips": [
+     "Les villages les plus calmes du voyage.",
+     "Monte Oliveto est à 2 km de Chiusure : détour possible pour le cloître."
+    ]
+   },
+   {
+    "id": "oliveto",
+    "profile": "gravel",
+    "label": "Avec Monte Oliveto Maggiore",
+    "short": "Détour · abbaye",
+    "t": "Asciano → Montisi",
+    "path": [
+     "asciano",
+     "chiusure",
+     "oliveto",
+     "sangiovanni",
+     "montisi"
+    ],
+    "stops": [
+     [
+      "chiusure",
+      "belvédère sur les Crete"
+     ],
+     [
+      "oliveto",
+      "fresques du cloître"
+     ],
+     [
+      "sangiovanni",
+      "château et truffe blanche"
+     ],
+     [
+      "montisi",
+      "nuit"
+     ]
+    ],
+    "tips": [
+     "L’abbaye ferme souvent à l’heure du déjeuner : vérifiez les horaires."
+    ]
+   }
+  ]
+ },
+ "s3": {
+  "region": "Val d’Orcia",
+  "cover": "pienza",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Castelmuzio",
+    "short": "Étape courte",
+    "t": "Montisi → Pienza",
+    "path": [
+     "montisi",
+     "castelmuzio",
+     "pienza"
+    ],
+    "stops": [
+     [
+      "castelmuzio",
+      "bourg fortifié sur une crête"
+     ],
+     [
+      "pienza",
+      "ville Renaissance, nuit"
+     ]
+    ],
+    "tips": [
+     "Étape courte : après-midi à Pienza, coucher de soleil depuis les remparts."
+    ]
+   },
+   {
+    "id": "monticchiello",
+    "profile": "gravel",
+    "label": "Avec Monticchiello",
+    "short": "Détour · cyprès en lacets",
+    "t": "Montisi → Pienza",
+    "path": [
+     "montisi",
+     "castelmuzio",
+     "monticchiello",
+     "pienza"
+    ],
+    "stops": [
+     [
+      "castelmuzio",
+      "bourg fortifié sur une crête"
+     ],
+     [
+      "monticchiello",
+      "village fortifié et route en lacets bordée de cyprès"
+     ],
+     [
+      "pienza",
+      "nuit"
+     ]
+    ],
+    "tips": [
+     "La route en lacets se photographie depuis le bas, au pied du village."
+    ]
+   }
+  ]
+ },
+ "s4": {
+  "region": "Val d’Orcia",
+  "cover": "belvedere",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Vitaleta et Belvedere",
+    "short": "Les cyprès iconiques",
+    "t": "Pienza → Bagno Vignoni",
+    "path": [
+     "pienza",
+     "vitaleta",
+     "belvedere",
+     "quirico",
+     "vignoni"
+    ],
+    "stops": [
+     [
+      "vitaleta",
+      "chapelle et cyprès"
+     ],
+     [
+      "belvedere",
+      "la vue la plus photographiée du Val d’Orcia"
+     ],
+     [
+      "quirico",
+      "jardins Horti Leonini, déjeuner"
+     ],
+     [
+      "vignoni",
+      "thermes, nuit"
+     ]
+    ],
+    "tips": [
+     "Passez tôt à Vitaleta pour la lumière.",
+     "Fin d’après-midi aux thermes pour récupérer."
+    ]
+   }
+  ]
+ },
+ "s7": {
+  "region": "Val d’Arbia → Siena",
+  "cover": "siena",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par la Via Francigena",
+    "short": "Retour à vélo",
+    "t": "Montalcino → Siena",
+    "path": [
+     "montalcino",
+     "buon",
+     "monteroni",
+     "siena"
+    ],
+    "stops": [
+     [
+      "buon",
+      "café dans le bourg fortifié"
+     ],
+     [
+      "monteroni",
+      "moulin fortifié sur l’Arbia"
+     ],
+     [
+      "siena",
+      "le Campo, train retour vers Florence"
+     ]
+    ],
+    "tips": [
+     "Longue descente puis vallée de l’Arbia : la dernière étape est plus roulante.",
+     "Prévoyez du temps à Siena avant le train du retour, ou une nuit sur place."
+    ]
+   },
+   {
+    "id": "train",
+    "profile": "gravel",
+    "label": "Jusqu’à Buonconvento, puis train",
+    "short": "Version courte",
+    "t": "Montalcino → Buonconvento",
+    "path": [
+     "montalcino",
+     "buon"
+    ],
+    "stops": [
+     [
+      "buon",
+      "gare : train vers Siena (environ 30 min)"
+     ]
+    ],
+    "tips": [
+     "Une matinée tranquille, puis le train pour avoir l’après-midi à Siena."
+    ]
+   }
+  ]
+ },
+ "r7": {
+  "region": "Valdichiana",
+  "cover": "montepulciano",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Itinéraire de base",
+    "short": "Mise en jambes",
+    "t": "Chiusi → Montepulciano",
+    "path": [
+     "chiusi",
+     "montepulciano"
+    ],
+    "stops": [
+     [
+      "chiusi",
+      "arrivée en train depuis Florence"
+     ],
+     [
+      "montepulciano",
+      "Piazza Grande, caves, nuit"
+     ]
+    ],
+    "tips": [
+     "Train direct Florence → Chiusi-Chianciano Terme, environ 1h30 à 2h.",
+     "Une montée régulière pour finir : Montepulciano se mérite."
+    ]
+   }
+  ]
+ },
+ "r6": {
+  "region": "Val d’Orcia",
+  "cover": "vitaleta",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Pienza et Vitaleta",
+    "short": "Le cœur du Val d’Orcia",
+    "t": "Montepulciano → Bagno Vignoni",
+    "path": [
+     "montepulciano",
+     "pienza",
+     "vitaleta",
+     "quirico",
+     "vignoni"
+    ],
+    "stops": [
+     [
+      "pienza",
+      "ville Renaissance, déjeuner"
+     ],
+     [
+      "vitaleta",
+      "chapelle et cyprès"
+     ],
+     [
+      "quirico",
+      "jardins Horti Leonini"
+     ],
+     [
+      "vignoni",
+      "thermes, nuit"
+     ]
+    ],
+    "tips": [
+     "Fin d’après-midi aux thermes pour récupérer."
+    ]
+   },
+   {
+    "id": "complet",
+    "profile": "gravel",
+    "label": "Monticchiello + Belvedere",
+    "short": "Détours · cyprès",
+    "t": "Montepulciano → Bagno Vignoni",
+    "path": [
+     "montepulciano",
+     "monticchiello",
+     "pienza",
+     "vitaleta",
+     "belvedere",
+     "quirico",
+     "vignoni"
+    ],
+    "stops": [
+     [
+      "monticchiello",
+      "village fortifié et cyprès en lacets"
+     ],
+     [
+      "pienza",
+      "déjeuner"
+     ],
+     [
+      "vitaleta",
+      "chapelle et cyprès"
+     ],
+     [
+      "belvedere",
+      "la vue iconique"
+     ],
+     [
+      "quirico",
+      "jardins Horti Leonini"
+     ],
+     [
+      "vignoni",
+      "thermes, nuit"
+     ]
+    ],
+    "tips": [
+     "La journée photo du voyage : prenez votre temps."
+    ]
+   }
+  ]
+ },
+ "r5": {
+  "region": "Val d’Orcia",
+  "cover": "antimo",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Sant’Antimo",
+    "short": "Abbaye romane",
+    "t": "Bagno Vignoni → Montalcino",
+    "path": [
+     "vignoni",
+     "antimo",
+     "montalcino"
+    ],
+    "stops": [
+     [
+      "antimo",
+      "abbaye romane au milieu des oliviers"
+     ],
+     [
+      "montalcino",
+      "forteresse et Brunello, deux nuits"
+     ]
+    ],
+    "tips": [
+     "La montée finale vers Montalcino est longue : partez tôt."
+    ]
+   },
+   {
+    "id": "rocca",
+    "profile": "gravel",
+    "label": "Avec la Rocca d’Orcia",
+    "short": "Détour · forteresse",
+    "t": "Bagno Vignoni → Montalcino",
+    "path": [
+     "vignoni",
+     "castiglione",
+     "antimo",
+     "montalcino"
+    ],
+    "stops": [
+     [
+      "castiglione",
+      "forteresse perchée, vue sur le Val d’Orcia"
+     ],
+     [
+      "antimo",
+      "abbaye romane"
+     ],
+     [
+      "montalcino",
+      "deux nuits"
+     ]
+    ],
+    "tips": [
+     "Deux belles montées dans la journée : à garder pour les jambes fraîches."
+    ]
+   }
+  ]
+ },
+ "r3": {
+  "region": "Crete Senesi",
+  "cover": "oliveto",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Monte Oliveto",
+    "short": "Les Crete",
+    "t": "Montalcino → Asciano",
+    "path": [
+     "montalcino",
+     "buon",
+     "oliveto",
+     "asciano"
+    ],
+    "stops": [
+     [
+      "buon",
+      "café dans le bourg fortifié"
+     ],
+     [
+      "oliveto",
+      "fresques du cloître"
+     ],
+     [
+      "asciano",
+      "bourg siennois, nuit"
+     ]
+    ],
+    "tips": [
+     "L’abbaye ferme souvent à l’heure du déjeuner : vérifiez les horaires."
+    ]
+   },
+   {
+    "id": "chiusure",
+    "profile": "gravel",
+    "label": "Avec Chiusure",
+    "short": "Détour · belvédère",
+    "t": "Montalcino → Asciano",
+    "path": [
+     "montalcino",
+     "buon",
+     "oliveto",
+     "chiusure",
+     "asciano"
+    ],
+    "stops": [
+     [
+      "buon",
+      "café"
+     ],
+     [
+      "oliveto",
+      "fresques du cloître"
+     ],
+     [
+      "chiusure",
+      "belvédère sur les Crete"
+     ],
+     [
+      "asciano",
+      "nuit"
+     ]
+    ],
+    "tips": [
+     "Chiusure domine l’abbaye : un des plus beaux points de vue sur les collines d’argile."
+    ]
+   }
+  ]
+ },
+ "r2": {
+  "region": "Crete Senesi → Chianti",
+  "cover": "brolio",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Brolio",
+    "short": "Routes de l’Eroica",
+    "t": "Asciano → Gaiole in Chianti",
+    "path": [
+     "asciano",
+     "castel",
+     "brolio",
+     "gaiole"
+    ],
+    "stops": [
+     [
+      "castel",
+      "déjeuner au bourg"
+     ],
+     [
+      "brolio",
+      "château et jardins des Ricasoli"
+     ],
+     [
+      "gaiole",
+      "berceau de l’Eroica, nuit"
+     ]
+    ],
+    "tips": [
+     "Gardez la dégustation de Brolio pour une pause, jamais juste avant une descente sur gravier."
+    ]
+   },
+   {
+    "id": "sangusme",
+    "profile": "gravel",
+    "label": "Avec San Gusmè",
+    "short": "Détour · bourg médiéval",
+    "t": "Asciano → Gaiole in Chianti",
+    "path": [
+     "asciano",
+     "castel",
+     "sangusme",
+     "brolio",
+     "gaiole"
+    ],
+    "stops": [
+     [
+      "castel",
+      "café"
+     ],
+     [
+      "sangusme",
+      "minuscule bourg médiéval"
+     ],
+     [
+      "brolio",
+      "château des Ricasoli"
+     ],
+     [
+      "gaiole",
+      "nuit"
+     ]
+    ],
+    "tips": [
+     "San Gusmè est sur le parcours de l’Eroica : très calme."
+    ]
+   }
+  ]
+ },
+ "r1": {
+  "region": "Chianti → Siena",
+  "cover": "castellina",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Jusqu’à Siena",
+    "short": "Finale à Siena",
+    "t": "Gaiole → Siena",
+    "path": [
+     "gaiole",
+     "radda",
+     "castellina",
+     "siena"
+    ],
+    "stops": [
+     [
+      "radda",
+      "bourg fortifié, café"
+     ],
+     [
+      "castellina",
+      "tunnel médiéval, déjeuner"
+     ],
+     [
+      "siena",
+      "le Campo, train retour vers Florence"
+     ]
+    ],
+    "tips": [
+     "Arrivée à Siena dans l’après-midi : gardez du temps pour le Campo et le Duomo, ou dormez sur place."
+    ]
+   },
+   {
+    "id": "gare",
+    "profile": "safety",
+    "label": "Jusqu’à la gare de Castellina",
+    "short": "Plus court",
+    "t": "Gaiole → Castellina Scalo",
+    "path": [
+     "gaiole",
+     "radda",
+     "castellina",
+     "scalo"
+    ],
+    "stops": [
+     [
+      "radda",
+      "bourg fortifié, café"
+     ],
+     [
+      "castellina",
+      "déjeuner"
+     ],
+     [
+      "scalo",
+      "train direct vers Florence ou Siena"
+     ]
+    ],
+    "tips": [
+     "Descente finale vers la gare : la dernière étape la plus facile."
+    ]
+   }
+  ]
+ },
+ "d56": {
+  "region": "Val d’Orcia",
+  "cover": "pienza",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Bagno Vignoni et Pienza",
+    "short": "Grande journée",
+    "t": "Montalcino → Montepulciano",
+    "path": [
+     "montalcino",
+     "antimo",
+     "vignoni",
+     "quirico",
+     "vitaleta",
+     "pienza",
+     "montepulciano"
+    ],
+    "stops": [
+     [
+      "antimo",
+      "abbaye romane"
+     ],
+     [
+      "vignoni",
+      "bassin thermal, café"
+     ],
+     [
+      "quirico",
+      "jardins Horti Leonini"
+     ],
+     [
+      "vitaleta",
+      "chapelle et cyprès"
+     ],
+     [
+      "pienza",
+      "déjeuner, pecorino"
+     ],
+     [
+      "montepulciano",
+      "Vino Nobile, deux nuits"
+     ]
+    ],
+    "tips": [
+     "La plus longue journée du voyage : partez tôt.",
+     "Récompense : deux nuits à Montepulciano."
+    ]
+   }
+  ]
+ },
+ "rest_montepulciano": {
+  "rest": true,
+  "region": "Montepulciano",
+  "cover": "montepulciano",
+  "variants": [
+   {
+    "id": "pied",
+    "profile": "hiking-mountain",
+    "label": "Montepulciano à pied",
+    "short": "Repos · caves",
+    "t": "Repos à Montepulciano",
+    "path": [
+     "montepulciano",
+     "monticchiello"
+    ],
+    "stops": [
+     [
+      "montepulciano",
+      "Piazza Grande, caves souterraines, San Biagio"
+     ],
+     [
+      "monticchiello",
+      "balade à pied facultative vers le village"
+     ]
+    ],
+    "tips": [
+     "Le matin : San Biagio et les caves de Vino Nobile ; l’après-midi : sieste ou balade vers Monticchiello."
+    ],
+    "walk": true
+   },
+   {
+    "id": "velo",
+    "profile": "gravel",
+    "label": "Boucle vélo vers Monticchiello",
+    "short": "Repos · vélo léger",
+    "t": "Repos à Montepulciano",
+    "path": [
+     "montepulciano",
+     "monticchiello",
+     "montepulciano"
+    ],
+    "stops": [
+     [
+      "montepulciano",
+      "départ sans bagages"
+     ],
+     [
+      "monticchiello",
+      "village fortifié et cyprès en lacets"
+     ]
+    ],
+    "tips": [
+     "Une boucle courte sans sacoches."
+    ]
+   }
+  ]
  }
 };
 
-// Scénarios de voyage : ils changent les lieux où l'on dort
+// Scénarios de voyage, rangés par catégorie : ils changent les lieux où l'on dort
+// pick : variantes présélectionnées par le scénario
+export const SCENARIO_CATS = ["Équilibrés","Plus facile","Plus beau","Autre itinéraire"];
 export const SCENARIOS = [
  {
   "id": "classique",
@@ -1493,7 +2264,8 @@ export const SCENARIOS = [
    "d5",
    "d6",
    "d7"
-  ]
+  ],
+  "cat": "Équilibrés"
  },
  {
   "id": "thermes",
@@ -1507,7 +2279,8 @@ export const SCENARIOS = [
    "rest_vignoni",
    "d6",
    "d7"
-  ]
+  ],
+  "cat": "Équilibrés"
  },
  {
   "id": "pienza",
@@ -1521,7 +2294,8 @@ export const SCENARIOS = [
    "d6pienza",
    "rest_pienza",
    "d7pienza"
-  ]
+  ],
+  "cat": "Équilibrés"
  },
  {
   "id": "doux",
@@ -1534,6 +2308,22 @@ export const SCENARIOS = [
    "d4buon",
    "d5",
    "d6",
+   "d7"
+  ],
+  "cat": "Plus facile"
+ },
+ {
+  "id": "deuxoff",
+  "cat": "Plus facile",
+  "name": "Deux jours off",
+  "pitch": "Repos à Montalcino et à Montepulciano ; une seule grande journée à travers le Val d’Orcia.",
+  "days": [
+   "d1",
+   "d2",
+   "d3",
+   "rest_montalcino",
+   "d56",
+   "rest_montepulciano",
    "d7"
   ]
  },
@@ -1549,6 +2339,62 @@ export const SCENARIOS = [
    "d5rocca",
    "d6monti",
    "d7monti"
+  ],
+  "cat": "Plus beau"
+ },
+ {
+  "id": "detours",
+  "cat": "Plus beau",
+  "name": "Tous les détours",
+  "pitch": "Le parcours classique avec chaque détour : Volpaia, San Gusmè, Chiusure, la Rocca d’Orcia, Belvedere et Monticchiello.",
+  "days": [
+   "d1",
+   "d2",
+   "d3",
+   "rest_montalcino",
+   "d5",
+   "d6",
+   "d7"
+  ],
+  "pick": {
+   "d1": "scalo-volpaia",
+   "d2": "sangusme",
+   "d3": "chiusure",
+   "d5": "rocca",
+   "d6": "complet"
+  }
+ },
+ {
+  "id": "boucle",
+  "cat": "Autre itinéraire",
+  "name": "Boucle depuis Siena",
+  "pitch": "Train aller et retour à Siena : la Via Lauretana, les villages secrets des Crete (Montisi, San Giovanni d’Asso), le Val d’Orcia, et le retour par la Via Francigena.",
+  "days": [
+   "s1",
+   "s2",
+   "s3",
+   "s4",
+   "r5",
+   "rest_montalcino",
+   "s7"
+  ],
+  "pick": {
+   "s3": "monticchiello"
+  }
+ },
+ {
+  "id": "inverse",
+  "cat": "Autre itinéraire",
+  "name": "Sens inverse, finale à Siena",
+  "pitch": "Départ en train à Chiusi, fin du voyage dans le Chianti puis à Siena : on garde la plus belle ville pour la fin.",
+  "days": [
+   "r7",
+   "r6",
+   "r5",
+   "rest_montalcino",
+   "r3",
+   "r2",
+   "r1"
   ]
  }
 ];
@@ -1566,6 +2412,11 @@ export const PRACTICAL = [
 export const ACTIVITIES = {
   siena:        { pause: 0, hist: "République médiévale rivale de Florence ; le Campo et la Torre del Mangia datent du XIVe siècle, et le Palio s’y court encore deux fois par an.", ideas: ["Piazza del Campo et la Torre del Mangia (environ 400 marches) pour la vue", "Le Duomo et son pavement de marbre", "Si vous partez d’une autre gare, gardez Siena pour la fin du voyage"] },
   scalo:        { pause: 0, ideas: ["Café avant d’attaquer la montée vers le Chianti", "Monteriggioni, village fortifié tout proche : voir le scénario avec détour"] },
+  leonina:      { pause: 20, hist: "La Via Lauretana, ancienne route de Siena vers Cortona, traverse ici les crêtes d’argile ; Jean-Paul Philippe y a posé une sculpture ouverte sur le paysage.", ideas: ["Le Site Transitoire, sculpture de pierre face aux Crete", "Les cyprès isolés et les crêtes de la Lauretana, très photogéniques"] },
+  sangiovanni:  { pause: 30, hist: "Bourg dominé par son château, capitale de la truffe blanche des Crete.", ideas: ["Le château et l’église romane San Pietro in Villore", "Le musée de la truffe blanche"] },
+  montisi:      { pause: 0, hist: "Village médiéval resté à l’écart des circuits touristiques, au sommet d’une colline.", ideas: ["Promenade du soir dans le bourg et vue sur le Val d’Asso", "Dîner dans une trattoria de village"] },
+  castelmuzio:  { pause: 30, hist: "Petit bourg fortifié sur une crête, au-dessus de la Pieve di Santo Stefano a Cennano.", ideas: ["Ruelles et vue vers le Val d’Orcia", "La Pieve di Santo Stefano a Cennano, en contrebas"] },
+  monteroni:    { pause: 30, hist: "Étape de la Via Francigena, avec un ancien moulin fortifié sur l’Arbia.", ideas: ["Le moulin fortifié sur l’Arbia", "Gare : train vers Siena si les jambes sont lourdes"] },
   monteriggioni:{ pause: 45, hist: "Forteresse bâtie par Siena entre 1213 et 1219 pour surveiller Florence ; Dante compare ses tours à des géants dans l’Enfer.", ideas: ["Les remparts et leurs 14 tours, avec un chemin de ronde accessible", "Café en terrasse sur la Piazza Roma", "Le village cité par Dante dans l’Enfer"] },
   volpaia:      { pause: 40, hist: "Château médiéval des XIe–XIIe siècles, avant-poste florentin pendant les guerres du Chianti.", ideas: ["Hameau fortifié perché à plus de 600 m", "Dégustation au domaine Castello di Volpaia (réservation conseillée)", "Vue sur les collines du Chianti"] },
   sangusme:     { pause: 30, hist: "Petit bourg médiéval resté presque intact, sur l’ancienne frontière entre Siena et Florence.", ideas: ["Minuscule bourg médiéval aux portes de pierre", "Pause café au calme, sur les routes de l’Eroica"] },

@@ -132,6 +132,9 @@ button{font:inherit;color:inherit}
 .profile.hover .read,.profile.hover .hair{opacity:1}
 
 /* Scénarios de voyage */
+.trip-cat{grid-column:1/-1;margin:.8rem 0 -.1rem;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.trip-cat:first-child{margin-top:0}
+.trip-ends{font-size:.74rem;color:var(--faint)}
 .trip-h{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1rem}
 .trip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:0 0 2rem}
 .trip-opt{position:relative;display:flex;flex-direction:column;gap:.3rem;padding:.9rem 1rem;border:1px solid var(--rule);border-radius:14px;background:var(--surface);cursor:pointer;transition:border-color .2s,box-shadow .2s}

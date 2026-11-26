@@ -58,6 +58,110 @@ export const PHOTOS = {
    "ratio": 1.333
   }
  ],
+ "leonina": [
+  {
+   "src": "photos/crete-2-s.jpg",
+   "big": "photos/crete-2-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sunrise_in_Crete_dell%27Orcia.jpg",
+   "artist": "Ciorophotoproject",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.498
+  },
+  {
+   "src": "photos/crete-6-s.jpg",
+   "big": "photos/crete-6-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete_Senesi_Calanchi.jpg",
+   "artist": "Gunther Tschuch",
+   "license": "CC BY-SA 3.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/crete-1-s.jpg",
+   "big": "photos/crete-1-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete_senesi_-_Asciano_(Siena).jpg",
+   "artist": "Anna.Massini",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/crete-3-s.jpg",
+   "big": "photos/crete-3-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Crete_senesi_presso_asciano,_09.JPG",
+   "artist": "Sailko",
+   "license": "CC BY 3.0",
+   "ratio": 1.5
+  },
+  {
+   "src": "photos/crete-4-s.jpg",
+   "big": "photos/crete-4-l.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Leonina_in_love.jpg",
+   "artist": "Martina Maccari",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.333
+  }
+ ],
+ "sangiovanni": [
+  {
+   "src": "photos/sangiovanni-ov2-s.jpg",
+   "big": "photos/sangiovanni-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/22961685@N02/14392782092",
+   "artist": "ebiggs vancouver",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/sangiovanni-ov3-s.jpg",
+   "big": "photos/sangiovanni-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/22961685@N02/14392784412",
+   "artist": "ebiggs vancouver",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/sangiovanni-ov4-s.jpg",
+   "big": "photos/sangiovanni-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/22961685@N02/14207705907",
+   "artist": "ebiggs vancouver",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/sangiovanni-ov6-s.jpg",
+   "big": "photos/sangiovanni-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/22961685@N02/14371058846",
+   "artist": "ebiggs vancouver",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  }
+ ],
+ "montisi": [
+  {
+   "src": "photos/montisi-ov2-s.jpg",
+   "big": "photos/montisi-ov2-s.jpg",
+   "page": "https://commons.wikimedia.org/w/index.php?curid=77499322",
+   "artist": "Pufui PcPifpef",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.152
+  },
+  {
+   "src": "photos/montisi-ov3-s.jpg",
+   "big": "photos/montisi-ov3-s.jpg",
+   "page": "https://commons.wikimedia.org/w/index.php?curid=77481751",
+   "artist": "Pufui PcPifpef",
+   "license": "CC BY-SA 4.0",
+   "ratio": 1.04
+  }
+ ],
+ "monteroni": [
+  {
+   "src": "photos/monteroni-ov1-s.jpg",
+   "big": "photos/monteroni-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/25168691@N06/19910721058",
+   "artist": "Franco Vannini",
+   "license": "CC BY 2.0",
+   "ratio": 1.778
+  }
+ ],
  "monteriggioni": [
   {
    "src": "photos/monteriggioni-4-s.jpg",
@@ -1314,38 +1418,6 @@ export const PHOTOS = {
    "artist": "Albarubescens",
    "license": "CC BY-SA 4.0",
    "ratio": 1.397
-  },
-  {
-   "src": "photos/orcia-ov3-s.jpg",
-   "big": "photos/orcia-ov3-s.jpg",
-   "page": "https://www.flickr.com/photos/51812388@N02/5698663059",
-   "artist": "Roman Harak",
-   "license": "CC BY-SA 2.0",
-   "ratio": 1.499
-  },
-  {
-   "src": "photos/orcia-ov5-s.jpg",
-   "big": "photos/orcia-ov5-s.jpg",
-   "page": "https://www.flickr.com/photos/8438877@N05/41563231144",
-   "artist": "Jacopo Marcovaldi",
-   "license": "CC BY 2.0",
-   "ratio": 1.781
-  },
-  {
-   "src": "photos/orcia-ov4-s.jpg",
-   "big": "photos/orcia-ov4-s.jpg",
-   "page": "https://www.flickr.com/photos/8438877@N05/27414380737",
-   "artist": "Jacopo Marcovaldi",
-   "license": "CC BY 2.0",
-   "ratio": 1.781
-  },
-  {
-   "src": "photos/orcia-ov2-s.jpg",
-   "big": "photos/orcia-ov2-s.jpg",
-   "page": "https://www.flickr.com/photos/22961685@N02/14393224234",
-   "artist": "ebiggs vancouver",
-   "license": "CC BY 2.0",
-   "ratio": 1.499
   }
  ],
  "crete": [

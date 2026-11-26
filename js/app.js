@@ -1,4 +1,4 @@
-import { TRIP, PLACES, DATES, DAYLIB, SCENARIOS, PRACTICAL, ACTIVITIES, PACES } from "./data.js";
+import { TRIP, PLACES, DATES, DAYLIB, SCENARIOS, SCENARIO_CATS, PRACTICAL, ACTIVITIES, PACES } from "./data.js";
 import { PHOTOS } from "./photos.js";
 import { ROUTES } from "./routes.js";
 import { OVERLAYS } from "./overlays.js";
@@ -19,9 +19,15 @@ Object.values(ROUTES).flat().forEach(r => { let c = 0; r.cum = r.geom.map((p, k)
 /* ---------- Scénario de voyage (lieux des nuits) et variantes d'étape ---------- */
 const SCEN = SCENARIOS.find(s => s.id === store.get("scenario")) || SCENARIOS[0];
 const DAYS = SCEN.days.map((id, pos) => ({ ...DAYLIB[id], lib: id, date: DATES[pos] }));
-// choix de variante, mémorisé par étape de la bibliothèque (0 = conseillée)
-const savedChoice = store.get("variants") || {};
-const choice = DAYS.map(d => Math.min(savedChoice[d.lib] ?? 0, d.variants.length - 1));
+// choix de variante, mémorisé par scénario et par étape ; sinon la présélection du scénario, sinon la conseillée
+const savedChoice = store.get("variants2") || {};
+const defaultChoice = (sc, lib) => {
+  const k = `${sc.id}:${lib}`;
+  if (savedChoice[k] != null) return Math.min(savedChoice[k], DAYLIB[lib].variants.length - 1);
+  const p = sc.pick?.[lib]; const j = p ? DAYLIB[lib].variants.findIndex(v => v.id === p) : 0;
+  return Math.max(0, j);
+};
+const choice = DAYS.map(d => defaultChoice(SCEN, d.lib));
 const day = i => DAYS[i].variants ? { ...DAYS[i], ...DAYS[i].variants[choice[i]] } : DAYS[i];
 const route = i => ROUTES[DAYS[i].lib][choice[i]];
 const gpxOf = i => `gpx/${DAYS[i].lib}-${day(i).id}.gpx`;
@@ -119,20 +125,19 @@ function scenStats(sc) {
   let km = 0, up = 0, ride = 0;
   sc.days.forEach(id => {
     const d = DAYLIB[id]; if (d.rest) return;
-    const j = Math.min(savedChoice[id] ?? 0, d.variants.length - 1), r = ROUTES[id][j];
+    const r = ROUTES[id][defaultChoice(sc, id)];
     km += r.km; up += r.up; ride += rideOf(0, r, id);
   });
   const nights = [];
-  sc.days.forEach(id => {
+  sc.days.slice(0, -1).forEach(id => {  // le dernier jour se termine au train
     const d = DAYLIB[id], k = d.rest ? d.variants[0].path[0] : d.variants[0].path.at(-1);
-    if (k === "chiusi") return;
     const last = nights.at(-1);
     if (last && last.k === k) last.n++; else nights.push({ k, n: 1 });
   });
   return { km, up, ride, nights, rest: sc.days.some(id => DAYLIB[id].rest) };
 }
 function renderScenarios() {
-  $("#trip").innerHTML = SCENARIOS.map(sc => {
+  $("#trip").innerHTML = SCENARIO_CATS.map(cat => `<p class="trip-cat">${esc(cat)}</p>` + SCENARIOS.filter(sc => sc.cat === cat).map(sc => {
     const st = scenStats(sc), on = sc.id === SCEN.id;
     return `<label class="trip-opt${on ? " on" : ""}">
       <input type="radio" name="trip" value="${sc.id}" ${on ? "checked" : ""}>
@@ -140,8 +145,9 @@ function renderScenarios() {
       <span class="trip-pitch">${esc(sc.pitch)}</span>
       <span class="trip-nights">${st.nights.map(n => `<span>${esc(PLACES[n.k].n.replace(" in Chianti", "").replace(" Berardenga", ""))}${n.n > 1 ? ` <b>×${n.n}</b>` : ""}</span>`).join("")}</span>
       <span class="trip-num"><b>${fr(st.km)}</b> km · <b>${fr(Math.round(st.up / 10) * 10)}</b> m D+ · ≈ <b>${fr(st.ride)}</b> h en selle${st.rest ? "" : " · sans jour off"}</span>
+      <span class="trip-ends">${esc(PLACES[DAYLIB[sc.days[0]].variants[0].path[0]].n.replace("Gare de ", "gare de "))} → ${esc(PLACES[DAYLIB[sc.days.at(-1)].variants[0].path.at(-1)].n)}</span>
     </label>`;
-  }).join("");
+  }).join("")).join("");
 }
 document.addEventListener("change", e => {
   if (e.target.name !== "trip" || e.target.value === SCEN.id) return;
@@ -471,7 +477,7 @@ function refreshStage(i) {
   return sec;
 }
 function setChoice(i, j) {
-  choice[i] = j; savedChoice[DAYS[i].lib] = j; store.set("variants", savedChoice);
+  choice[i] = j; savedChoice[`${SCEN.id}:${DAYS[i].lib}`] = j; store.set("variants2", savedChoice);
   const sec = refreshStage(i);
   sec.querySelector(`[data-scen][value="${j}"]`)?.focus({ preventScroll: true });
   $(`[data-nav="${i}"]`).title = `${DAYS[i].date} · ${day(i).t}`;
