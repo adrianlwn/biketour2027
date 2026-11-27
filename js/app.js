@@ -136,6 +136,55 @@ function scenStats(sc) {
   });
   return { km, up, ride, nights, rest: sc.days.some(id => DAYLIB[id].rest) };
 }
+// Statistiques détaillées d'un scénario, pour le comparateur
+function scenDetail(sc) {
+  const st = scenStats(sc), rides = [];
+  let grav = 0, traf = 0, slope = 0;
+  sc.days.forEach(id => {
+    const d = DAYLIB[id]; if (d.rest) return;
+    const r = ROUTES[id][defaultChoice(sc, id)];
+    rides.push(r); grav += r.gravel * r.km; traf += r.score * r.km; slope = Math.max(slope, r.slope.max);
+  });
+  const places = new Set(st.nights.map(n => n.k));
+  return { ...st, rest: sc.days.filter(id => DAYLIB[id].rest).length, maxKm: Math.max(...rides.map(r => r.km)), maxUp: Math.max(...rides.map(r => r.up)),
+    gravel: grav / st.km, score: traf / st.km, slope, places: places.size,
+    from: ACCESS.stations[DAYLIB[sc.days[0]].variants[defaultChoice(sc, sc.days[0])].path[0]]?.n || "",
+    to: ACCESS.stations[DAYLIB[sc.days.at(-1)].variants[defaultChoice(sc, sc.days.at(-1))].path.at(-1)]?.n || "" };
+}
+const CMP_COLS = [
+  { k: "km", h: "Distance", f: v => fr(v) + " km", best: "min" },
+  { k: "up", h: "Dénivelé +", f: v => fr(Math.round(v / 10) * 10) + " m", best: "min" },
+  { k: "ride", h: "En selle", f: v => "≈ " + fr(v) + " h", best: "min" },
+  { k: "maxUp", h: "Pire journée", f: (v, d) => `${fr(d.maxKm)} km · ${fr(v)} m`, best: "min" },
+  { k: "slope", h: "Pente max", f: v => fr(v, 1) + " %", best: "min" },
+  { k: "gravel", h: "Gravier", f: v => Math.round(v) + " %", best: "max" },
+  { k: "score", h: "Calme", f: v => Math.round(v) + "/100", best: "max" },
+  { k: "rest", h: "Jours off", f: v => v ? String(v) : "—", best: "max" },
+  { k: "places", h: "Lieux de nuit", f: v => String(v), best: "max" },
+];
+let cmpSort = { k: null, dir: 1 };
+function renderCompare() {
+  const rows = SCENARIOS.map(sc => ({ sc, d: scenDetail(sc) }));
+  if (cmpSort.k) rows.sort((a, b) => (a.d[cmpSort.k] - b.d[cmpSort.k]) * cmpSort.dir);
+  const best = Object.fromEntries(CMP_COLS.map(c => { const v = rows.map(r => r.d[c.k]); return [c.k, c.best === "min" ? Math.min(...v) : Math.max(...v)]; }));
+  const ext = Object.fromEntries(CMP_COLS.map(c => { const v = rows.map(r => r.d[c.k]); return [c.k, [Math.min(...v), Math.max(...v)]]; }));
+  $("#compare").innerHTML = `
+    <div class="cmp-wrap"><table class="cmp">
+      <thead><tr><th>Scénario</th>${CMP_COLS.map(c => `<th><button type="button" data-sort="${c.k}" aria-label="Trier par ${c.h}">${c.h}${cmpSort.k === c.k ? (cmpSort.dir > 0 ? " ↑" : " ↓") : ""}</button></th>`).join("")}<th>Gares</th></tr></thead>
+      <tbody>${rows.map(({ sc, d }) => `<tr class="${sc.id === SCEN.id ? "on" : ""}">
+        <th><button type="button" data-pick="${sc.id}">${esc(sc.name)}</button><small>${esc(sc.cat)}</small></th>
+        ${CMP_COLS.map(c => { const [lo, hi] = ext[c.k], w = hi > lo ? (d[c.k] - lo) / (hi - lo) : 1; return `<td class="${d[c.k] === best[c.k] ? "best" : ""}"><span>${c.f(d[c.k], d)}</span><i style="width:${Math.round(15 + w * 85)}%"></i></td>`; }).join("")}
+        <td class="st">${esc(d.from.replace("Castellina in Chianti-Monteriggioni", "Castellina Scalo").replace("-Chianciano Terme", "").replace("-San Gimignano", "").replace("Firenze Santa Maria Novella", "Florence"))} → ${esc(d.to.replace("-Chianciano Terme", "").replace("Castellina in Chianti-Monteriggioni", "Castellina Scalo"))}</td>
+      </tr>`).join("")}</tbody></table></div>
+    <p class="muted">En vert : la meilleure valeur de chaque colonne. Cliquez sur un en-tête pour trier, sur un nom pour choisir le scénario. Temps en selle au rythme « ${PACES[pace].label} ».</p>`;
+}
+document.addEventListener("click", e => {
+  const s = e.target.closest("[data-sort]");
+  if (s) { const k = s.dataset.sort; cmpSort = { k, dir: cmpSort.k === k ? -cmpSort.dir : (CMP_COLS.find(c => c.k === k).best === "max" ? -1 : 1) }; renderCompare(); }
+  const p = e.target.closest("[data-pick]");
+  if (p) chooseScenario(p.dataset.pick);
+});
+
 function renderScenarios() {
   $("#trip").innerHTML = SCENARIO_CATS.map(cat => `<p class="trip-cat">${esc(cat)}</p>` + SCENARIOS.filter(sc => sc.cat === cat).map(sc => {
     const st = scenStats(sc), on = sc.id === SCEN.id;
@@ -149,11 +198,14 @@ function renderScenarios() {
     </label>`;
   }).join("")).join("");
 }
-document.addEventListener("change", e => {
-  if (e.target.name !== "trip" || e.target.value === SCEN.id) return;
-  store.set("scenario", e.target.value);
-  location.hash = "apercu"; location.reload();
-});
+function chooseScenario(id) {
+  if (id === SCEN.id) return;
+  store.set("scenario", id);
+  try { sessionStorage.setItem("keepScroll", String(scrollY)); } catch {}
+  history.replaceState(null, "", location.pathname + location.search);
+  location.reload();
+}
+document.addEventListener("change", e => { if (e.target.name === "trip") chooseScenario(e.target.value); });
 
 // Venir et repartir : gares de départ et d'arrivée du scénario (selon les variantes choisies)
 function renderAccess() {
@@ -498,7 +550,7 @@ function setChoice(i, j) {
   const sec = refreshStage(i);
   sec.querySelector(`[data-scen][value="${j}"]`)?.focus({ preventScroll: true });
   $(`[data-nav="${i}"]`).title = `${DAYS[i].date} · ${day(i).t}`;
-  renderTotals(); renderScenarios(); renderAccess();
+  renderTotals(); renderScenarios(); renderAccess(); renderCompare();
   setActive(i, true);
 }
 
@@ -523,7 +575,7 @@ document.addEventListener("change", e => {
   if (r) setChoice(+r.dataset.scen, +r.value);
   if (e.target.name === "pace") {
     pace = +e.target.value; store.set("pace", pace);
-    DAYS.forEach((_, i) => refreshStage(i)); renderTotals(); renderScenarios();
+    DAYS.forEach((_, i) => refreshStage(i)); renderTotals(); renderScenarios(); renderCompare();
     $(`#pace input[value="${pace}"]`)?.focus({ preventScroll: true });
   }
   const st = e.target.closest("[data-start]");
@@ -581,12 +633,16 @@ $$("[data-profile]").forEach(bindProfile);
 renderTotals();
 renderScenarios();
 renderAccess();
+renderCompare();
 styleLines();
 refreshMarkers();
 applyLayers();
 
 // Lien direct vers une étape
-if (location.hash === "#apercu") setTimeout(() => document.getElementById("apercu")?.scrollIntoView(), 200);
+let keep = null;
+try { keep = sessionStorage.getItem("keepScroll"); sessionStorage.removeItem("keepScroll"); } catch {}
+if (keep != null) { history.scrollRestoration = "manual"; scrollTo(0, +keep); requestAnimationFrame(() => scrollTo(0, +keep)); }
+else if (location.hash === "#apercu") setTimeout(() => document.getElementById("apercu")?.scrollIntoView(), 200);
 const h = location.hash.match(/^#jour-(\d)$/);
 if (h) setTimeout(() => document.getElementById("jour-" + h[1])?.scrollIntoView(), 200);
 

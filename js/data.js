@@ -45,6 +45,8 @@ export const PLACES = {
   colle:        { n: "Colle di Val d’Elsa", lat: 43.4226, lon: 11.1264 },
   cortona:      { n: "Cortona", lat: 43.2753, lon: 11.9851 },
   arezzo:       { n: "Arezzo", lat: 43.462, lon: 11.8742, st: 1 },
+  firenze:      { n: "Florence", full: "Florence, gare Santa Maria Novella", lat: 43.7764, lon: 11.2479, st: 1 },
+  greve:        { n: "Greve in Chianti", lat: 43.5843, lon: 11.3159 },
   // lieux des détours
   monteriggioni:{ n: "Monteriggioni", lat: 43.3897, lon: 11.2234 },
   volpaia:      { n: "Volpaia", lat: 43.5166, lon: 11.381 },
@@ -2559,6 +2561,63 @@ export const DAYLIB = {
     ]
    }
   ]
+ },
+ "f1": {
+  "region": "Florence → Chianti",
+  "cover": "greve",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par les collines au sud de Florence",
+    "short": "Sortie de Florence",
+    "t": "Florence → Greve in Chianti",
+    "path": [
+     "firenze",
+     "greve"
+    ],
+    "stops": [
+     [
+      "firenze",
+      "départ à vélo depuis la gare"
+     ],
+     [
+      "greve",
+      "place à arcades, nuit"
+     ]
+    ],
+    "tips": [
+     "Sortie de Florence tôt le matin pour éviter la circulation.",
+     "Une étape qui monte dès la sortie de la ville : c’est la plus dure du premier jour."
+    ]
+   }
+  ]
+ },
+ "f2": {
+  "region": "Chianti",
+  "cover": "castellina",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Panzano",
+    "short": "Cœur du Chianti Classico",
+    "t": "Greve → Castellina in Chianti",
+    "path": [
+     "greve",
+     "castellina"
+    ],
+    "stops": [
+     [
+      "castellina",
+      "tunnel médiéval, nuit"
+     ]
+    ],
+    "tips": [
+     "Étape courte au milieu des vignes du Chianti Classico."
+    ]
+   }
+  ]
  }
 };
 
@@ -2776,6 +2835,21 @@ export const SCENARIOS = [
   "pick": {
    "s7": "train"
   }
+ },
+ {
+  "id": "florence",
+  "cat": "Autres villes de Toscane",
+  "name": "Florence → Siena à vélo",
+  "pitch": "Départ à vélo depuis Florence, sans train : tout le Chianti par Greve, Castellina et Gaiole, les Crete, repos à Montalcino et retour par la Via Francigena jusqu’à Siena.",
+  "days": [
+   "f1",
+   "f2",
+   "g3",
+   "d2",
+   "d3",
+   "rest_montalcino",
+   "s7"
+  ]
  }
 ];
 
@@ -2785,7 +2859,8 @@ export const ACCESS = {
   "Aéroport de Florence",
   "Aéroport de Pise",
   "Rome Fiumicino",
-  "Bologne"
+  "Bologne",
+  "Aéroport de Pérouse"
  ],
  "stations": {
   "scalo": {
@@ -2795,7 +2870,8 @@ export const ACCESS = {
     "≈ 1 h 45",
     "≈ 2 h",
     "≈ 3 h 30",
-    "≈ 2 h 45"
+    "≈ 2 h 45",
+    "≈ 3 h"
    ]
   },
   "badesse": {
@@ -2805,7 +2881,8 @@ export const ACCESS = {
     "≈ 1 h 50",
     "≈ 2 h 05",
     "≈ 3 h 30",
-    "≈ 2 h 50"
+    "≈ 2 h 50",
+    "≈ 3 h"
    ]
   },
   "siena": {
@@ -2815,7 +2892,8 @@ export const ACCESS = {
     "≈ 2 h",
     "≈ 2 h 15",
     "≈ 3 h 30 (train via Chiusi) ou ≈ 3 h en bus, vélo en housse",
-    "≈ 3 h"
+    "≈ 3 h",
+    "≈ 2 h 45"
    ]
   },
   "chiusi": {
@@ -2825,7 +2903,8 @@ export const ACCESS = {
     "≈ 2 h 15",
     "≈ 3 h",
     "≈ 2 h 45",
-    "≈ 3 h"
+    "≈ 3 h",
+    "≈ 1 h 30"
    ]
   },
   "buon": {
@@ -2835,7 +2914,8 @@ export const ACCESS = {
     "≈ 2 h 30",
     "≈ 2 h 45",
     "≈ 4 h",
-    "≈ 3 h 30"
+    "≈ 3 h 30",
+    "≈ 3 h 15"
    ]
   },
   "poggibonsi": {
@@ -2845,7 +2925,8 @@ export const ACCESS = {
     "≈ 1 h 30",
     "≈ 1 h 45",
     "≈ 3 h 30",
-    "≈ 2 h 30"
+    "≈ 2 h 30",
+    "≈ 3 h 15"
    ]
   },
   "arezzo": {
@@ -2855,12 +2936,24 @@ export const ACCESS = {
     "≈ 1 h 30",
     "≈ 2 h 30",
     "≈ 2 h 30",
-    "≈ 2 h"
+    "≈ 2 h",
+    "≈ 1 h 45"
+   ]
+  },
+  "firenze": {
+   "n": "Firenze Santa Maria Novella",
+   "line": "départ à vélo depuis la gare",
+   "t": [
+    "≈ 30 min (tram T2)",
+    "≈ 1 h 15",
+    "≈ 2 h 15 (train rapide, vélo en housse)",
+    "≈ 45 min (train rapide, vélo en housse)",
+    "≈ 2 h 30"
    ]
   }
  },
  "tips": [
-  "Siena n’a pas de vols réguliers : on arrive par Florence, Pise, Rome ou Bologne, puis en train.",
+  "Siena n’a pas de vols réguliers : les offres « Londres → Siena » des comparateurs atterrissent en réalité à Pise, Florence, Pérouse ou Bologne. Depuis Londres : Pise et Florence toute l’année, Pérouse (Ryanair depuis Stansted, à vérifier selon la saison), tout près de Chiusi et de Cortona.",
   "Trains régionaux : vélos montés acceptés avec un supplément vélo (valable la journée). Trains rapides (Frecce) : vélos en housse uniquement. Bus : en général pas de vélos.",
   "Avec vos vélos en avion : préférez une boucle (Siena ou Chiusi) pour laisser housses et cartons à l’hôtel du départ, ou louez des vélos gravel sur place (Siena, Florence, Gaiole).",
   "Arrivez la veille si possible : une nuit à Siena ou à Florence évite de commencer à rouler l’après-midi, et le dimanche il y a moins de trains.",
@@ -2893,6 +2986,8 @@ export const ACTIVITIES = {
   colle:        { pause: 45, hist: "Ville haute médiévale et ville basse industrielle, capitale italienne du cristal.", ideas: ["La ville haute (Colle Alta) et ses palais", "Le musée du cristal"] },
   cortona:      { pause: 60, hist: "Cité étrusque perchée au-dessus du Val di Chiana ; Fra Angelico y a peint une célèbre Annonciation.", ideas: ["La Piazza della Repubblica et ses ruelles en pente", "Le musée diocésain et l’Annonciation de Fra Angelico", "Le coucher de soleil sur le lac Trasimène"] },
   arezzo:       { pause: 0, hist: "Grande cité étrusque puis commune médiévale ; la basilique San Francesco abrite les fresques de Piero della Francesca.", ideas: ["La Piazza Grande, en pente", "Les fresques de la Légende de la Vraie Croix (réservation conseillée)", "La cathédrale et le parc du Prato"] },
+  firenze:      { pause: 0, hist: "Berceau de la Renaissance, capitale des Médicis ; son centre historique est classé à l’UNESCO depuis 1982.", ideas: ["Arrivez la veille : le Duomo, le Ponte Vecchio et la vue depuis le Piazzale Michelangelo au coucher du soleil", "Sortie de ville tôt le matin, avant la circulation"] },
+  greve:        { pause: 45, hist: "Bourg de marché du Chianti, autour d’une place en triangle bordée d’arcades.", ideas: ["La Piazza Matteotti et ses arcades", "La Macelleria Falorni, boucherie historique", "Le hameau fortifié de Montefioralle, à 2 km"] },
   monteriggioni:{ pause: 45, hist: "Forteresse bâtie par Siena entre 1213 et 1219 pour surveiller Florence ; Dante compare ses tours à des géants dans l’Enfer.", ideas: ["Les remparts et leurs 14 tours, avec un chemin de ronde accessible", "Café en terrasse sur la Piazza Roma", "Le village cité par Dante dans l’Enfer"] },
   volpaia:      { pause: 40, hist: "Château médiéval des XIe–XIIe siècles, avant-poste florentin pendant les guerres du Chianti.", ideas: ["Hameau fortifié perché à plus de 600 m", "Dégustation au domaine Castello di Volpaia (réservation conseillée)", "Vue sur les collines du Chianti"] },
   sangusme:     { pause: 30, hist: "Petit bourg médiéval resté presque intact, sur l’ancienne frontière entre Siena et Florence.", ideas: ["Minuscule bourg médiéval aux portes de pierre", "Pause café au calme, sur les routes de l’Eroica"] },

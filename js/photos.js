@@ -1,5 +1,97 @@
 // Wikimedia Commons (1920 px) et Flickr via Openverse (1024 px), triées à la main ; la 1re photo sert de couverture
 export const PHOTOS = {
+ "firenze": [
+  {
+   "src": "photos/firenze-ov2-s.jpg",
+   "big": "photos/firenze-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/21186555@N07/28331684403",
+   "artist": "Ray in Manila",
+   "license": "CC BY 2.0",
+   "ratio": 2.052
+  },
+  {
+   "src": "photos/firenze-ov1-s.jpg",
+   "big": "photos/firenze-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/30567804@N00/583616150",
+   "artist": "echiner1",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/firenze-ov3-s.jpg",
+   "big": "photos/firenze-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/34920308@N07/6873305220",
+   "artist": "Artur Staszewski",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/firenze-ov4-s.jpg",
+   "big": "photos/firenze-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/35557234@N07/15925568705",
+   "artist": "Zach Dischner",
+   "license": "CC BY 2.0",
+   "ratio": 1.508
+  },
+  {
+   "src": "photos/firenze-ov5-s.jpg",
+   "big": "photos/firenze-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/73082817@N03/27295557320",
+   "artist": "BPPrice",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  }
+ ],
+ "greve": [
+  {
+   "src": "photos/greve-ov1-s.jpg",
+   "big": "photos/greve-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/28024094@N08/9213785429",
+   "artist": "muninn.net",
+   "license": "CC BY 2.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/greve-ov2-s.jpg",
+   "big": "photos/greve-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8482189236",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.328
+  },
+  {
+   "src": "photos/greve-ov3-s.jpg",
+   "big": "photos/greve-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8481096555",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/greve-ov4-s.jpg",
+   "big": "photos/greve-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8481100783",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/greve-ov5-s.jpg",
+   "big": "photos/greve-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/29797746@N08/8464348934",
+   "artist": "The Consortium",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/greve-ov6-s.jpg",
+   "big": "photos/greve-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/34192854@N00/2660109111",
+   "artist": "charley1965",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.333
+  }
+ ],
  "sangim": [
   {
    "src": "photos/sangim-ov2-s.jpg",
