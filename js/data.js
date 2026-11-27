@@ -38,6 +38,13 @@ export const PLACES = {
   montisi:      { n: "Montisi", lat: 43.157, lon: 11.6521 },
   castelmuzio:  { n: "Castelmuzio", lat: 43.1409, lon: 11.6643 },
   monteroni:    { n: "Monteroni d’Arbia", lat: 43.2301, lon: 11.4199, st: 1 },
+  // lieux des scénarios « autres villes de Toscane »
+  poggibonsi:   { n: "Gare de Poggibonsi", lat: 43.468, lon: 11.1494, st: 1 },
+  sangim:       { n: "San Gimignano", lat: 43.4678, lon: 11.0432 },
+  volterra:     { n: "Volterra", lat: 43.4003, lon: 10.86 },
+  colle:        { n: "Colle di Val d’Elsa", lat: 43.4226, lon: 11.1264 },
+  cortona:      { n: "Cortona", lat: 43.2753, lon: 11.9851 },
+  arezzo:       { n: "Arezzo", lat: 43.462, lon: 11.8742, st: 1 },
   // lieux des détours
   monteriggioni:{ n: "Monteriggioni", lat: 43.3897, lon: 11.2234 },
   volpaia:      { n: "Volpaia", lat: 43.5166, lon: 11.381 },
@@ -2328,12 +2335,236 @@ export const DAYLIB = {
     ]
    }
   ]
+ },
+ "w1": {
+  "region": "Val d’Elsa",
+  "cover": "sangim",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Depuis la gare de Poggibonsi",
+    "short": "Étape courte",
+    "t": "Poggibonsi → San Gimignano",
+    "path": [
+     "poggibonsi",
+     "sangim"
+    ],
+    "stops": [
+     [
+      "poggibonsi",
+      "arrivée en train depuis Florence"
+     ],
+     [
+      "sangim",
+      "ville des tours, nuit"
+     ]
+    ],
+    "tips": [
+     "Étape courte : profitez de San Gimignano en fin de journée, quand les cars sont repartis.",
+     "Train direct Florence → Poggibonsi, environ 1 h."
+    ]
+   }
+  ]
+ },
+ "w2": {
+  "region": "Val d’Elsa → Val di Cecina",
+  "cover": "volterra",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par les collines",
+    "short": "Grande montée",
+    "t": "San Gimignano → Volterra",
+    "path": [
+     "sangim",
+     "volterra"
+    ],
+    "stops": [
+     [
+      "volterra",
+      "cité étrusque et albâtre, nuit"
+     ]
+    ],
+    "tips": [
+     "La montée finale vers Volterra est longue : partez tôt et prenez de l’eau."
+    ]
+   }
+  ]
+ },
+ "w3": {
+  "region": "Val d’Elsa",
+  "cover": "colle",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Vers Colle di Val d’Elsa",
+    "short": "Grande descente",
+    "t": "Volterra → Colle di Val d’Elsa",
+    "path": [
+     "volterra",
+     "colle"
+    ],
+    "stops": [
+     [
+      "colle",
+      "ville haute médiévale, nuit"
+     ]
+    ],
+    "tips": [
+     "Une longue descente depuis Volterra, puis des collines plus douces."
+    ]
+   }
+  ]
+ },
+ "w4": {
+  "region": "Val d’Elsa → Siena",
+  "cover": "monteriggioni",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Monteriggioni",
+    "short": "Village fortifié",
+    "t": "Colle di Val d’Elsa → Siena",
+    "path": [
+     "colle",
+     "monteriggioni",
+     "siena"
+    ],
+    "stops": [
+     [
+      "monteriggioni",
+      "village entièrement fortifié, café"
+     ],
+     [
+      "siena",
+      "le Campo, nuit"
+     ]
+    ],
+    "tips": [
+     "Arrivée à Siena dans l’après-midi : le Campo et le Duomo le soir."
+    ]
+   }
+  ]
+ },
+ "g2": {
+  "region": "Chianti",
+  "cover": "castellina",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par les collines du Chianti",
+    "short": "Vignes",
+    "t": "San Gimignano → Castellina in Chianti",
+    "path": [
+     "sangim",
+     "castellina"
+    ],
+    "stops": [
+     [
+      "castellina",
+      "tunnel médiéval, nuit"
+     ]
+    ],
+    "tips": [
+     "Vous quittez le Val d’Elsa pour les premières vignes du Chianti Classico."
+    ]
+   }
+  ]
+ },
+ "g3": {
+  "region": "Chianti",
+  "cover": "radda",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par Radda",
+    "short": "Cœur du Chianti",
+    "t": "Castellina → Gaiole in Chianti",
+    "path": [
+     "castellina",
+     "radda",
+     "gaiole"
+    ],
+    "stops": [
+     [
+      "radda",
+      "bourg fortifié, déjeuner"
+     ],
+     [
+      "gaiole",
+      "berceau de l’Eroica, nuit"
+     ]
+    ],
+    "tips": [
+     "Étape courte mais vallonnée, au milieu des vignes."
+    ]
+   }
+  ]
+ },
+ "e5": {
+  "region": "Val di Chiana",
+  "cover": "cortona",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par le Val di Chiana",
+    "short": "Vers l’Ombrie",
+    "t": "Montepulciano → Cortona",
+    "path": [
+     "montepulciano",
+     "cortona"
+    ],
+    "stops": [
+     [
+      "cortona",
+      "cité étrusque perchée, nuit"
+     ]
+    ],
+    "tips": [
+     "Grande descente vers le Val di Chiana, puis la montée raide vers Cortona en fin d’étape."
+    ]
+   }
+  ]
+ },
+ "e6": {
+  "region": "Val di Chiana",
+  "cover": "arezzo",
+  "variants": [
+   {
+    "id": "base",
+    "profile": "gravel",
+    "label": "Par le Val di Chiana",
+    "short": "Presque plat",
+    "t": "Cortona → Arezzo",
+    "path": [
+     "cortona",
+     "arezzo"
+    ],
+    "stops": [
+     [
+      "arezzo",
+      "Piazza Grande et Piero della Francesca, train retour"
+     ]
+    ],
+    "tips": [
+     "Étape presque plate dans la plaine du Val di Chiana.",
+     "Train Arezzo → Florence, environ 1 h."
+    ]
+   }
+  ]
  }
 };
 
 // Scénarios de voyage, rangés par catégorie : ils changent les lieux où l'on dort
 // pick : variantes présélectionnées par le scénario
-export const SCENARIO_CATS = ["Équilibrés","Plus facile","Plus beau","Autre itinéraire"];
+export const SCENARIO_CATS = ["Équilibrés","Plus facile","Plus beau","Autre itinéraire","Autres villes de Toscane"];
 export const SCENARIOS = [
  {
   "id": "classique",
@@ -2494,6 +2725,57 @@ export const SCENARIOS = [
    "c6",
    "d7monti"
   ]
+ },
+ {
+  "id": "ouest",
+  "cat": "Autres villes de Toscane",
+  "name": "Ouest : San Gimignano, Volterra, Siena",
+  "pitch": "Les tours de San Gimignano, la cité étrusque de Volterra, Monteriggioni et deux jours entre Siena et les Crete. Retour en train depuis Buonconvento.",
+  "days": [
+   "w1",
+   "w2",
+   "w3",
+   "w4",
+   "s1",
+   "d3",
+   "s7"
+  ],
+  "pick": {
+   "s7": "train"
+  }
+ },
+ {
+  "id": "est",
+  "cat": "Autres villes de Toscane",
+  "name": "Est : Val d’Orcia, Cortona, Arezzo",
+  "pitch": "Départ de Siena par les Crete, repos à Montalcino, le Val d’Orcia, puis Cortona et Arezzo. Retour en train depuis Arezzo.",
+  "days": [
+   "s1",
+   "d3",
+   "rest_montalcino",
+   "d5",
+   "d6",
+   "e5",
+   "e6"
+  ]
+ },
+ {
+  "id": "sangimchianti",
+  "cat": "Autres villes de Toscane",
+  "name": "San Gimignano et Chianti",
+  "pitch": "San Gimignano, puis le Chianti par Castellina, Radda et Gaiole, les Crete et Montalcino. Retour en train depuis Buonconvento.",
+  "days": [
+   "w1",
+   "g2",
+   "g3",
+   "d2",
+   "d3",
+   "rest_montalcino",
+   "s7"
+  ],
+  "pick": {
+   "s7": "train"
+  }
  }
 ];
 
@@ -2555,13 +2837,35 @@ export const ACCESS = {
     "≈ 4 h",
     "≈ 3 h 30"
    ]
+  },
+  "poggibonsi": {
+   "n": "Poggibonsi-San Gimignano",
+   "line": "ligne Florence – Empoli – Siena",
+   "t": [
+    "≈ 1 h 30",
+    "≈ 1 h 45",
+    "≈ 3 h 30",
+    "≈ 2 h 30"
+   ]
+  },
+  "arezzo": {
+   "n": "Arezzo",
+   "line": "ligne Florence – Rome",
+   "t": [
+    "≈ 1 h 30",
+    "≈ 2 h 30",
+    "≈ 2 h 30",
+    "≈ 2 h"
+   ]
   }
  },
  "tips": [
   "Siena n’a pas de vols réguliers : on arrive par Florence, Pise, Rome ou Bologne, puis en train.",
   "Trains régionaux : vélos montés acceptés avec un supplément vélo (valable la journée). Trains rapides (Frecce) : vélos en housse uniquement. Bus : en général pas de vélos.",
   "Avec vos vélos en avion : préférez une boucle (Siena ou Chiusi) pour laisser housses et cartons à l’hôtel du départ, ou louez des vélos gravel sur place (Siena, Florence, Gaiole).",
-  "Arrivez la veille si possible : une nuit à Siena ou à Florence évite de commencer à rouler l’après-midi, et le dimanche il y a moins de trains."
+  "Arrivez la veille si possible : une nuit à Siena ou à Florence évite de commencer à rouler l’après-midi, et le dimanche il y a moins de trains.",
+  "Pise, Lucques et Florence se visitent mieux à pied qu’à vélo : prévoyez une journée en train avant ou après (Pise–Lucques ≈ 30 min, Pise–Florence ≈ 1 h).",
+  "Pitigliano est trop au sud pour ce voyage (≈ 74 km et 1 700 m de D+ depuis Bagno Vignoni, sans gare proche) : à garder pour un autre voyage, en Maremme."
  ]
 };
 
@@ -2583,6 +2887,12 @@ export const ACTIVITIES = {
   montisi:      { pause: 0, hist: "Village médiéval resté à l’écart des circuits touristiques, au sommet d’une colline.", ideas: ["Promenade du soir dans le bourg et vue sur le Val d’Asso", "Dîner dans une trattoria de village"] },
   castelmuzio:  { pause: 30, hist: "Petit bourg fortifié sur une crête, au-dessus de la Pieve di Santo Stefano a Cennano.", ideas: ["Ruelles et vue vers le Val d’Orcia", "La Pieve di Santo Stefano a Cennano, en contrebas"] },
   monteroni:    { pause: 30, hist: "Étape de la Via Francigena, avec un ancien moulin fortifié sur l’Arbia.", ideas: ["Le moulin fortifié sur l’Arbia", "Gare : train vers Siena si les jambes sont lourdes"] },
+  poggibonsi:   { pause: 0, hist: "Ville reconstruite après les bombardements de 1944, dominée par la forteresse médicéenne de Poggio Imperiale.", ideas: ["Café avant de partir", "La forteresse de Poggio Imperiale, au-dessus de la ville"] },
+  sangim:       { pause: 60, hist: "Ville des tours médiévales bâties par les familles marchandes, dont 14 sont encore debout ; classée à l’UNESCO en 1990.", ideas: ["La Piazza della Cisterna et la Piazza del Duomo", "Monter à la Torre Grossa pour la vue", "Un verre de Vernaccia : très fréquentée en journée, la ville est magique le soir"] },
+  volterra:     { pause: 60, hist: "Cité étrusque puis commune médiévale, célèbre pour l’albâtre ; son Palazzo dei Priori est le plus ancien palais communal de Toscane.", ideas: ["La Piazza dei Priori", "Le musée étrusque Guarnacci et la Porta all’Arco", "Les ateliers d’albâtre"] },
+  colle:        { pause: 45, hist: "Ville haute médiévale et ville basse industrielle, capitale italienne du cristal.", ideas: ["La ville haute (Colle Alta) et ses palais", "Le musée du cristal"] },
+  cortona:      { pause: 60, hist: "Cité étrusque perchée au-dessus du Val di Chiana ; Fra Angelico y a peint une célèbre Annonciation.", ideas: ["La Piazza della Repubblica et ses ruelles en pente", "Le musée diocésain et l’Annonciation de Fra Angelico", "Le coucher de soleil sur le lac Trasimène"] },
+  arezzo:       { pause: 0, hist: "Grande cité étrusque puis commune médiévale ; la basilique San Francesco abrite les fresques de Piero della Francesca.", ideas: ["La Piazza Grande, en pente", "Les fresques de la Légende de la Vraie Croix (réservation conseillée)", "La cathédrale et le parc du Prato"] },
   monteriggioni:{ pause: 45, hist: "Forteresse bâtie par Siena entre 1213 et 1219 pour surveiller Florence ; Dante compare ses tours à des géants dans l’Enfer.", ideas: ["Les remparts et leurs 14 tours, avec un chemin de ronde accessible", "Café en terrasse sur la Piazza Roma", "Le village cité par Dante dans l’Enfer"] },
   volpaia:      { pause: 40, hist: "Château médiéval des XIe–XIIe siècles, avant-poste florentin pendant les guerres du Chianti.", ideas: ["Hameau fortifié perché à plus de 600 m", "Dégustation au domaine Castello di Volpaia (réservation conseillée)", "Vue sur les collines du Chianti"] },
   sangusme:     { pause: 30, hist: "Petit bourg médiéval resté presque intact, sur l’ancienne frontière entre Siena et Florence.", ideas: ["Minuscule bourg médiéval aux portes de pierre", "Pause café au calme, sur les routes de l’Eroica"] },

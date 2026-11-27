@@ -1,5 +1,131 @@
 // Wikimedia Commons (1920 px) et Flickr via Openverse (1024 px), triées à la main ; la 1re photo sert de couverture
 export const PHOTOS = {
+ "sangim": [
+  {
+   "src": "photos/sangim-ov2-s.jpg",
+   "big": "photos/sangim-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/44115070@N00/5636221594",
+   "artist": "^riza^",
+   "license": "CC BY 2.0",
+   "ratio": 1.497
+  },
+  {
+   "src": "photos/sangim-ov5-s.jpg",
+   "big": "photos/sangim-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/8749778@N06/52453607914",
+   "artist": "Eric Kilby",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/sangim-ov1-s.jpg",
+   "big": "photos/sangim-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/24283435@N08/6058847957",
+   "artist": "Vegansoldier",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/sangim-ov4-s.jpg",
+   "big": "photos/sangim-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/91994044@N00/6115324074",
+   "artist": "quinet",
+   "license": "CC BY 2.0",
+   "ratio": 2.745
+  },
+  {
+   "src": "photos/sangim-ov6-s.jpg",
+   "big": "photos/sangim-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/59274709@N03/41196345400",
+   "artist": "GlobalQuiz.org",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/sangim-ov3-s.jpg",
+   "big": "photos/sangim-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/59274709@N03/28138405167",
+   "artist": "GlobalQuiz.org",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  }
+ ],
+ "volterra": [
+  {
+   "src": "photos/volterra-ov4-s.jpg",
+   "big": "photos/volterra-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8588292637",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/volterra-ov5-s.jpg",
+   "big": "photos/volterra-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8588331141",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.328
+  },
+  {
+   "src": "photos/volterra-ov1-s.jpg",
+   "big": "photos/volterra-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8588329495",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/volterra-ov2-s.jpg",
+   "big": "photos/volterra-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8589401360",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/volterra-ov3-s.jpg",
+   "big": "photos/volterra-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8588315619",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.308
+  }
+ ],
+ "colle": [
+  {
+   "src": "photos/colle-ov1-s.jpg",
+   "big": "photos/colle-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/74012092@N00/51821854867",
+   "artist": "Sorin Popovich",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.495
+  },
+  {
+   "src": "photos/colle-ov5-s.jpg",
+   "big": "photos/colle-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/51035803402@N01/2730846547",
+   "artist": "luigig",
+   "license": "CC BY 2.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/colle-ov3-s.jpg",
+   "big": "photos/colle-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/96803880@N00/8003518850",
+   "artist": "Blob79",
+   "license": "CC BY-SA 2.0",
+   "ratio": 1.333
+  },
+  {
+   "src": "photos/colle-ov4-s.jpg",
+   "big": "photos/colle-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/51035803402@N01/2730846475",
+   "artist": "luigig",
+   "license": "CC BY 2.0",
+   "ratio": 1.333
+  }
+ ],
  "siena": [
   {
    "src": "photos/siena-1-s.jpg",
@@ -1310,6 +1436,98 @@ export const PHOTOS = {
    "artist": "This Photo was taken by Andrea Bertozzi.  \n\nFeel free to use my photos, but plea",
    "license": "CC BY-SA 4.0",
    "ratio": 1.5
+  }
+ ],
+ "cortona": [
+  {
+   "src": "photos/cortona-ov2-s.jpg",
+   "big": "photos/cortona-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8481932172",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.328
+  },
+  {
+   "src": "photos/cortona-ov1-s.jpg",
+   "big": "photos/cortona-ov1-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8480840259",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.328
+  },
+  {
+   "src": "photos/cortona-ov4-s.jpg",
+   "big": "photos/cortona-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8481934870",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.339
+  },
+  {
+   "src": "photos/cortona-ov3-s.jpg",
+   "big": "photos/cortona-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8480857401",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.326
+  },
+  {
+   "src": "photos/cortona-ov5-s.jpg",
+   "big": "photos/cortona-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/42033648@N00/3988692451",
+   "artist": "In Memoriam: PhillipC",
+   "license": "CC BY 2.0",
+   "ratio": 1.605
+  },
+  {
+   "src": "photos/cortona-ov6-s.jpg",
+   "big": "photos/cortona-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/73111976@N04/8481930166",
+   "artist": "StefanoRomeTours",
+   "license": "CC BY 2.0",
+   "ratio": 1.328
+  }
+ ],
+ "arezzo": [
+  {
+   "src": "photos/arezzo-ov6-s.jpg",
+   "big": "photos/arezzo-ov6-s.jpg",
+   "page": "https://www.flickr.com/photos/135988462@N05/30240180052",
+   "artist": "enrico.pighetti",
+   "license": "CC BY 2.0",
+   "ratio": 1.499
+  },
+  {
+   "src": "photos/arezzo-ov2-s.jpg",
+   "big": "photos/arezzo-ov2-s.jpg",
+   "page": "https://www.flickr.com/photos/60265885@N03/6844309420",
+   "artist": "Mircea2011",
+   "license": "CC BY 2.0",
+   "ratio": 1.504
+  },
+  {
+   "src": "photos/arezzo-ov3-s.jpg",
+   "big": "photos/arezzo-ov3-s.jpg",
+   "page": "https://www.flickr.com/photos/83468718@N06/49866665442",
+   "artist": "Rutger van der Maar",
+   "license": "CC BY 2.0",
+   "ratio": 1.397
+  },
+  {
+   "src": "photos/arezzo-ov4-s.jpg",
+   "big": "photos/arezzo-ov4-s.jpg",
+   "page": "https://www.flickr.com/photos/83468718@N06/49866664267",
+   "artist": "Rutger van der Maar",
+   "license": "CC BY 2.0",
+   "ratio": 1.397
+  },
+  {
+   "src": "photos/arezzo-ov5-s.jpg",
+   "big": "photos/arezzo-ov5-s.jpg",
+   "page": "https://www.flickr.com/photos/65636222@N05/10227706003",
+   "artist": "beameir",
+   "license": "CC BY-SA 2.0",
+   "ratio": 3.821
   }
  ],
  "chiusi": [
